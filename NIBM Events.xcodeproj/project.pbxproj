@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,7 +18,16 @@
 		C033B29723E9601100726A03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C033B29523E9601100726A03 /* LaunchScreen.storyboard */; };
 		C033B2A223E9601100726A03 /* NIBM_EventsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B2A123E9601100726A03 /* NIBM_EventsTests.swift */; };
 		C033B2AD23E9601100726A03 /* NIBM_EventsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B2AC23E9601100726A03 /* NIBM_EventsUITests.swift */; };
+		C07F199723EF2564004AD08D /* TransitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199623EF2564004AD08D /* TransitionVC.swift */; };
+		C07F199A23EF259B004AD08D /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199923EF259B004AD08D /* AlertMessage.swift */; };
+		C07F199C23EF25E0004AD08D /* CheckPasswordAndEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199B23EF25E0004AD08D /* CheckPasswordAndEmail.swift */; };
+		C07F199E23EF265A004AD08D /* TouchFaceIDAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199D23EF265A004AD08D /* TouchFaceIDAuthentication.swift */; };
+		C07F19A823EF2EF5004AD08D /* SignOutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19A723EF2EF5004AD08D /* SignOutAction.swift */; };
 		C09DD52723ED32F400EDA0CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C09DD52623ED32F300EDA0CB /* GoogleService-Info.plist */; };
+		C09DD52A23ED3B3200EDA0CB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD52923ED3B3200EDA0CB /* LoginViewController.swift */; };
+		C09DD52C23ED3B6D00EDA0CB /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD52B23ED3B6D00EDA0CB /* SignUPViewController.swift */; };
+		C09DD52F23ED46A300EDA0CB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD52E23ED46A300EDA0CB /* Utilities.swift */; };
+		C09DD53123EEFA7300EDA0CB /* PasswordForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD53023EEFA7300EDA0CB /* PasswordForgetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,7 +69,16 @@
 		C033B2A823E9601100726A03 /* NIBM EventsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NIBM EventsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C033B2AC23E9601100726A03 /* NIBM_EventsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NIBM_EventsUITests.swift; sourceTree = "<group>"; };
 		C033B2AE23E9601100726A03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C07F199623EF2564004AD08D /* TransitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionVC.swift; sourceTree = "<group>"; };
+		C07F199923EF259B004AD08D /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
+		C07F199B23EF25E0004AD08D /* CheckPasswordAndEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPasswordAndEmail.swift; sourceTree = "<group>"; };
+		C07F199D23EF265A004AD08D /* TouchFaceIDAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchFaceIDAuthentication.swift; sourceTree = "<group>"; };
+		C07F19A723EF2EF5004AD08D /* SignOutAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutAction.swift; sourceTree = "<group>"; };
 		C09DD52623ED32F300EDA0CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C09DD52923ED3B3200EDA0CB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C09DD52B23ED3B6D00EDA0CB /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPViewController.swift; sourceTree = "<group>"; };
+		C09DD52E23ED46A300EDA0CB /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		C09DD53023EEFA7300EDA0CB /* PasswordForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordForgetViewController.swift; sourceTree = "<group>"; };
 		CB449CFBEC948D72CC57102B /* Pods_NIBM_Events_NIBM_EventsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_Events_NIBM_EventsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA21464748A9FBCF2E21CDA6 /* Pods-NIBM Events.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM Events.debug.xcconfig"; path = "Target Support Files/Pods-NIBM Events/Pods-NIBM Events.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,19 +131,22 @@
 				38E8F2E19FEFD04C93865504 /* Pods-NIBM EventsTests.debug.xcconfig */,
 				3AF9C44B23CEDCEC13CA1A2F /* Pods-NIBM EventsTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		C033B27D23E9601000726A03 = {
 			isa = PBXGroup;
 			children = (
+				C07F19A123EF2AEC004AD08D /* Controllers */,
+				C07F19A023EF2AE5004AD08D /* Views */,
+				C07F199F23EF2ADA004AD08D /* Models */,
+				C09DD52D23ED464C00EDA0CB /* Utilities */,
 				C033B28823E9601000726A03 /* NIBM Events */,
 				C033B2A023E9601100726A03 /* NIBM EventsTests */,
 				C033B2AB23E9601100726A03 /* NIBM EventsUITests */,
-				C09DD52623ED32F300EDA0CB /* GoogleService-Info.plist */,
 				C033B28723E9601000726A03 /* Products */,
 				2EEE3C83B4091791499176E6 /* Pods */,
+				C09DD52623ED32F300EDA0CB /* GoogleService-Info.plist */,
 				040A16217D92551960B7D697 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -145,9 +166,6 @@
 			children = (
 				C033B28923E9601000726A03 /* AppDelegate.swift */,
 				C033B28B23E9601000726A03 /* ViewController.swift */,
-				C033B28D23E9601000726A03 /* Main.storyboard */,
-				C033B29323E9601100726A03 /* Assets.xcassets */,
-				C033B29523E9601100726A03 /* LaunchScreen.storyboard */,
 				C033B29823E9601100726A03 /* Info.plist */,
 				C033B29023E9601000726A03 /* NIBM_Events.xcdatamodeld */,
 			);
@@ -170,6 +188,70 @@
 				C033B2AE23E9601100726A03 /* Info.plist */,
 			);
 			path = "NIBM EventsUITests";
+			sourceTree = "<group>";
+		};
+		C07F199523EF253E004AD08D /* TransitionController */ = {
+			isa = PBXGroup;
+			children = (
+				C07F199623EF2564004AD08D /* TransitionVC.swift */,
+			);
+			path = TransitionController;
+			sourceTree = "<group>";
+		};
+		C07F199823EF2584004AD08D /* AlertsController */ = {
+			isa = PBXGroup;
+			children = (
+				C07F199923EF259B004AD08D /* AlertMessage.swift */,
+			);
+			path = AlertsController;
+			sourceTree = "<group>";
+		};
+		C07F199F23EF2ADA004AD08D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C033B29323E9601100726A03 /* Assets.xcassets */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C07F19A023EF2AE5004AD08D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C033B28D23E9601000726A03 /* Main.storyboard */,
+				C033B29523E9601100726A03 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C07F19A123EF2AEC004AD08D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C07F19A423EF2BD5004AD08D /* UserLoginControllers */,
+				C07F199523EF253E004AD08D /* TransitionController */,
+				C07F199823EF2584004AD08D /* AlertsController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C07F19A423EF2BD5004AD08D /* UserLoginControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C09DD52B23ED3B6D00EDA0CB /* SignUPViewController.swift */,
+				C09DD52923ED3B3200EDA0CB /* LoginViewController.swift */,
+				C09DD53023EEFA7300EDA0CB /* PasswordForgetViewController.swift */,
+				C07F199B23EF25E0004AD08D /* CheckPasswordAndEmail.swift */,
+				C07F199D23EF265A004AD08D /* TouchFaceIDAuthentication.swift */,
+				C07F19A723EF2EF5004AD08D /* SignOutAction.swift */,
+			);
+			path = UserLoginControllers;
+			sourceTree = "<group>";
+		};
+		C09DD52D23ED464C00EDA0CB /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C09DD52E23ED46A300EDA0CB /* Utilities.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,8 +494,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C09DD52F23ED46A300EDA0CB /* Utilities.swift in Sources */,
+				C07F199A23EF259B004AD08D /* AlertMessage.swift in Sources */,
+				C07F199723EF2564004AD08D /* TransitionVC.swift in Sources */,
+				C09DD52C23ED3B6D00EDA0CB /* SignUPViewController.swift in Sources */,
+				C09DD52A23ED3B3200EDA0CB /* LoginViewController.swift in Sources */,
+				C07F19A823EF2EF5004AD08D /* SignOutAction.swift in Sources */,
 				C033B28C23E9601000726A03 /* ViewController.swift in Sources */,
 				C033B28A23E9601000726A03 /* AppDelegate.swift in Sources */,
+				C09DD53123EEFA7300EDA0CB /* PasswordForgetViewController.swift in Sources */,
+				C07F199E23EF265A004AD08D /* TouchFaceIDAuthentication.swift in Sources */,
+				C07F199C23EF25E0004AD08D /* CheckPasswordAndEmail.swift in Sources */,
 				C033B29223E9601000726A03 /* NIBM_Events.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

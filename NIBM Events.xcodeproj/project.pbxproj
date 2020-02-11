@@ -23,10 +23,15 @@
 		C07F199C23EF25E0004AD08D /* CheckPasswordAndEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199B23EF25E0004AD08D /* CheckPasswordAndEmail.swift */; };
 		C07F199E23EF265A004AD08D /* TouchFaceIDAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199D23EF265A004AD08D /* TouchFaceIDAuthentication.swift */; };
 		C07F19A823EF2EF5004AD08D /* SignOutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19A723EF2EF5004AD08D /* SignOutAction.swift */; };
+		C07F19AB23F03AFE004AD08D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19AA23F03AFE004AD08D /* NavigationBar.swift */; };
+		C07F19B123F14EC9004AD08D /* TextFieldUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19B023F14EC9004AD08D /* TextFieldUtilities.swift */; };
+		C07F19B423F155E1004AD08D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19B323F155E1004AD08D /* HomeViewController.swift */; };
+		C07F19B623F2918E004AD08D /* PasswordUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19B523F2918E004AD08D /* PasswordUtilities.swift */; };
+		C07F19B823F29226004AD08D /* EmailUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19B723F29226004AD08D /* EmailUtilities.swift */; };
 		C09DD52723ED32F400EDA0CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C09DD52623ED32F300EDA0CB /* GoogleService-Info.plist */; };
 		C09DD52A23ED3B3200EDA0CB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD52923ED3B3200EDA0CB /* LoginViewController.swift */; };
 		C09DD52C23ED3B6D00EDA0CB /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD52B23ED3B6D00EDA0CB /* SignUPViewController.swift */; };
-		C09DD52F23ED46A300EDA0CB /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD52E23ED46A300EDA0CB /* Utilities.swift */; };
+		C09DD52F23ED46A300EDA0CB /* ButtonUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD52E23ED46A300EDA0CB /* ButtonUtilities.swift */; };
 		C09DD53123EEFA7300EDA0CB /* PasswordForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD53023EEFA7300EDA0CB /* PasswordForgetViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -74,10 +79,15 @@
 		C07F199B23EF25E0004AD08D /* CheckPasswordAndEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPasswordAndEmail.swift; sourceTree = "<group>"; };
 		C07F199D23EF265A004AD08D /* TouchFaceIDAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchFaceIDAuthentication.swift; sourceTree = "<group>"; };
 		C07F19A723EF2EF5004AD08D /* SignOutAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutAction.swift; sourceTree = "<group>"; };
+		C07F19AA23F03AFE004AD08D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		C07F19B023F14EC9004AD08D /* TextFieldUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldUtilities.swift; sourceTree = "<group>"; };
+		C07F19B323F155E1004AD08D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C07F19B523F2918E004AD08D /* PasswordUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordUtilities.swift; sourceTree = "<group>"; };
+		C07F19B723F29226004AD08D /* EmailUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailUtilities.swift; sourceTree = "<group>"; };
 		C09DD52623ED32F300EDA0CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C09DD52923ED3B3200EDA0CB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C09DD52B23ED3B6D00EDA0CB /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPViewController.swift; sourceTree = "<group>"; };
-		C09DD52E23ED46A300EDA0CB /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		C09DD52E23ED46A300EDA0CB /* ButtonUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUtilities.swift; sourceTree = "<group>"; };
 		C09DD53023EEFA7300EDA0CB /* PasswordForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordForgetViewController.swift; sourceTree = "<group>"; };
 		CB449CFBEC948D72CC57102B /* Pods_NIBM_Events_NIBM_EventsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_Events_NIBM_EventsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA21464748A9FBCF2E21CDA6 /* Pods-NIBM Events.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM Events.debug.xcconfig"; path = "Target Support Files/Pods-NIBM Events/Pods-NIBM Events.debug.xcconfig"; sourceTree = "<group>"; };
@@ -226,6 +236,8 @@
 		C07F19A123EF2AEC004AD08D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C07F19B223F155C0004AD08D /* Home */,
+				C07F19A923F03AE2004AD08D /* Helpers */,
 				C07F19A423EF2BD5004AD08D /* UserLoginControllers */,
 				C07F199523EF253E004AD08D /* TransitionController */,
 				C07F199823EF2584004AD08D /* AlertsController */,
@@ -246,10 +258,29 @@
 			path = UserLoginControllers;
 			sourceTree = "<group>";
 		};
+		C07F19A923F03AE2004AD08D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C07F19AA23F03AFE004AD08D /* NavigationBar.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C07F19B223F155C0004AD08D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				C07F19B323F155E1004AD08D /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		C09DD52D23ED464C00EDA0CB /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				C09DD52E23ED46A300EDA0CB /* Utilities.swift */,
+				C09DD52E23ED46A300EDA0CB /* ButtonUtilities.swift */,
+				C07F19B023F14EC9004AD08D /* TextFieldUtilities.swift */,
+				C07F19B523F2918E004AD08D /* PasswordUtilities.swift */,
+				C07F19B723F29226004AD08D /* EmailUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -494,10 +525,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C09DD52F23ED46A300EDA0CB /* Utilities.swift in Sources */,
+				C09DD52F23ED46A300EDA0CB /* ButtonUtilities.swift in Sources */,
+				C07F19B623F2918E004AD08D /* PasswordUtilities.swift in Sources */,
 				C07F199A23EF259B004AD08D /* AlertMessage.swift in Sources */,
+				C07F19B823F29226004AD08D /* EmailUtilities.swift in Sources */,
+				C07F19B123F14EC9004AD08D /* TextFieldUtilities.swift in Sources */,
 				C07F199723EF2564004AD08D /* TransitionVC.swift in Sources */,
 				C09DD52C23ED3B6D00EDA0CB /* SignUPViewController.swift in Sources */,
+				C07F19B423F155E1004AD08D /* HomeViewController.swift in Sources */,
+				C07F19AB23F03AFE004AD08D /* NavigationBar.swift in Sources */,
 				C09DD52A23ED3B3200EDA0CB /* LoginViewController.swift in Sources */,
 				C07F19A823EF2EF5004AD08D /* SignOutAction.swift in Sources */,
 				C033B28C23E9601000726A03 /* ViewController.swift in Sources */,

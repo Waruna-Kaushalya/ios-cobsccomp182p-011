@@ -69,12 +69,12 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AI5-as-EFA">
                                 <rect key="frame" x="37.666666666666657" y="371" width="300" height="70"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="line" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aDM-Uu-Vuq">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" borderStyle="line" placeholder="Email Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aDM-Uu-Vuq" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                         <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mrb-ng-jsz">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mrb-ng-jsz" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                         <rect key="frame" x="0.0" y="40" width="300" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="0Gn-AQ-Yhr"/>
@@ -158,8 +158,8 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RVg-zD-32w">
-                                                <rect key="frame" x="37.666666666666657" y="160" width="300" height="204"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="RVg-zD-32w">
+                                                <rect key="frame" x="37.666666666666657" y="160" width="300" height="254"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BQr-uS-4YK">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="60"/>
@@ -180,25 +180,25 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="y8U-F3-54T">
-                                                        <rect key="frame" x="0.0" y="80" width="300" height="124"/>
+                                                        <rect key="frame" x="0.0" y="110" width="300" height="144"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iLk-HT-bWh">
-                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="25"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dG0-5y-BFC">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="147" height="25"/>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dG0-5y-BFC" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="147" height="30"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="25" id="xtf-1w-gLp"/>
+                                                                            <constraint firstAttribute="height" constant="30" id="xtf-1w-gLp"/>
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                     </textField>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jvT-15-43e">
-                                                                        <rect key="frame" x="152" y="0.0" width="148" height="25"/>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jvT-15-43e" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                                        <rect key="frame" x="152" y="0.0" width="148" height="30"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="148" id="Vi4-Fw-4rV"/>
-                                                                            <constraint firstAttribute="height" constant="25" id="umX-e9-nkl"/>
+                                                                            <constraint firstAttribute="height" constant="30" id="umX-e9-nkl"/>
                                                                         </constraints>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -209,24 +209,23 @@
                                                                     <constraint firstItem="jvT-15-43e" firstAttribute="height" secondItem="dG0-5y-BFC" secondAttribute="height" id="61h-hN-WWL"/>
                                                                 </constraints>
                                                             </stackView>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lIg-kO-r8A">
-                                                                <rect key="frame" x="0.0" y="33" width="300" height="25"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lIg-kO-r8A" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                                <rect key="frame" x="0.0" y="38" width="300" height="30"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="25" id="Tuf-jW-GBa"/>
                                                                     <constraint firstAttribute="width" constant="300" id="mQE-fg-QrF"/>
                                                                 </constraints>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Contact Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RNa-ZQ-o5h">
-                                                                <rect key="frame" x="0.0" y="66" width="300" height="25"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Contact Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RNa-ZQ-o5h" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                                <rect key="frame" x="0.0" y="76" width="300" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Facebook URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ari-cd-CgV">
-                                                                <rect key="frame" x="0.0" y="99" width="300" height="25"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Facebook URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ari-cd-CgV" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                                                <rect key="frame" x="0.0" y="114" width="300" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -244,9 +243,9 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XBl-Uw-vfh">
-                                                <rect key="frame" x="37.666666666666657" y="384" width="300" height="68"/>
+                                                <rect key="frame" x="37.666666666666657" y="434" width="300" height="68"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0CW-jK-Q7j">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0CW-jK-Q7j" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="300" id="W7o-oc-f7P"/>
@@ -256,7 +255,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Confirem Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="be7-I5-wQv">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Confirem Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="be7-I5-wQv" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                                         <rect key="frame" x="0.0" y="38" width="300" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -269,7 +268,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="YSl-ZL-Hfk">
-                                                <rect key="frame" x="37.666666666666657" y="562" width="300" height="70"/>
+                                                <rect key="frame" x="37.666666666666657" y="612" width="300" height="70"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hDe-13-JFw">
                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
@@ -313,22 +312,13 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="peofileimage" translatesAutoresizingMaskIntoConstraints="NO" id="nka-lC-waz">
-                                                <rect key="frame" x="162.66666666666666" y="45" width="50" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="04e-MP-cpv"/>
-                                                    <constraint firstAttribute="height" constant="50" id="BG3-WM-smq"/>
-                                                </constraints>
-                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="YSl-ZL-Hfk" firstAttribute="top" secondItem="XBl-Uw-vfh" secondAttribute="bottom" constant="110" id="1aS-kY-yXD"/>
                                             <constraint firstItem="XBl-Uw-vfh" firstAttribute="centerX" secondItem="1DE-nP-OtZ" secondAttribute="centerX" id="DmJ-ca-Pgw"/>
                                             <constraint firstItem="RVg-zD-32w" firstAttribute="top" secondItem="Xpf-KE-5Su" secondAttribute="bottom" constant="120" id="Lhf-Kj-C1x"/>
-                                            <constraint firstItem="nka-lC-waz" firstAttribute="top" secondItem="Xpf-KE-5Su" secondAttribute="bottom" constant="5" id="Uq4-2c-p8j"/>
                                             <constraint firstItem="Xpf-KE-5Su" firstAttribute="centerX" secondItem="1DE-nP-OtZ" secondAttribute="centerX" id="Vji-JB-veG"/>
-                                            <constraint firstItem="nka-lC-waz" firstAttribute="centerX" secondItem="1DE-nP-OtZ" secondAttribute="centerX" id="ejA-5b-efM"/>
                                             <constraint firstAttribute="height" constant="730" id="hC6-iS-sjX"/>
                                             <constraint firstItem="Xpf-KE-5Su" firstAttribute="top" secondItem="1DE-nP-OtZ" secondAttribute="top" constant="10" id="hJl-HH-bNz"/>
                                             <constraint firstItem="YSl-ZL-Hfk" firstAttribute="centerX" secondItem="1DE-nP-OtZ" secondAttribute="centerX" id="htC-nj-lw1"/>
@@ -368,7 +358,6 @@
                         <outlet property="profileImageTapped" destination="74e-iu-xgm" id="fcL-2Z-RjD"/>
                         <outlet property="profileImageUIImage" destination="74e-iu-xgm" id="5Y7-wJ-Y2A"/>
                         <outlet property="signInButton" destination="hDe-13-JFw" id="Jm0-rj-mqf"/>
-                        <outlet property="testImagePicker" destination="nka-lC-waz" id="EL2-Tn-4Fm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sxe-rx-Gis" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -434,7 +423,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VCJ-Ty-xD2">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VCJ-Ty-xD2" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                                 <rect key="frame" x="37.666666666666657" y="391" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="3Oc-Bs-Kda"/>
@@ -491,24 +480,42 @@
             </objects>
             <point key="canvasLocation" x="820" y="502"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="hmU-Ys-5zE">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="bww-7C-zqO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="bww-7C-zqO" customClass="HomeViewController" customModule="NIBM_Events" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vh1-SP-5ty">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m2i-yA-Nbd" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="37.666666666666657" y="391" width="300" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="QUI-Dh-OyO"/>
+                                    <constraint firstAttribute="width" constant="300" id="qr9-mg-OIo"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="m2i-yA-Nbd" firstAttribute="centerX" secondItem="Vh1-SP-5ty" secondAttribute="centerX" id="5lL-Hb-vNg"/>
+                            <constraint firstItem="m2i-yA-Nbd" firstAttribute="centerY" secondItem="Vh1-SP-5ty" secondAttribute="centerY" id="oWt-lT-RMM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="8G8-cm-B6r"/>
                     </view>
+                    <connections>
+                        <outlet property="testUifield" destination="m2i-yA-Nbd" id="Lj6-Wf-HlF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvO-Qe-T08" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1678" y="233"/>
+            <point key="canvasLocation" x="1572" y="148"/>
         </scene>
     </scenes>
     <resources>
         <image name="AddProfileImage" width="170.66667175292969" height="164.66667175292969"/>
-        <image name="peofileimage" width="341.33334350585938" height="341.33334350585938"/>
     </resources>
 </document>

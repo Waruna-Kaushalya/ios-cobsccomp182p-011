@@ -1,57 +1,42 @@
 //
-//  Utilities.swift
+//  ElementsStyle.swift
 //  NIBM Events
 //
-//  Created by Waruna Kaushalya on 2/7/20.
+//  Created by Waruna Kaushalya on 2/10/20.
 //  Copyright © 2020 Waruna Kaushalya. All rights reserved.
 //
 
 import Foundation
 import UIKit
+import SkyFloatingLabelTextField
 
-class ButtonUtilities {
-    
-    //Button
-    
-    static func styleButton(_ button:UIButton) {
-        
-        //Button backdround color
-        button.backgroundColor = UIColor.init(red: 0/255, green: 148/255, blue: 253/255, alpha: 1)
-        //Button title color
-        button.setTitleColor(UIColor.white, for: .normal)
-        
-        //Button Border
-        //        button.layer.borderWidth = 1
-        //        button.layer.borderColor = UIColor.black.cgColor
-        
-        
-        
-    }
-    static func ButtonRadius_All(_ button:UIButton){
-        //button corner radius
-        button.layer.cornerRadius = 5
-        button.clipsToBounds = true
-        button.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner,.layerMaxXMaxYCorner]
-        
-    }
-    
-    static func ButtonRadius_MinX_MinY_MaxX_MinY(_ button:UIButton){
-        //button corner radius
-        button.layer.cornerRadius = 5
-        button.clipsToBounds = true
-        button.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
-        
-    }
-    static func ButtonRadius_MaxX_MinY_MaxX_MaxY(_ button:UIButton){
-        //button corner radius
-        button.layer.cornerRadius = 5
-        button.clipsToBounds = true
-        button.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
-        
-    }
-}
+
 
 class TextFieldUtilities {
+    
+    static func setTextFieldStyle(_textFieldsName:SkyFloatingLabelTextField,_placeHolder:String)  {
+        
+        let lightBlue = UIColor(red: 0/255, green: 148/255, blue: 253/255, alpha: 1)
+        let lightBlue2 = UIColor(red: 0/255, green: 140/255, blue: 250/255, alpha: 1)
+        let lightGreyColor = UIColor(red: 197/255, green: 205/255, blue: 205/255, alpha: 1.0)
+        let darkGreyColor = UIColor(red: 52/255, green: 42/255, blue: 61/255, alpha: 1.0)
+        let overcastBlueColor = UIColor(red: 0, green: 187/255, blue: 204/255, alpha: 1.0)
+        
+        _textFieldsName.placeholder = _placeHolder
+        _textFieldsName.title = _placeHolder
+        
+        
+        _textFieldsName.tintColor =   lightBlue2  //overcastBlueColor
+        _textFieldsName.textColor =    darkGreyColor
+        _textFieldsName.lineColor =   lightBlue2  //lightGreyColor
+        _textFieldsName.selectedTitleColor = lightBlue2 //overcastBlueColor
+        _textFieldsName.selectedLineColor = lightBlue //overcastBlueColor
+        
+        _textFieldsName.lineHeight = 1.0
+        _textFieldsName.selectedLineHeight = 2.0
+        
+    }
+    
     static func styleTextField(_ textfield:UITextField ) {
         
         // Create the bottom line
@@ -92,13 +77,3 @@ class TextFieldUtilities {
         
     }
 }
-
-
-class PasswordUtilities {
-    static func isPasswordValid(_ password : String) -> Bool {
-        
-        let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&])[A-Za-z\\d$@$#!%*?&]{8,}")
-        return passwordTest.evaluate(with: password)
-    }
-}
-

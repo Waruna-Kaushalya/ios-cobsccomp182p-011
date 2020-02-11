@@ -330,6 +330,7 @@ PODS:
   - nanopb/encode (0.3.9011)
   - PromisesObjC (1.2.8)
   - Protobuf (3.11.3)
+  - SkyFloatingLabelTextField (3.8.0)
 
 DEPENDENCIES:
   - Firebase/ABTesting
@@ -343,6 +344,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - FirebaseCore
   - FirebaseFirestore
+  - SkyFloatingLabelTextField
 
 SPEC REPOS:
   trunk:
@@ -376,6 +378,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Protobuf
+    - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -408,7 +411,8 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 0e94afe3b47cb11876eb6aee296638711a24bf75
+  SkyFloatingLabelTextField: 5a338412114808e961fe2d14ea2c5452c8b6e4aa
 
-PODFILE CHECKSUM: 1183196329f5cacdd0f5f3ee7c360a590ecb317c
+PODFILE CHECKSUM: a55b6d6adeded5c5fdcfa063fdf60e7cb3674f18
 
 COCOAPODS: 1.8.4

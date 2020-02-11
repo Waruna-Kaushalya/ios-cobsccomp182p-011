@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import SkyFloatingLabelTextField
 
 let ERROR_EMPTY_EMAIL_REST = "Please enter an email address for reset password"
 
@@ -16,7 +17,7 @@ class PasswordForgetViewController: UIViewController {
     let trans  = TransitionVC()
     let alert = AlertMessage()
     
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var sendEmailButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +26,8 @@ class PasswordForgetViewController: UIViewController {
     }
     
     func setupElements(){
+        
+        TextFieldUtilities.setTextFieldStyle(_textFieldsName: emailTextField, _placeHolder: "Email")
         ButtonUtilities.ButtonRadius_All(sendEmailButton)
         ButtonUtilities.styleButton(sendEmailButton)
         

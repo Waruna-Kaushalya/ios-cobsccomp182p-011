@@ -11,26 +11,28 @@ import FirebaseAuth
 import Firebase
 import FirebaseFirestore
 import FirebaseStorage
+import SkyFloatingLabelTextField
 
 
 var EMPTY_FIELDS = "Please Fill All Field"
 let PASSWRD_DOSENT_MATCH = "Password doesn't match"
 let WEAK_PASSWORD = "Please make sure your password is at least 8 char, special chr and number"
+let WEAK_EMAIL = "Please enter valied email address"
 let USER_ERROR = "Error creating user"
 var ERROR_SAVING_DATA = "Error saving user data"
 
-class SignUPViewController: UIViewController {
+class SignUPViewController: UIViewController{
     
     
     @IBOutlet weak var testImagePicker: UIImageView!
     @IBOutlet weak var profileImageUIImage: UIImageView!
-    @IBOutlet weak var firstNameTestField: UITextField!
-    @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var contactNumberTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var facebookURLTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var firstNameTestField: SkyFloatingLabelTextField!
+    @IBOutlet weak var lastNameTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var contactNumberTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var facebookURLTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var confirmPasswordTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var loginInButton: UIButton!
     
@@ -48,13 +50,32 @@ class SignUPViewController: UIViewController {
         setupProfileImage()
     }
     func setElement(){
-        TextFieldUtilities.styleTextField(firstNameTestField)
-        TextFieldUtilities.styleTextField(lastNameTextField)
-        TextFieldUtilities.styleTextField(contactNumberTextField)
-        TextFieldUtilities.styleTextField(emailTextField)
-        TextFieldUtilities.styleTextField(facebookURLTextField)
-        TextFieldUtilities.styleTextField(passwordTextField)
-        TextFieldUtilities.styleTextField(confirmPasswordTextField)
+        
+//        let Abc = ElementsStyle()
+     
+//        Abc.textFieldStyle(_textField: firstNameTestField, _placeholder: "First name", _title: "First name", _viewController: self)
+//        TextFieldUtilities.textFieldStyle(_textField: firstNameTestField, _placeholder: "First Name", _title: "First Name", _viewController: self)
+        
+        
+        
+//        TextFieldUtilities.textFieldStyle(_textField: contactNumberTextField, _placeholder: "Contatct", _title: "Contact", _viewController: self)
+        
+        TextFieldUtilities.setTextFieldStyle(_textFieldsName: firstNameTestField, _placeHolder: "First Name")
+       TextFieldUtilities.setTextFieldStyle(_textFieldsName: lastNameTextField, _placeHolder: "Last Name")
+       TextFieldUtilities.setTextFieldStyle(_textFieldsName: contactNumberTextField, _placeHolder: "Contact Number")
+       TextFieldUtilities.setTextFieldStyle(_textFieldsName: emailTextField, _placeHolder: "Email")
+       TextFieldUtilities.setTextFieldStyle(_textFieldsName: facebookURLTextField, _placeHolder: "Facebook Url")
+        TextFieldUtilities.setTextFieldStyle(_textFieldsName: passwordTextField, _placeHolder: "Password")
+        TextFieldUtilities.setTextFieldStyle(_textFieldsName: confirmPasswordTextField, _placeHolder: "Confirm Password")
+        
+        
+//        TextFieldUtilities.styleTextField(firstNameTestField)
+//        TextFieldUtilities.styleTextField(lastNameTextField)
+//        TextFieldUtilities.styleTextField(contactNumberTextField)
+//        TextFieldUtilities.styleTextField(emailTextField)
+//        TextFieldUtilities.styleTextField(facebookURLTextField)
+//        TextFieldUtilities.styleTextField(passwordTextField)
+//        TextFieldUtilities.styleTextField(confirmPasswordTextField)
         
         ButtonUtilities.ButtonRadius_All(signInButton)
         ButtonUtilities.styleButton(signInButton)
@@ -81,8 +102,16 @@ class SignUPViewController: UIViewController {
         
         let cleanePassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
+        
         if PasswordUtilities.isPasswordValid(cleanePassword) == false {
             alertMSG.alertMessage(_AlertMessage: WEAK_PASSWORD, _viewCFrom: self)
+            return WEAK_PASSWORD
+        }
+        
+         let cleaneEmail = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if EmailUtilities.validateEmail(cleaneEmail) == false {
+            alertMSG.alertMessage(_AlertMessage: WEAK_EMAIL, _viewCFrom: self)
             return WEAK_PASSWORD
         }
         return nil
@@ -90,7 +119,7 @@ class SignUPViewController: UIViewController {
     
     func setupProfileImage(){
         
-        profileImageUIImage.layer.cornerRadius = 40
+        profileImageUIImage.layer.cornerRadius = 20
         profileImageUIImage.clipsToBounds = true
 //        testImagePicker.isUserInteractionEnabled = true
         profileImageUIImage.isUserInteractionEnabled = true
@@ -132,7 +161,7 @@ class SignUPViewController: UIViewController {
             
             //Profile image things
             guard let imageSelected  = self.image else{
-                print("Avter is nil")
+                alertMSG.alertMessage(_AlertMessage: "Please Select Profile Image", _viewCFrom: self)
                 return
             }
             guard  let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {

@@ -25,9 +25,9 @@ class HomeViewController: UIViewController {
         let trans = TransitionController()
         
         let  aa = CheckUserLoginStatus()
-        print("AAAAAA")
-        print(aa.checkUserLoginStatus())
-        print("AAAAAA")
+//        print("AAAAAA")
+//        print(aa.checkUserLoginStatus())
+//        print("AAAAAA")
         
         if aa.checkUserLoginStatus() == true {
             trans.trancVC(_viewCIdentifire: "AddPostVC", _viewCFrom: self)

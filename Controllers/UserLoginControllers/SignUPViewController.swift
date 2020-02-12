@@ -148,7 +148,7 @@ class SignUPViewController: UIViewController{
             
             let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            let contactNumber = contactNumberTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let phoneNumber = contactNumberTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
@@ -208,7 +208,7 @@ class SignUPViewController: UIViewController{
                                 print(metaImageUrl)
                                 
                                 
-                                self.pushDataToFireBase(_UID: result!.user.uid, _firstName: firstName, _lastName: lastName, _email: email, _contactnumber: contactNumber, _facebookUrl: facebookURL, _imageURL:metaImageUrl)
+                                self.pushDataToFireBase(_UID: result!.user.uid, _firstName: firstName, _lastName: lastName, _email: email, _phoneNumber: phoneNumber, _facebookUrl: facebookURL, _imageURL:metaImageUrl)
                                 
                             }
                         })
@@ -218,9 +218,9 @@ class SignUPViewController: UIViewController{
         }
     }
     
-    func pushDataToFireBase(_UID:String,_firstName:String, _lastName:String, _email:String, _contactnumber:String, _facebookUrl:String, _imageURL: String )  {
+    func pushDataToFireBase(_UID:String,_firstName:String, _lastName:String, _email:String, _phoneNumber:String, _facebookUrl:String, _imageURL: String )  {
         let db = Firestore.firestore()
-        db.collection("users").addDocument(data: ["uid":_UID, "firstname" : _firstName, "lastname" : _lastName, "email": _email, "contactNumber":_contactnumber, "facebookurl":_facebookUrl, "imageURL":_imageURL ]) { (error) in
+        db.collection("users").addDocument(data: ["uid":_UID, "firstname" : _firstName, "lastname" : _lastName, "email": _email, "phoneNumber":_phoneNumber, "facebookurl":_facebookUrl, "imageURL":_imageURL ]) { (error) in
             if error != nil {
                 
                 self.alertMSG.warningAlertMessage(_AlertMessage: ERROR_SAVING_DATA, _viewCFrom: self)
@@ -253,6 +253,19 @@ extension SignUPViewController:UIImagePickerControllerDelegate, UINavigationCont
             
         }
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        
+        
+        super.viewDidAppear(animated)
+        let height: CGFloat = 30 //whatever height you want to add to the existing height
+        let bounds = self.navigationController!.navigationBar.bounds
+        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
+        
+        
     }
     
     

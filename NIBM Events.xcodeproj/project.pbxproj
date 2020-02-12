@@ -30,6 +30,7 @@
 		C07F19B823F29226004AD08D /* EmailUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19B723F29226004AD08D /* EmailUtilities.swift */; };
 		C07F19BE23F2B2A8004AD08D /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19BD23F2B2A8004AD08D /* AddPostViewController.swift */; };
 		C07F19C023F39027004AD08D /* CheckUserLoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19BF23F39027004AD08D /* CheckUserLoginStatus.swift */; };
+		C07F19C223F3D332004AD08D /* CurrentUserDataRetrivel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19C123F3D332004AD08D /* CurrentUserDataRetrivel.swift */; };
 		C09DD52723ED32F400EDA0CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C09DD52623ED32F300EDA0CB /* GoogleService-Info.plist */; };
 		C09DD52A23ED3B3200EDA0CB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD52923ED3B3200EDA0CB /* LoginViewController.swift */; };
 		C09DD52C23ED3B6D00EDA0CB /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD52B23ED3B6D00EDA0CB /* SignUPViewController.swift */; };
@@ -88,6 +89,7 @@
 		C07F19B723F29226004AD08D /* EmailUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailUtilities.swift; sourceTree = "<group>"; };
 		C07F19BD23F2B2A8004AD08D /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		C07F19BF23F39027004AD08D /* CheckUserLoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserLoginStatus.swift; sourceTree = "<group>"; };
+		C07F19C123F3D332004AD08D /* CurrentUserDataRetrivel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserDataRetrivel.swift; sourceTree = "<group>"; };
 		C09DD52623ED32F300EDA0CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C09DD52923ED3B3200EDA0CB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C09DD52B23ED3B6D00EDA0CB /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPViewController.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				C07F199D23EF265A004AD08D /* TouchFaceIDAuthentication.swift */,
 				C07F19A723EF2EF5004AD08D /* SignOutAction.swift */,
 				C07F19BF23F39027004AD08D /* CheckUserLoginStatus.swift */,
+				C07F19C123F3D332004AD08D /* CurrentUserDataRetrivel.swift */,
 			);
 			path = UserLoginControllers;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				C07F199A23EF259B004AD08D /* AlertMessages.swift in Sources */,
 				C07F19B823F29226004AD08D /* EmailUtilities.swift in Sources */,
 				C07F19B123F14EC9004AD08D /* TextFieldUtilities.swift in Sources */,
+				C07F19C223F3D332004AD08D /* CurrentUserDataRetrivel.swift in Sources */,
 				C07F199723EF2564004AD08D /* TransitionVC.swift in Sources */,
 				C09DD52C23ED3B6D00EDA0CB /* SignUPViewController.swift in Sources */,
 				C07F19B423F155E1004AD08D /* HomeViewController.swift in Sources */,

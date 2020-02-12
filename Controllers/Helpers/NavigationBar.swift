@@ -9,17 +9,16 @@
 import Foundation
 import UIKit
 
-class NavigationBAr {
+class NavigationBar  {
     
     func viewWillAppear(_ animated: Bool,_naviaBar:UINavigationController) {
 //        viewWillAppear(animated, _naviaBar: <#UINavigationController#>)
         _naviaBar.setNavigationBarHidden(true, animated: animated)
     }
     
-//     func viewWillDisappear(_ animated: Bool) {
-//        viewWillDisappear(animated)
-//        UINavigationController?.setNavigationBarHidden(false, animated: animated)
-//    }
+    
+   
+ 
 }
 
 

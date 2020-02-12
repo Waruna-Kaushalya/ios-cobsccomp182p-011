@@ -11,7 +11,7 @@ import Foundation
 import UIKit
 import Foundation
 
-public class TransitionVC {
+public class TransitionController {
     
     public func trancVC(_viewCIdentifire : String, _viewCFrom:UIViewController) {
         

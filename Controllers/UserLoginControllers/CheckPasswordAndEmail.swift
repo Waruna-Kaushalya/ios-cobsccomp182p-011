@@ -10,8 +10,8 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-let trans = TransitionVC()
-let alert  = AlertMessage()
+let trans = TransitionController()
+let alert  = AlertMessages()
 
 
 class CheckPasswordAndEmail: UIViewController {
@@ -22,7 +22,7 @@ class CheckPasswordAndEmail: UIViewController {
        
         Auth.auth().signIn(withEmail: _email, password: _password)  { (result, error)  in
             if error != nil {
-                alert.alertMessage(_AlertMessage: "Password And Email Dosent MAtched", _viewCFrom: _viewFrom)
+                alert.warningAlertMessage(_AlertMessage: "Password And Email Dosent MAtched", _viewCFrom: _viewFrom)
             }else{
                 
                 trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: _viewFrom)

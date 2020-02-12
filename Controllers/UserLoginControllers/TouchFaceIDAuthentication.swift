@@ -13,8 +13,8 @@ import FirebaseAuth
 import FirebaseFirestore
 import LocalAuthentication
 
-let alertM = AlertMessage()
-let transVC = TransitionVC()
+let alertM = AlertMessages()
+let transVC = TransitionController()
 
 class TouchFaceIDAuthentication {
     func authenticateUser(_viewIdentifire: String,_viewFrom:UIViewController) {
@@ -66,7 +66,7 @@ class TouchFaceIDAuthentication {
         } else {
             // Device cannot use biometric authentication
             
-            alertM.alertMessage(_AlertMessage: "Password and email Should fill", _viewCFrom: _viewFrom)
+            alertM.warningAlertMessage(_AlertMessage: "Password and email Should fill", _viewCFrom: _viewFrom)
             
             if let err = error {
                 switch err.code {

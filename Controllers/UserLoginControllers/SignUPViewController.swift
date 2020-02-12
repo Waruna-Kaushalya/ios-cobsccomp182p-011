@@ -38,8 +38,8 @@ class SignUPViewController: UIViewController{
     
     let firbaseProfileimageUrl = "gs://ios-nibm.appspot.com"
     
-    let alertMSG = AlertMessage()
-    let trancVc = TransitionVC()
+    let alertMSG = AlertMessages()
+    let trancVc = TransitionController()
     
     var image: UIImage? = nil
     
@@ -51,31 +51,31 @@ class SignUPViewController: UIViewController{
     }
     func setElement(){
         
-//        let Abc = ElementsStyle()
-     
-//        Abc.textFieldStyle(_textField: firstNameTestField, _placeholder: "First name", _title: "First name", _viewController: self)
-//        TextFieldUtilities.textFieldStyle(_textField: firstNameTestField, _placeholder: "First Name", _title: "First Name", _viewController: self)
+        //        let Abc = ElementsStyle()
+        
+        //        Abc.textFieldStyle(_textField: firstNameTestField, _placeholder: "First name", _title: "First name", _viewController: self)
+        //        TextFieldUtilities.textFieldStyle(_textField: firstNameTestField, _placeholder: "First Name", _title: "First Name", _viewController: self)
         
         
         
-//        TextFieldUtilities.textFieldStyle(_textField: contactNumberTextField, _placeholder: "Contatct", _title: "Contact", _viewController: self)
+        //        TextFieldUtilities.textFieldStyle(_textField: contactNumberTextField, _placeholder: "Contatct", _title: "Contact", _viewController: self)
         
         TextFieldUtilities.setTextFieldStyle(_textFieldsName: firstNameTestField, _placeHolder: "First Name")
-       TextFieldUtilities.setTextFieldStyle(_textFieldsName: lastNameTextField, _placeHolder: "Last Name")
-       TextFieldUtilities.setTextFieldStyle(_textFieldsName: contactNumberTextField, _placeHolder: "Contact Number")
-       TextFieldUtilities.setTextFieldStyle(_textFieldsName: emailTextField, _placeHolder: "Email")
-       TextFieldUtilities.setTextFieldStyle(_textFieldsName: facebookURLTextField, _placeHolder: "Facebook Url")
+        TextFieldUtilities.setTextFieldStyle(_textFieldsName: lastNameTextField, _placeHolder: "Last Name")
+        TextFieldUtilities.setTextFieldStyle(_textFieldsName: contactNumberTextField, _placeHolder: "Contact Number")
+        TextFieldUtilities.setTextFieldStyle(_textFieldsName: emailTextField, _placeHolder: "Email")
+        TextFieldUtilities.setTextFieldStyle(_textFieldsName: facebookURLTextField, _placeHolder: "Facebook Url")
         TextFieldUtilities.setTextFieldStyle(_textFieldsName: passwordTextField, _placeHolder: "Password")
         TextFieldUtilities.setTextFieldStyle(_textFieldsName: confirmPasswordTextField, _placeHolder: "Confirm Password")
         
         
-//        TextFieldUtilities.styleTextField(firstNameTestField)
-//        TextFieldUtilities.styleTextField(lastNameTextField)
-//        TextFieldUtilities.styleTextField(contactNumberTextField)
-//        TextFieldUtilities.styleTextField(emailTextField)
-//        TextFieldUtilities.styleTextField(facebookURLTextField)
-//        TextFieldUtilities.styleTextField(passwordTextField)
-//        TextFieldUtilities.styleTextField(confirmPasswordTextField)
+        //        TextFieldUtilities.styleTextField(firstNameTestField)
+        //        TextFieldUtilities.styleTextField(lastNameTextField)
+        //        TextFieldUtilities.styleTextField(contactNumberTextField)
+        //        TextFieldUtilities.styleTextField(emailTextField)
+        //        TextFieldUtilities.styleTextField(facebookURLTextField)
+        //        TextFieldUtilities.styleTextField(passwordTextField)
+        //        TextFieldUtilities.styleTextField(confirmPasswordTextField)
         
         ButtonUtilities.ButtonRadius_All(signInButton)
         ButtonUtilities.styleButton(signInButton)
@@ -89,13 +89,13 @@ class SignUPViewController: UIViewController{
             confirmPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
             
-            alertMSG.alertMessage(_AlertMessage: EMPTY_FIELDS, _viewCFrom: self)
+            alertMSG.warningAlertMessage(_AlertMessage: EMPTY_FIELDS, _viewCFrom: self)
             return EMPTY_FIELDS
             
         }
         if passwordTextField.text != confirmPasswordTextField.text {
             
-            alertMSG.alertMessage(_AlertMessage: PASSWRD_DOSENT_MATCH, _viewCFrom: self)
+            alertMSG.warningAlertMessage(_AlertMessage: PASSWRD_DOSENT_MATCH, _viewCFrom: self)
             return PASSWRD_DOSENT_MATCH
         }
         //heck if the password is secure
@@ -104,14 +104,14 @@ class SignUPViewController: UIViewController{
         
         
         if PasswordUtilities.isPasswordValid(cleanePassword) == false {
-            alertMSG.alertMessage(_AlertMessage: WEAK_PASSWORD, _viewCFrom: self)
+            alertMSG.warningAlertMessage(_AlertMessage: WEAK_PASSWORD, _viewCFrom: self)
             return WEAK_PASSWORD
         }
         
-         let cleaneEmail = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        let cleaneEmail = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         if EmailUtilities.validateEmail(cleaneEmail) == false {
-            alertMSG.alertMessage(_AlertMessage: WEAK_EMAIL, _viewCFrom: self)
+            alertMSG.warningAlertMessage(_AlertMessage: WEAK_EMAIL, _viewCFrom: self)
             return WEAK_PASSWORD
         }
         return nil
@@ -121,7 +121,7 @@ class SignUPViewController: UIViewController{
         
         profileImageUIImage.layer.cornerRadius = 20
         profileImageUIImage.clipsToBounds = true
-//        testImagePicker.isUserInteractionEnabled = true
+        //        testImagePicker.isUserInteractionEnabled = true
         profileImageUIImage.isUserInteractionEnabled = true
         let tapGester = UITapGestureRecognizer(target: self, action: #selector(presentPicker))
         profileImageUIImage.addGestureRecognizer(tapGester)
@@ -140,7 +140,7 @@ class SignUPViewController: UIViewController{
         let error = validateFields()
         
         if error != nil{
-            alertMSG.alertMessage(_AlertMessage: error!, _viewCFrom: self)
+            alertMSG.warningAlertMessage(_AlertMessage: error!, _viewCFrom: self)
             
         }else{
             //create cleand version of user
@@ -161,7 +161,7 @@ class SignUPViewController: UIViewController{
             
             //Profile image things
             guard let imageSelected  = self.image else{
-                alertMSG.alertMessage(_AlertMessage: "Please Select Profile Image", _viewCFrom: self)
+                alertMSG.warningAlertMessage(_AlertMessage: "Please Select Profile Image", _viewCFrom: self)
                 return
             }
             guard  let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {
@@ -176,14 +176,14 @@ class SignUPViewController: UIViewController{
                 
                 if err != nil {
                     //there was error creating the user
-                    self.alertMSG.alertMessage(_AlertMessage: USER_ERROR, _viewCFrom: self)
+                    self.alertMSG.warningAlertMessage(_AlertMessage: USER_ERROR, _viewCFrom: self)
                     
                 }else{
                     //user was created sucessfully. now store the details
                     
-//                    self.pushDataToFireBase(_UID: result!.user.uid, _firstName: firstName, _lastName: lastName, _email: email, _contactnumber: contactNumber, _facebookUrl: facebookURL, _imageURL:metaImageUrl)
-//                    self.transHome.transHome(_viewCIdentifire: "LoginVC", _viewCFrom: self)
-
+                    //                    self.pushDataToFireBase(_UID: result!.user.uid, _firstName: firstName, _lastName: lastName, _email: email, _contactnumber: contactNumber, _facebookUrl: facebookURL, _imageURL:metaImageUrl)
+                    //                    self.transHome.transHome(_viewCIdentifire: "LoginVC", _viewCFrom: self)
+                    
                     
                     //------------------
                     
@@ -206,7 +206,7 @@ class SignUPViewController: UIViewController{
                         storageProfileRef.downloadURL(completion: { (url, error) in
                             if let metaImageUrl = url?.absoluteString{
                                 print(metaImageUrl)
-                            
+                                
                                 
                                 self.pushDataToFireBase(_UID: result!.user.uid, _firstName: firstName, _lastName: lastName, _email: email, _contactnumber: contactNumber, _facebookUrl: facebookURL, _imageURL:metaImageUrl)
                                 
@@ -223,7 +223,7 @@ class SignUPViewController: UIViewController{
         db.collection("users").addDocument(data: ["uid":_UID, "firstname" : _firstName, "lastname" : _lastName, "email": _email, "contactNumber":_contactnumber, "facebookurl":_facebookUrl, "imageURL":_imageURL ]) { (error) in
             if error != nil {
                 
-                self.alertMSG.alertMessage(_AlertMessage: ERROR_SAVING_DATA, _viewCFrom: self)
+                self.alertMSG.warningAlertMessage(_AlertMessage: ERROR_SAVING_DATA, _viewCFrom: self)
                 
             }else{
                 self.trancVc.trancVC(_viewCIdentifire: "LoginVC", _viewCFrom: self)

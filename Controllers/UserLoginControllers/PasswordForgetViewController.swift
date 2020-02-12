@@ -14,8 +14,8 @@ let ERROR_EMPTY_EMAIL_REST = "Please enter an email address for reset password"
 
 class PasswordForgetViewController: UIViewController {
     
-    let trans  = TransitionVC()
-    let alert = AlertMessage()
+    let trans  = TransitionController()
+    let alert = AlertMessages()
     
     @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var sendEmailButton: UIButton!
@@ -27,6 +27,8 @@ class PasswordForgetViewController: UIViewController {
     
     func setupElements(){
         
+        
+        
         TextFieldUtilities.setTextFieldStyle(_textFieldsName: emailTextField, _placeHolder: "Email")
         ButtonUtilities.ButtonRadius_All(sendEmailButton)
         ButtonUtilities.styleButton(sendEmailButton)
@@ -37,7 +39,7 @@ class PasswordForgetViewController: UIViewController {
     @IBAction func restPasswordTapped(_ sender: Any) {
         
         guard let email = emailTextField.text, email != "" else{
-            alert.alertMessage(_AlertMessage: ERROR_EMPTY_EMAIL_REST, _viewCFrom: self)
+            alert.warningAlertMessage(_AlertMessage: ERROR_EMPTY_EMAIL_REST, _viewCFrom: self)
             return
         }
         resetPassword(email: email)
@@ -48,11 +50,24 @@ class PasswordForgetViewController: UIViewController {
     func resetPassword(email:String){
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if error == nil {
-                self.alert.alertMessage(_AlertMessage: "Psswrd rest email sent", _viewCFrom: self)
+                self.alert.warningAlertMessage(_AlertMessage: "Psswrd rest email sent", _viewCFrom: self)
             }else{
-                self.alert.alertMessage(_AlertMessage: "Somthing Error", _viewCFrom: self)
+                self.alert.warningAlertMessage(_AlertMessage: "Somthing Error", _viewCFrom: self)
             }
         }
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+
+
+        super.viewDidAppear(animated)
+        let height: CGFloat = 30 //whatever height you want to add to the existing height
+        let bounds = self.navigationController!.navigationBar.bounds
+        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
+
+
     }
 }

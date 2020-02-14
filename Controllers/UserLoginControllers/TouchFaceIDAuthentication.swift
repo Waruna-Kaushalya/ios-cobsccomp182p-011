@@ -57,7 +57,7 @@ class TouchFaceIDAuthentication {
                             }
                             
                         } else {
-                            trans.trancVC(_viewCIdentifire: _viewIdentifire, _viewCFrom: _viewFrom)
+//                            trans.trancVC(_viewCIdentifire: _viewIdentifire, _viewCFrom: _viewFrom)
                             print("Authentication Successful")
                         }
                     }

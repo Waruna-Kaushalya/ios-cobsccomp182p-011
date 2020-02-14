@@ -783,7 +783,7 @@
         <!--My Profile-->
         <scene sceneID="O25-KU-m1J">
             <objects>
-                <viewController id="sUs-PC-yCs" customClass="MyProfileViewController" customModule="NIBM_Events" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyProfileVC" id="sUs-PC-yCs" customClass="MyProfileViewController" customModule="NIBM_Events" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ayb-C7-PY5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

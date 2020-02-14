@@ -11,7 +11,7 @@ import FirebaseAuth
 import Firebase
 import FirebaseFirestore
 import FirebaseStorage
-import SkyFloatingLabelTextField
+
 
 
 var EMPTY_FIELDS = "Please Fill All Field"
@@ -26,13 +26,13 @@ class SignUPViewController: UIViewController{
     
     @IBOutlet weak var testImagePicker: UIImageView!
     @IBOutlet weak var profileImageUIImage: UIImageView!
-    @IBOutlet weak var firstNameTestField: SkyFloatingLabelTextField!
-    @IBOutlet weak var lastNameTextField: SkyFloatingLabelTextField!
-    @IBOutlet weak var contactNumberTextField: SkyFloatingLabelTextField!
-    @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
-    @IBOutlet weak var facebookURLTextField: SkyFloatingLabelTextField!
-    @IBOutlet weak var passwordTextField: SkyFloatingLabelTextField!
-    @IBOutlet weak var confirmPasswordTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var firstNameTestField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var contactNumberTextField: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var facebookURLTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var loginInButton: UIButton!
     
@@ -51,34 +51,17 @@ class SignUPViewController: UIViewController{
     }
     func setElement(){
         
-        //        let Abc = ElementsStyle()
         
-        //        Abc.textFieldStyle(_textField: firstNameTestField, _placeholder: "First name", _title: "First name", _viewController: self)
-        //        TextFieldUtilities.textFieldStyle(_textField: firstNameTestField, _placeholder: "First Name", _title: "First Name", _viewController: self)
+        firstNameTestField.styleTextField()
+        lastNameTextField.styleTextField()
+        contactNumberTextField.styleTextField()
+        emailTextField.styleTextField()
+        facebookURLTextField.styleTextField()
+        passwordTextField.styleTextField()
+        confirmPasswordTextField.styleTextField()
         
-        
-        
-        //        TextFieldUtilities.textFieldStyle(_textField: contactNumberTextField, _placeholder: "Contatct", _title: "Contact", _viewController: self)
-        
-        TextFieldUtilities.setTextFieldStyle(_textFieldsName: firstNameTestField, _placeHolder: "First Name")
-        TextFieldUtilities.setTextFieldStyle(_textFieldsName: lastNameTextField, _placeHolder: "Last Name")
-        TextFieldUtilities.setTextFieldStyle(_textFieldsName: contactNumberTextField, _placeHolder: "Contact Number")
-        TextFieldUtilities.setTextFieldStyle(_textFieldsName: emailTextField, _placeHolder: "Email")
-        TextFieldUtilities.setTextFieldStyle(_textFieldsName: facebookURLTextField, _placeHolder: "Facebook Url")
-        TextFieldUtilities.setTextFieldStyle(_textFieldsName: passwordTextField, _placeHolder: "Password")
-        TextFieldUtilities.setTextFieldStyle(_textFieldsName: confirmPasswordTextField, _placeHolder: "Confirm Password")
-        
-        
-        //        TextFieldUtilities.styleTextField(firstNameTestField)
-        //        TextFieldUtilities.styleTextField(lastNameTextField)
-        //        TextFieldUtilities.styleTextField(contactNumberTextField)
-        //        TextFieldUtilities.styleTextField(emailTextField)
-        //        TextFieldUtilities.styleTextField(facebookURLTextField)
-        //        TextFieldUtilities.styleTextField(passwordTextField)
-        //        TextFieldUtilities.styleTextField(confirmPasswordTextField)
-        
-        ButtonUtilities.ButtonRadius_All(signInButton)
-        ButtonUtilities.styleButton(signInButton)
+        signInButton.styleButton()
+        signInButton.buttonRadiusAll()
     }
     
     func validateFields() -> String? {
@@ -179,16 +162,7 @@ class SignUPViewController: UIViewController{
                     self.alertMSG.warningAlertMessage(_AlertMessage: USER_ERROR, _viewCFrom: self)
                     
                 }else{
-                    //user was created sucessfully. now store the details
                     
-                    //                    self.pushDataToFireBase(_UID: result!.user.uid, _firstName: firstName, _lastName: lastName, _email: email, _contactnumber: contactNumber, _facebookUrl: facebookURL, _imageURL:metaImageUrl)
-                    //                    self.transHome.transHome(_viewCIdentifire: "LoginVC", _viewCFrom: self)
-                    
-                    
-                    //------------------
-                    
-                    
-                    //
                     var imageURL: String?
                     
                     let storageRef = Storage.storage().reference(forURL: self.firbaseProfileimageUrl)

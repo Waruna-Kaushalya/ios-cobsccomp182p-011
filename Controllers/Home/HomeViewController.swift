@@ -7,13 +7,12 @@
 //
 
 import UIKit
-import SkyFloatingLabelTextField
 import FirebaseAuth
 
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var buttontest: UIButton!
-    @IBOutlet weak var testUifield: SkyFloatingLabelTextField!
+    @IBOutlet weak var testUifield: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
@@ -39,8 +38,9 @@ class HomeViewController: UIViewController {
     }
     
     func setElements(){
-        ButtonUtilities.styleButton(buttontest)
-        ButtonUtilities.ButtonRadius_All(buttontest)
+        buttontest.styleButton()
+        buttontest.buttonRadiusAll()
+        testUifield.styleTextField()
     }
     
     @IBAction func signOutButton(_ sender: Any) {

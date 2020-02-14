@@ -31,11 +31,16 @@
 		C07F19BE23F2B2A8004AD08D /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19BD23F2B2A8004AD08D /* AddPostViewController.swift */; };
 		C07F19C023F39027004AD08D /* CheckUserLoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19BF23F39027004AD08D /* CheckUserLoginStatus.swift */; };
 		C07F19C223F3D332004AD08D /* CurrentUserDataRetrivel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19C123F3D332004AD08D /* CurrentUserDataRetrivel.swift */; };
+		C07F19C423F54562004AD08D /* UIImageUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19C323F54562004AD08D /* UIImageUtilities.swift */; };
+		C07F19C623F55E7B004AD08D /* FloatingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19C523F55E7A004AD08D /* FloatingTextField.swift */; };
 		C09DD52723ED32F400EDA0CB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C09DD52623ED32F300EDA0CB /* GoogleService-Info.plist */; };
 		C09DD52A23ED3B3200EDA0CB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD52923ED3B3200EDA0CB /* LoginViewController.swift */; };
 		C09DD52C23ED3B6D00EDA0CB /* SignUPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD52B23ED3B6D00EDA0CB /* SignUPViewController.swift */; };
 		C09DD52F23ED46A300EDA0CB /* ButtonUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD52E23ED46A300EDA0CB /* ButtonUtilities.swift */; };
 		C09DD53123EEFA7300EDA0CB /* PasswordForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09DD53023EEFA7300EDA0CB /* PasswordForgetViewController.swift */; };
+		C09E107923F66C7100B26D78 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E107823F66C7100B26D78 /* MyProfileViewController.swift */; };
+		C09E107B23F6798E00B26D78 /* LabelUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E107A23F6798E00B26D78 /* LabelUtilities.swift */; };
+		C09E107D23F6B50500B26D78 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E107C23F6B50500B26D78 /* AddEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,11 +95,16 @@
 		C07F19BD23F2B2A8004AD08D /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		C07F19BF23F39027004AD08D /* CheckUserLoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserLoginStatus.swift; sourceTree = "<group>"; };
 		C07F19C123F3D332004AD08D /* CurrentUserDataRetrivel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserDataRetrivel.swift; sourceTree = "<group>"; };
+		C07F19C323F54562004AD08D /* UIImageUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageUtilities.swift; sourceTree = "<group>"; };
+		C07F19C523F55E7A004AD08D /* FloatingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingTextField.swift; sourceTree = "<group>"; };
 		C09DD52623ED32F300EDA0CB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C09DD52923ED3B3200EDA0CB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C09DD52B23ED3B6D00EDA0CB /* SignUPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPViewController.swift; sourceTree = "<group>"; };
 		C09DD52E23ED46A300EDA0CB /* ButtonUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonUtilities.swift; sourceTree = "<group>"; };
 		C09DD53023EEFA7300EDA0CB /* PasswordForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordForgetViewController.swift; sourceTree = "<group>"; };
+		C09E107823F66C7100B26D78 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
+		C09E107A23F6798E00B26D78 /* LabelUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelUtilities.swift; sourceTree = "<group>"; };
+		C09E107C23F6B50500B26D78 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
 		CB449CFBEC948D72CC57102B /* Pods_NIBM_Events_NIBM_EventsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_Events_NIBM_EventsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA21464748A9FBCF2E21CDA6 /* Pods-NIBM Events.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM Events.debug.xcconfig"; path = "Target Support Files/Pods-NIBM Events/Pods-NIBM Events.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -279,6 +289,8 @@
 			children = (
 				C07F19B323F155E1004AD08D /* HomeViewController.swift */,
 				C07F19BD23F2B2A8004AD08D /* AddPostViewController.swift */,
+				C09E107823F66C7100B26D78 /* MyProfileViewController.swift */,
+				C09E107C23F6B50500B26D78 /* AddEventViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -290,6 +302,9 @@
 				C07F19B023F14EC9004AD08D /* TextFieldUtilities.swift */,
 				C07F19B523F2918E004AD08D /* PasswordUtilities.swift */,
 				C07F19B723F29226004AD08D /* EmailUtilities.swift */,
+				C07F19C323F54562004AD08D /* UIImageUtilities.swift */,
+				C07F19C523F55E7A004AD08D /* FloatingTextField.swift */,
+				C09E107A23F6798E00B26D78 /* LabelUtilities.swift */,
 			);
 			name = Utilities;
 			path = ../Utilities;
@@ -536,10 +551,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C09DD52F23ED46A300EDA0CB /* ButtonUtilities.swift in Sources */,
+				C09E107D23F6B50500B26D78 /* AddEventViewController.swift in Sources */,
 				C07F19B623F2918E004AD08D /* PasswordUtilities.swift in Sources */,
 				C07F199A23EF259B004AD08D /* AlertMessages.swift in Sources */,
+				C09E107B23F6798E00B26D78 /* LabelUtilities.swift in Sources */,
 				C07F19B823F29226004AD08D /* EmailUtilities.swift in Sources */,
 				C07F19B123F14EC9004AD08D /* TextFieldUtilities.swift in Sources */,
+				C07F19C623F55E7B004AD08D /* FloatingTextField.swift in Sources */,
 				C07F19C223F3D332004AD08D /* CurrentUserDataRetrivel.swift in Sources */,
 				C07F199723EF2564004AD08D /* TransitionVC.swift in Sources */,
 				C09DD52C23ED3B6D00EDA0CB /* SignUPViewController.swift in Sources */,
@@ -552,6 +570,8 @@
 				C033B28C23E9601000726A03 /* ViewController.swift in Sources */,
 				C033B28A23E9601000726A03 /* AppDelegate.swift in Sources */,
 				C09DD53123EEFA7300EDA0CB /* PasswordForgetViewController.swift in Sources */,
+				C09E107923F66C7100B26D78 /* MyProfileViewController.swift in Sources */,
+				C07F19C423F54562004AD08D /* UIImageUtilities.swift in Sources */,
 				C07F199E23EF265A004AD08D /* TouchFaceIDAuthentication.swift in Sources */,
 				C07F199C23EF25E0004AD08D /* CheckPasswordAndEmail.swift in Sources */,
 				C033B29223E9601000726A03 /* NIBM_Events.xcdatamodeld in Sources */,

@@ -16,7 +16,7 @@ class getData {
         
         let docRef = Firestore.firestore().collection("users").whereField("uid", isEqualTo: Auth.auth().currentUser?.uid ?? "")
         
-        
+        print(Auth.auth().currentUser?.uid ?? "")
         docRef.getDocuments { (querySnapshot, err) in
             if let err = err {
                 print(err.localizedDescription)
@@ -26,10 +26,13 @@ class getData {
             } else {
                 let document = querySnapshot!.documents.first
                 let dataDescription = document?.data()
-                guard let fieldValue = dataDescription?[_fieldname]
-                    else {
-                        return
-                }
+                // guard let fieldValue = dataDescription?[_fieldname]
+                // else {
+                //   return
+                // }
+                let fieldValue = dataDescription?[_fieldname] ?? ""
+                // var abc = fieldValue ?? ""
+                // print(abc)
                 completion(fieldValue as! String)
                 
             }

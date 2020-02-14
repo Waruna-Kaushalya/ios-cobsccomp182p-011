@@ -6,17 +6,17 @@
 //  Copyright © 2020 Waruna Kaushalya. All rights reserved.
 //
 
-import Foundation
+
 import UIKit
 
-class ButtonUtilities {
+extension UIButton {
     
-    static func styleButton(_ button:UIButton) {
+    func styleButton() {
         let lightBlue = UIColor(red: 0/255, green: 148/255, blue: 253/255, alpha: 1)
         //Button backdround color
-        button.backgroundColor = lightBlue
+        self.backgroundColor = lightBlue
         //Button title color
-        button.setTitleColor(UIColor.white, for: .normal)
+        self.setTitleColor(UIColor.white, for: .normal)
         
         //Button Border
         //        button.layer.borderWidth = 1
@@ -24,26 +24,26 @@ class ButtonUtilities {
         
         
     }
-    static func ButtonRadius_All(_ button:UIButton){
+    func buttonRadiusAll(){
         //button corner radius
-        button.layer.cornerRadius = 5
-        button.clipsToBounds = true
-        button.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+        self.layer.cornerRadius = 5
+        self.clipsToBounds = true
+        self.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner,.layerMaxXMaxYCorner]
         
     }
     
-    static func ButtonRadius_MinX_MinY_MaxX_MinY(_ button:UIButton){
+     func buttonRadius_MinX_MinY_MaxX_MinY(){
         //button corner radius
-        button.layer.cornerRadius = 5
-        button.clipsToBounds = true
-        button.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
+        self.layer.cornerRadius = 5
+        self.clipsToBounds = true
+        self.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
         
     }
-    static func ButtonRadius_MaxX_MinY_MaxX_MaxY(_ button:UIButton){
+     func buttonRadius_MaxX_MinY_MaxX_MaxY(){
         //button corner radius
-        button.layer.cornerRadius = 5
-        button.clipsToBounds = true
-        button.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+        self.layer.cornerRadius = 5
+        self.clipsToBounds = true
+        self.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
         
     }
 }

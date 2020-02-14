@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseAuth
-import SkyFloatingLabelTextField
+
 
 let ERROR_EMPTY_EMAIL_REST = "Please enter an email address for reset password"
 
@@ -17,23 +17,22 @@ class PasswordForgetViewController: UIViewController {
     let trans  = TransitionController()
     let alert = AlertMessages()
     
-    @IBOutlet weak var emailTextField: SkyFloatingLabelTextField!
+    @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var sendEmailButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupElements()
-        // Do any additional setup after loading the view.
+        
     }
     
     func setupElements(){
         
         
+        sendEmailButton.buttonRadiusAll()
+        sendEmailButton.styleButton()
         
-        TextFieldUtilities.setTextFieldStyle(_textFieldsName: emailTextField, _placeHolder: "Email")
-        ButtonUtilities.ButtonRadius_All(sendEmailButton)
-        ButtonUtilities.styleButton(sendEmailButton)
-        
-        TextFieldUtilities.styleTextField(emailTextField)
+        emailTextField.styleTextField()
+
     }
     
     @IBAction func restPasswordTapped(_ sender: Any) {
@@ -61,13 +60,13 @@ class PasswordForgetViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-
-
+        
+        
         super.viewDidAppear(animated)
         let height: CGFloat = 30 //whatever height you want to add to the existing height
         let bounds = self.navigationController!.navigationBar.bounds
         self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
-
-
+        
+        
     }
 }

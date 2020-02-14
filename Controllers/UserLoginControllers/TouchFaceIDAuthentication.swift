@@ -65,8 +65,8 @@ class TouchFaceIDAuthentication {
             
         } else {
             // Device cannot use biometric authentication
-            
-            alertM.warningAlertMessage(_AlertMessage: "Password and email Should fill", _viewCFrom: _viewFrom)
+//
+//            alertM.warningAlertMessage(_AlertMessage: "Password and email Should fill", _viewCFrom: _viewFrom)
             
             if let err = error {
                 switch err.code {

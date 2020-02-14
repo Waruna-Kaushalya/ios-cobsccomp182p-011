@@ -16,6 +16,7 @@ target 'NIBM Events' do
     # Pods for testing
   end
 
+
 pod 'Firebase/Database'
 pod 'FirebaseCore'
 pod 'FirebaseFirestore'
@@ -27,7 +28,7 @@ pod 'Firebase/Storage'
 pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Core'
-pod 'SkyFloatingLabelTextField'
+pod 'Kingfisher', '~> 5.0'
 
 
 end

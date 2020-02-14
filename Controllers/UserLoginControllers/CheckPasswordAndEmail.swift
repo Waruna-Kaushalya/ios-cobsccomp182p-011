@@ -19,7 +19,7 @@ class CheckPasswordAndEmail: UIViewController {
         print("2222222")
         print(_password)
         print(_email)
-       
+        
         Auth.auth().signIn(withEmail: _email, password: _password)  { (result, error)  in
             if error != nil {
                 alert.warningAlertMessage(_AlertMessage: "Password And Email Dosent MAtched", _viewCFrom: _viewFrom)

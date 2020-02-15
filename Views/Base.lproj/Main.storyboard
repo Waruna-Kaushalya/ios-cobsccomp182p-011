@@ -139,7 +139,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yfz-YP-Rki">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1DE-nP-OtZ">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="730"/>
@@ -720,6 +720,9 @@
                                                     <constraint firstAttribute="height" constant="30" id="ZVF-V5-kG3"/>
                                                 </constraints>
                                                 <state key="normal" title="publish"/>
+                                                <connections>
+                                                    <action selector="publishedButtonTapped:" destination="ULc-8H-28X" eventType="touchUpInside" id="4ux-lA-0ye"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -756,6 +759,7 @@
                     <connections>
                         <outlet property="eventDescription" destination="g7P-Ol-BzB" id="gsV-nz-GYf"/>
                         <outlet property="eventImage" destination="WAQ-zh-Lqj" id="aji-sR-lm0"/>
+                        <outlet property="eventImagePicker" destination="4Th-hX-q2F" id="mrh-fz-Asj"/>
                         <outlet property="eventTitle" destination="eqR-Qb-QMd" id="zYh-fn-U4o"/>
                         <outlet property="publishButton" destination="mm4-ev-JSo" id="P52-KL-zBE"/>
                     </connections>
@@ -956,6 +960,6 @@
         <image name="peofileimage" width="341.33334350585938" height="341.33334350585938"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nD3-wU-g3y"/>
+        <segue reference="pgn-T0-fSQ"/>
     </inferredMetricsTieBreakers>
 </document>

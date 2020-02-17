@@ -21,6 +21,16 @@ let WEAK_EMAIL = "Please enter valied email address"
 let USER_ERROR = "Error creating user"
 var ERROR_SAVING_DATA = "Error saving user data"
 
+//enum errorMassgae:String {
+//
+//    case EMPTY_FIELDS = "Please Fill All Field"
+//    case PASSWRD_DOSENT_MATCH = "Password doesn't match"
+//    case WEAK_PASSWORD = "Please make sure your password is at least 8 char, special chr and number"
+//    case WEAK_EMAIL = "Please enter valied email address"
+//    case USER_ERROR = "Error creating user"
+//    case ERROR_SAVING_DATA = "Error saving user data"
+//}
+
 class SignUPViewController: UIViewController{
     
     
@@ -50,7 +60,7 @@ class SignUPViewController: UIViewController{
         setupProfileImage()
     }
     func setElement(){
-        
+         
         
         firstNameTestField.styleTextField()
         lastNameTextField.styleTextField()
@@ -163,12 +173,13 @@ class SignUPViewController: UIViewController{
                     
                 }else{
                     
-                    var imageURL: String?
+//                    var imageURL: String?
                     
                     let storageRef = Storage.storage().reference(forURL: self.firbaseProfileimageUrl)
                     let storageProfileRef = storageRef.child("profile").child(result!.user.uid)
                     
                     let metaData = StorageMetadata()
+                    
                     metaData.contentType = "image/jpg"
                     storageProfileRef.putData(imageData, metadata: metaData, completion: { (storageMetaData, error) in
                         if error != nil{

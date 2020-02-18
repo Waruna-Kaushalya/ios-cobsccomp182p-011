@@ -39,11 +39,14 @@ class TouchFaceIDAuthentication {
                             switch err._code {
                                 
                             case LAError.Code.systemCancel.rawValue:
+                                let trans = TransitionController()
+                                trans.trancVC(_viewCIdentifire: _viewIdentifire, _viewCFrom: _viewFrom)
                                 
                                 print("Session cancelled")
                                 
                             case LAError.Code.userCancel.rawValue:
-                                
+                                let trans = TransitionController()
+                                trans.trancVC(_viewCIdentifire: _viewIdentifire, _viewCFrom: _viewFrom)
                                 print("Please try again")
                                 
                             case LAError.Code.userFallback.rawValue:

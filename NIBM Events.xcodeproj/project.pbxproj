@@ -41,6 +41,7 @@
 		C09E107923F66C7100B26D78 /* MyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E107823F66C7100B26D78 /* MyProfileViewController.swift */; };
 		C09E107B23F6798E00B26D78 /* LabelUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E107A23F6798E00B26D78 /* LabelUtilities.swift */; };
 		C09E107D23F6B50500B26D78 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E107C23F6B50500B26D78 /* AddEventViewController.swift */; };
+		C09E10A823FBC14300B26D78 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C09E10A723FBC14200B26D78 /* User.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		C09E107823F66C7100B26D78 /* MyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileViewController.swift; sourceTree = "<group>"; };
 		C09E107A23F6798E00B26D78 /* LabelUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelUtilities.swift; sourceTree = "<group>"; };
 		C09E107C23F6B50500B26D78 /* AddEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		C09E10A723FBC14200B26D78 /* User.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		CB449CFBEC948D72CC57102B /* Pods_NIBM_Events_NIBM_EventsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_Events_NIBM_EventsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA21464748A9FBCF2E21CDA6 /* Pods-NIBM Events.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM Events.debug.xcconfig"; path = "Target Support Files/Pods-NIBM Events/Pods-NIBM Events.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -242,6 +244,7 @@
 		C07F19A023EF2AE5004AD08D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C09E10A723FBC14200B26D78 /* User.storyboard */,
 				C033B28D23E9601000726A03 /* Main.storyboard */,
 				C033B29523E9601100726A03 /* LaunchScreen.storyboard */,
 			);
@@ -420,6 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C033B29723E9601100726A03 /* LaunchScreen.storyboard in Resources */,
+				C09E10A823FBC14300B26D78 /* User.storyboard in Resources */,
 				C09DD52723ED32F400EDA0CB /* GoogleService-Info.plist in Resources */,
 				C033B29423E9601100726A03 /* Assets.xcassets in Resources */,
 				C033B28F23E9601000726A03 /* Main.storyboard in Resources */,

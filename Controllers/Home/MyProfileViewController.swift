@@ -29,9 +29,9 @@ class MyProfileViewController: UIViewController {
             let alert = AlertMessages()
             alert.ActionAlert(_title: "User not login", _message: "User must login to view profile", _viewCIdentifier: "LoginNavIVC", _viewControllerName: self)
         }else{
-            let athentication = TouchFaceIDAuthentication()
-            
-            athentication.authenticateUser(_viewIdentifire: "", _viewFrom: self)
+        let athentication = TouchFaceIDAuthentication()
+        
+        athentication.authenticateUser(_viewIdentifire: "HomeVC", _viewFrom: self)
         }
         
       

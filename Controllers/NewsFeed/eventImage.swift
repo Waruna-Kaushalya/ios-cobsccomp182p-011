@@ -12,11 +12,18 @@ import UIKit
 class Video {
     var iamage: String
     var title: String
+    var eventDescription: String
     
-    init(image:String, title:String) {
+    var userName:String
+    var userProfileImage:String
+    
+    init(image:String, title:String,eventDescription:String,userName:String,userProfileImage:String) {
         
         self.iamage = image
         self.title = title
+        self.eventDescription = eventDescription
+        self.userName = userName
+        self.userProfileImage = userProfileImage
 
     }
 }

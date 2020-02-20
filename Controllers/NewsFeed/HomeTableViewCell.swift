@@ -10,19 +10,27 @@ import UIKit
 import Kingfisher
 
 class HomeTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTitle: UILabel!
+    @IBOutlet weak var eventDescription: UILabel!
+    
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userProfileImage: UIImageView!
     
     func setVideo(video: Video)  {
-
-            let url = URL(string: video.iamage ?? "")
-            print("[[[[[[[[[[[[[[[[[[sdvsvsvsdvsd]]]]]]]]]]]]]]]]]]")
-            print(url ?? "")
-            
-            self.postImageView.kf.setImage(with: url)
-
+        
+        userProfileImage.roundedImage()
+        
+        let url = URL(string: video.iamage ?? "")
+        self.postImageView.kf.setImage(with: url)
         postTitle.text = video.title
+        eventDescription.text = video.eventDescription
+        
+        userName.text = video.userName
+        let uurl = URL(string: video.userProfileImage ?? "")
+        self.userProfileImage.kf.setImage(with: uurl)
+
     }
     
 }

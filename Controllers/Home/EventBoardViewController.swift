@@ -49,14 +49,43 @@ class EventBoardViewController: UIViewController {
                 
                 let imageURL = data["eventImageUrl"] as? String
                 let title = data["eventtitle"] as? String
-                let video:Video = Video(image: imageURL! , title:title! )
+                let eventDescription = data["eventdescription"] as? String
+                let userID = data["userID"] as? String
+//                let video:Video = Video(image: imageURL! , title:title! )
                 
-                DispatchQueue.main.async {
-                    self.videoList.append(video)
+                
+                
+                
+                let dataRef = Firestore.firestore().collection("users").whereField("uid", isEqualTo: userID ?? "")
+                
+                
+                dataRef.getDocuments { (querySnapshot, err) in
                     
-                    self.tableView.reloadData()
+                    let document = querySnapshot!.documents.first
+                    let dataDescription = document?.data()
+                    
+                    let userName = dataDescription?["firstname"] as? String
+                    let userProfileImage = dataDescription?["imageURL"] as? String
+                    
+                    
+                    let video:Video = Video(image: imageURL!, title: title!, eventDescription: eventDescription!, userName: userName! , userProfileImage: userProfileImage!)
+                    
+                    
+                    DispatchQueue.main.async {
+                        self.videoList.append(video)
+                        
+                        self.tableView.reloadData()
+                        
+                    }
                     
                 }
+                
+                
+                
+                
+                
+                
+                
             }
         }
     }

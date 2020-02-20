@@ -15,7 +15,7 @@ class SignOutAction {
     
     
     func signOutAction(_viewIdentifier: String, _viewC: UIViewController)  {
-        let firebaseAuth = Auth.auth()
+//        let firebaseAuth = Auth.auth()
         do {
             try! Auth.auth().signOut()
             if let storyboard = _viewC.storyboard {

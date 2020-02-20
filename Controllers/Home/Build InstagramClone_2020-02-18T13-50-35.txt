@@ -1,0 +1,13 @@
+
+Showing Recent Messages
+
+Prepare build
+note: Using new build systemnote: Planning buildnote: Constructing build description
+
+Build system information
+error: SWIFT_VERSION '3.0' is unsupported, supported versions are: 4.0, 4.2, 5.0. (in target 'InstagramClone')
+Build system information
+warning: Capabilities for InstagramClone may not function correctly because its entitlements use a placeholder team ID. To resolve this, select a development team in the build settings editor. (in target 'InstagramClone')
+
+
+Build failed    2/18/20, 13:50    1.4 seconds

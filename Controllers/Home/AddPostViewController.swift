@@ -64,9 +64,9 @@ class AddPostViewController: UIViewController {
     @IBAction func LoadFirebaseData(_ sender: Any){
         
 //        let abcd = getData()
-        var  gbh:String = ""
-        
-        let bnv:String = ""
+//        var  gbh:String = ""
+//        
+//        let bnv:String = ""
 //        abcd.read({ (document) in
 //            bnv = document
 //            print(bnv)

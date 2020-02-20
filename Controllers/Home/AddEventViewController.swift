@@ -139,7 +139,13 @@ class AddEventViewController: UIViewController {
                 self.alertMSG.warningAlertMessage(_AlertMessage: ERROR_SAVING_DATA, _viewCFrom: self)
             
             }else{
-                 self.alertMSG.warningAlertMessage(_AlertMessage: "done", _viewCFrom: self)
+//                DispatchQueue.main.async {
+//                   self.alertMSG.warningAlertMessage(_AlertMessage: "done", _viewCFrom: self)
+//                }
+                
+                let trans = TransitionController()
+                trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: self)
+//                HomeTableVCELL
             }
         }
         

@@ -18,7 +18,13 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userProfileImage: UIImageView!
     
+    
+    
+    
+    
     func setVideo(video: Video)  {
+        
+        tapedLabel()
         
         userProfileImage.roundedImage()
         
@@ -31,6 +37,16 @@ class HomeTableViewCell: UITableViewCell {
         let uurl = URL(string: video.userProfileImage ?? "")
         self.userProfileImage.kf.setImage(with: uurl)
 
+    }
+    func tapedLabel(){
+        userName.isUserInteractionEnabled = true
+        
+        let labelTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.doSomethingOnTap))
+        
+        userName.addGestureRecognizer(labelTapGesture)
+    }
+    @objc func doSomethingOnTap() {
+        print("tapped")
     }
     
 }

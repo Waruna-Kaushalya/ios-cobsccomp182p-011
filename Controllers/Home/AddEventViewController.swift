@@ -29,6 +29,16 @@ class AddEventViewController: UIViewController {
     var image: UIImage? = nil
     
     override func viewDidLoad() {
+        
+        let  aa = CheckUserLoginStatus()
+        
+        if aa.checkUserLoginStatus() != true {
+            let alert = AlertMessages()
+            alert.ActionAlert(_title: "User not login", _message: "User must login to add event", _viewCIdentifier: "LoginNavIVC", _viewControllerName: self)
+        }
+        
+        
+        
         super.viewDidLoad()
         setElement()
         setupProfileImage()

@@ -25,6 +25,8 @@ class AddEventViewController: UIViewController {
     
     let firbaseProfileimageUrl = "gs://ios-nibm.appspot.com"
     
+   
+    
     
     var image: UIImage? = nil
     
@@ -37,20 +39,12 @@ class AddEventViewController: UIViewController {
             alert.ActionAlert(_title: "User not login", _message: "User must login to add event", _viewCIdentifier: "LoginNavIVC", _viewControllerName: self)
         }
         
-        
-        
         super.viewDidLoad()
         setElement()
         setupProfileImage()
-        //        setDataToFireBase()
-        
         
     }
-    //    func setDataToFireBase(){
-    //        let db = Firestore.firestore()
-    //        let newDocument = db.collection("Event").document()
-    //        newDocument.setData(["EventTitle" : "NIBM 2017", "EventDescription": "dbbjsdvbhjbdbvjsdb vjhb hj h"])
-    //    }
+    
     func setElement() {
         eventTitle.styleTextField()
         eventDescription.styleTextField()
@@ -90,7 +84,6 @@ class AddEventViewController: UIViewController {
     }
     
     
-    
     @IBAction func publishedButtonTapped(_ sender: Any) {
         
         let eventTitleTxt = eventTitle.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -99,7 +92,7 @@ class AddEventViewController: UIViewController {
         
         let userID : String = (Auth.auth().currentUser?.uid)!
         print("Current user ID is " + userID)
-        //Profile image things
+        
         guard let imageSelected  = self.image else{
             alertMSG.warningAlertMessage(_AlertMessage: "Please Select Profile Image", _viewCFrom: self)
             return
@@ -109,12 +102,9 @@ class AddEventViewController: UIViewController {
         }
         
         
-        
-        //                    var imageURL: String?
-        
         let storageRef = Storage.storage().reference(forURL: self.firbaseProfileimageUrl)
         let storageProfileRef = storageRef.child("eventImages").child(userID)
-        //        child("profile").child(result!.user.uid)
+        
         
         let metaData = StorageMetadata()
         
@@ -125,19 +115,12 @@ class AddEventViewController: UIViewController {
                 return
             }
             
-            //Read image url
             storageProfileRef.downloadURL(completion: { (url, error) in
                 if let metaImageUrl = url?.absoluteString{
                     print(metaImageUrl)
                     
-            
-                    print("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
-                    
                     let uuid = UUID().uuidString
                     print(uuid)
-                    
-                    
-                    
                     
                     self.pushDataToFireBase(_UID: userID, eventTitle: eventTitleTxt, eventDescription: eventDescriptionTxt, _imageURL: metaImageUrl,eventID:uuid)
                     
@@ -145,13 +128,16 @@ class AddEventViewController: UIViewController {
             })
         })
         
-        //
-        
     }
     func pushDataToFireBase(_UID:String,eventTitle:String,eventDescription:String,_imageURL: String,eventID:String )  {
         let db = Firestore.firestore()
-        var likeCount:Int = 0
-        db.collection("event").addDocument(data: ["userID":_UID,"eventtitle":eventTitle,"eventdescription":eventDescription,"eventImageUrl":_imageURL,"eventID":eventID,"likeCount":likeCount ]) { (error) in
+        
+        
+        var goingCount:Int = 0
+         var goingUsers = [String]()
+        
+
+        db.collection("event").addDocument(data: ["userID":_UID,"eventtitle":eventTitle,"eventdescription":eventDescription,"eventImageUrl":_imageURL,"eventID":eventID,"goingCount":goingCount,"goingUsers":goingUsers ]) { (error) in
             if error != nil {
                 
                 
@@ -159,13 +145,10 @@ class AddEventViewController: UIViewController {
                 self.alertMSG.warningAlertMessage(_AlertMessage: ERROR_SAVING_DATA, _viewCFrom: self)
                 
             }else{
-                //                DispatchQueue.main.async {
-                //                   self.alertMSG.warningAlertMessage(_AlertMessage: "done", _viewCFrom: self)
-                //                }
                 
                 let trans = TransitionController()
                 trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: self)
-                //                HomeTableVCELL
+                
             }
         }
         
@@ -193,20 +176,6 @@ extension AddEventViewController:UIImagePickerControllerDelegate, UINavigationCo
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    
-    //    override func viewDidAppear(_ animated: Bool) {
-    //        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-    //        self.navigationController?.navigationBar.shadowImage = UIImage()
-    //
-    //
-    //        super.viewDidAppear(animated)
-    //        let height: CGFloat = 30 //whatever height you want to add to the existing height
-    //        let bounds = self.navigationController!.navigationBar.bounds
-    //        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
-    //
-    //
-    //    }
-    
     
 }
 

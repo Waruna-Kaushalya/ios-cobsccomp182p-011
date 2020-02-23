@@ -9,6 +9,11 @@
 import UIKit
 import Kingfisher
 
+import FirebaseAuth
+import Firebase
+import FirebaseFirestore
+import FirebaseStorage
+
 
 
 
@@ -26,23 +31,40 @@ class HomeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var goingButton: UIButton!
     
+    var goingCountArray:[Int] = [0]
+    var goingUsers:[String] = [""]
+    var eventIdentifire:[String] = [""]
+//    var currentUserId:[String] = [""]
     
+//     let userIdd = Auth.auth().currentUser!.uid
+    let userIdd = "Aw2nt3h4DI9ZBdwJzQ4k3jVKRvWI3"
     
     func setVideo(video: Video)  {
         
-//        print("sdvsdvsdvsdvsdvsdvsdvsdsdvsdvsd")
+        
+        var arr = video.goingUsers
         
         
+        //        var arr = ["a", "b", "c", "d"]
+        //add element
+        //        numbers.append(100)
+        
+        
+        //remove element
+        //        var farray = arr.filter {$0 != "b"}
+        
+        
+        
+        
+        
+        
+        //        goingButton.setImage(UIImage(named: "Going"), for: .normal)
+        //        goingButton.tag = 0
         userProfileImage.roundedImage()
         
         let url = URL(string: video.iamage ?? "")
         self.postImageView.kf.setImage(with: url)
         postTitle.text = video.title
-        
-//        self.test.accessibilityLabel = "ffff"
-        
-      
-        
         
         eventDescription.text = video.eventDescription
         
@@ -50,8 +72,9 @@ class HomeTableViewCell: UITableViewCell {
         let uurl = URL(string: video.userProfileImage ?? "")
         self.userProfileImage.kf.setImage(with: uurl)
         
+        
         tapedLabel()
-
+        
     }
     func tapedLabel(){
         userName.isUserInteractionEnabled = true
@@ -62,48 +85,100 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     
-
+    
     @objc func doSomethingOnTap() {
-        
-        
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let destination = storyboard.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
-        
-        
-
-    
-        
-//        let a = EventBoardViewController()
-//        a.transitionToProfile()m
-        
-        
-//        println("tapped!")
-//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//        let secondViewController = storyBoard.instantiateViewControllerWithIdentifier("secondView") as UserProfileViewController
-//        self.presentViewController(secondViewController, animated:true, completion:nil)
         
         print("tapped")
     }
     
     
     @IBAction func btnGoing_Clicked(_ sender: UIButton) {
+        let aa = CheckUserLoginStatus()
+        
+        if aa.checkUserLoginStatus() == true {
+           
+        }else{
+           
+            UIAlertController(title: "Alert", message: "User must login", preferredStyle: .alert)
+        }
         
         if goingButton.tag == 0 {
+            
             goingButton.setImage(UIImage(named: "Going"), for: .normal)
             goingButton.tag = 1
+            
+            goingCountArray[0] = goingCountArray[0] + 1
+            
+            print("==================================")
+            print(userIdd)
+           
+            print(userIdd)
+            
+            
+            goingUsers.append(userIdd)
+            
+            lick()
             print("going")
-        }else{
-             goingButton.setImage(UIImage(named: "NotGoing"), for: .normal)
+            
+        }else {
+            
+            goingButton.setImage(UIImage(named: "NotGoing"), for: .normal)
             goingButton.tag = 0
-              print("not going")
+            
+            goingCountArray[0] = goingCountArray[0] - 1
+            goingUsers = goingUsers.filter {$0 != userIdd}
+            
+            lick()
+            print("not going")
         }
         
     }
-    
-    
-    
-    
+    func lick(){
+        
+        print(goingCountArray[0])
+        print(eventIdentifire[0])
+        
+        let db = Firestore.firestore()
+        db.collection("event").whereField("eventID", isEqualTo: eventIdentifire[0])
+            .addSnapshotListener { querySnapshot, error in
+                guard (querySnapshot?.documents) != nil else {
+                    print("Error fetching documents: \(error!)")
+                    return
+                }
+                let document = querySnapshot!.documents.first
+                let goingInt:Int = self.goingCountArray[0]
+                document!.reference.updateData(["goingCount": goingInt])
+                document!.reference.updateData(["goingUsers": self.goingUsers])
+        }
+        
+    }
+    func setPLike(video: Video){
+        
+        goingCountArray[0] = video.goingCount
+        eventIdentifire[0] = video.eventIdentifire
+       
+        goingUsers = video.goingUsers
+        
+        var flagC:[Bool] = [false]
+        
+        for i in 0..<goingUsers.count {
+            
+            if goingUsers[i] ==  userIdd {
+                flagC[0] = true
+            }else{
+                flagC[0] = false
+            }
+            print(goingUsers[i])
+        }
+        
+        if flagC[0] == true{
+            goingButton.setImage(UIImage(named: "Going"), for: .normal)
+            goingButton.tag = 1
+        }
+    }
 }
 
 

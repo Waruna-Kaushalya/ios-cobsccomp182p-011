@@ -22,7 +22,7 @@ class EventBoardViewController: UIViewController {
     var videoList:[Video] = []
     //    var userDataList:[UserData] = []
     
-    
+//    var goingUsers = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +57,15 @@ class EventBoardViewController: UIViewController {
                 let title = data["eventtitle"] as? String
                 let eventDescription = data["eventdescription"] as? String
                 let userID = data["userID"] as? String
+                let goingCount = data["goingCount"] as? Int
+                let eventIdentifire = data["eventID"] as? String
+                let goingUsers = data["goingUsers"] as! [String]
+                
+               
+                
+                
+//                self.goingUsers.append(goingUsersget!)
+                
                 
                 
                 let dataRef = Firestore.firestore().collection("users").whereField("uid", isEqualTo: userID ?? "")
@@ -70,10 +79,15 @@ class EventBoardViewController: UIViewController {
                     let phoneNumber = dataDescription?["phoneNumber"] as? String
                     let fbURL = dataDescription?["facebookurl"] as? String
                     let userProfileImage = dataDescription?["imageURL"] as? String
+                    let currntUserID = dataDescription?["uid"] as? String
+                   
+                   
                     
                     
                     
-                    let video:Video = Video(image: imageURL!, title: title!, eventDescription: eventDescription!, userName: userFName! , userProfileImage: userProfileImage!)
+//                    let video:Video = Video(image: imageURL!, title: title!, eventDescription: eventDescription!, userName: userFName!, userProfileImage: userProfileImage!)
+                    
+                    let video:Video = Video(image: imageURL!, title: title!, eventDescription: eventDescription!, userName: userFName!, userProfileImage: userProfileImage!, goingCount: goingCount!, eventIdentifire: eventIdentifire!,goingUsers:goingUsers,userID:userID!,currntUserID:currntUserID!)
                     
                     
                     let asd = UserModel()
@@ -123,6 +137,9 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         let video:Video = self.videoList[indexPath.row]
         
         cell.setVideo(video: video)
+        cell.setPLike(video: video)
+        
+        
         
         return cell
         

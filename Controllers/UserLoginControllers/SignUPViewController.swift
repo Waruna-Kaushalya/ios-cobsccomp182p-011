@@ -255,4 +255,3 @@ extension SignUPViewController:UIImagePickerControllerDelegate, UINavigationCont
     
     
 }
-

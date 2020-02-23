@@ -24,6 +24,10 @@ class Video {
         self.eventDescription = eventDescription
         self.userName = userName
         self.userProfileImage = userProfileImage
+        
 
     }
 }
+
+
+

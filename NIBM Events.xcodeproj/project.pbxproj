@@ -45,6 +45,10 @@
 		C09E10AA23FBC9E000B26D78 /* EventBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10A923FBC9E000B26D78 /* EventBoardViewController.swift */; };
 		C09E10B423FCF33E00B26D78 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10B323FCF33E00B26D78 /* HomeTableViewCell.swift */; };
 		C09E10B723FCF58200B26D78 /* eventImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10B623FCF58200B26D78 /* eventImage.swift */; };
+		C09E10BD23FF866800B26D78 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10BC23FF866800B26D78 /* UserProfileViewController.swift */; };
+		C09E10C023FF875A00B26D78 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10BF23FF875A00B26D78 /* UserData.swift */; };
+		C09E10C223FFBC5100B26D78 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10C123FFBC5000B26D78 /* EventDetailsViewController.swift */; };
+		C09E10C423FFF1D400B26D78 /* eventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10C323FFF1D400B26D78 /* eventModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +117,10 @@
 		C09E10A923FBC9E000B26D78 /* EventBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBoardViewController.swift; sourceTree = "<group>"; };
 		C09E10B323FCF33E00B26D78 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		C09E10B623FCF58200B26D78 /* eventImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventImage.swift; sourceTree = "<group>"; };
+		C09E10BC23FF866800B26D78 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		C09E10BF23FF875A00B26D78 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		C09E10C123FFBC5000B26D78 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		C09E10C323FFF1D400B26D78 /* eventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventModel.swift; sourceTree = "<group>"; };
 		CB449CFBEC948D72CC57102B /* Pods_NIBM_Events_NIBM_EventsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_Events_NIBM_EventsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA21464748A9FBCF2E21CDA6 /* Pods-NIBM Events.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM Events.debug.xcconfig"; path = "Target Support Files/Pods-NIBM Events/Pods-NIBM Events.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -260,6 +268,7 @@
 		C07F19A123EF2AEC004AD08D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C09E10BE23FF86E200B26D78 /* UserProfile */,
 				C09E10B523FCF53200B26D78 /* NewsFeed */,
 				C09DD52D23ED464C00EDA0CB /* Utilities */,
 				C07F19B223F155C0004AD08D /* Home */,
@@ -326,8 +335,19 @@
 			children = (
 				C09E10B323FCF33E00B26D78 /* HomeTableViewCell.swift */,
 				C09E10B623FCF58200B26D78 /* eventImage.swift */,
+				C09E10C123FFBC5000B26D78 /* EventDetailsViewController.swift */,
+				C09E10C323FFF1D400B26D78 /* eventModel.swift */,
 			);
 			path = NewsFeed;
+			sourceTree = "<group>";
+		};
+		C09E10BE23FF86E200B26D78 /* UserProfile */ = {
+			isa = PBXGroup;
+			children = (
+				C09E10BC23FF866800B26D78 /* UserProfileViewController.swift */,
+				C09E10BF23FF875A00B26D78 /* UserData.swift */,
+			);
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -581,6 +601,7 @@
 				C07F19B123F14EC9004AD08D /* TextFieldUtilities.swift in Sources */,
 				C07F19C623F55E7B004AD08D /* FloatingTextField.swift in Sources */,
 				C07F19C223F3D332004AD08D /* CurrentUserDataRetrivel.swift in Sources */,
+				C09E10BD23FF866800B26D78 /* UserProfileViewController.swift in Sources */,
 				C07F199723EF2564004AD08D /* TransitionVC.swift in Sources */,
 				C09DD52C23ED3B6D00EDA0CB /* SignUPViewController.swift in Sources */,
 				C07F19B423F155E1004AD08D /* HomeViewController.swift in Sources */,
@@ -588,6 +609,7 @@
 				C09DD52A23ED3B3200EDA0CB /* LoginViewController.swift in Sources */,
 				C09E10AA23FBC9E000B26D78 /* EventBoardViewController.swift in Sources */,
 				C09E10B423FCF33E00B26D78 /* HomeTableViewCell.swift in Sources */,
+				C09E10C023FF875A00B26D78 /* UserData.swift in Sources */,
 				C07F19BE23F2B2A8004AD08D /* AddPostViewController.swift in Sources */,
 				C07F19A823EF2EF5004AD08D /* SignOutAction.swift in Sources */,
 				C07F19C023F39027004AD08D /* CheckUserLoginStatus.swift in Sources */,
@@ -595,9 +617,11 @@
 				C033B28A23E9601000726A03 /* AppDelegate.swift in Sources */,
 				C09DD53123EEFA7300EDA0CB /* PasswordForgetViewController.swift in Sources */,
 				C09E107923F66C7100B26D78 /* MyProfileViewController.swift in Sources */,
+				C09E10C223FFBC5100B26D78 /* EventDetailsViewController.swift in Sources */,
 				C07F19C423F54562004AD08D /* UIImageUtilities.swift in Sources */,
 				C07F199E23EF265A004AD08D /* TouchFaceIDAuthentication.swift in Sources */,
 				C07F199C23EF25E0004AD08D /* CheckPasswordAndEmail.swift in Sources */,
+				C09E10C423FFF1D400B26D78 /* eventModel.swift in Sources */,
 				C033B29223E9601000726A03 /* NIBM_Events.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

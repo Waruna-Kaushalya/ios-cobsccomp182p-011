@@ -26,18 +26,20 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userProfileImage: UIImageView!
     
-    @IBOutlet weak var userProfileButton: UIButton!
+
     
     
     @IBOutlet weak var goingButton: UIButton!
+    @IBOutlet weak var goingCountLabel: UILabel!
     
     var goingCountArray:[Int] = [0]
     var goingUsers:[String] = [""]
     var eventIdentifire:[String] = [""]
-//    var currentUserId:[String] = [""]
+    var currentUserId:[String] = [""]
     
-//     let userIdd = Auth.auth().currentUser!.uid
-    let userIdd = "Aw2nt3h4DI9ZBdwJzQ4k3jVKRvWI3"
+    
+    
+    //    let userIdd = "Aw2nt3h4DI9ZBdwJzQ4k3jVKRvWI3"
     
     func setVideo(video: Video)  {
         
@@ -52,12 +54,6 @@ class HomeTableViewCell: UITableViewCell {
         
         //remove element
         //        var farray = arr.filter {$0 != "b"}
-        
-        
-        
-        
-        
-        
         //        goingButton.setImage(UIImage(named: "Going"), for: .normal)
         //        goingButton.tag = 0
         userProfileImage.roundedImage()
@@ -96,44 +92,53 @@ class HomeTableViewCell: UITableViewCell {
     
     
     @IBAction func btnGoing_Clicked(_ sender: UIButton) {
+        print(currentUserId[0])
         let aa = CheckUserLoginStatus()
         
         if aa.checkUserLoginStatus() == true {
-           
+            if goingButton.tag == 0 {
+                
+                goingButton.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
+                goingButton.tag = 1
+                
+                goingCountArray[0] = goingCountArray[0] + 1
+                
+                goingCountLabel.text = String ("Count " + "\(goingCountArray[0])")
+                
+                
+                print("==================================")
+                print(currentUserId[0])
+                
+                print(currentUserId[0])
+                
+                
+                goingUsers.append(currentUserId[0])
+                
+                lick()
+                print("going")
+                
+            }else {
+                
+                goingButton.setImage(UIImage(named: "GoingBtn"), for: .normal)
+                goingButton.tag = 0
+                
+                goingCountArray[0] = goingCountArray[0] - 1
+                goingCountLabel.text = String ("Count " + "\(goingCountArray[0])")
+                
+                goingUsers = goingUsers.filter {$0 != currentUserId[0]}
+                
+                lick()
+                print("not going")
+            }
+            
         }else{
-           
+            print("{[[[[[[[[[[[[[]]]]]]]]]]]]]}")
             UIAlertController(title: "Alert", message: "User must login", preferredStyle: .alert)
+            
+            
         }
         
-        if goingButton.tag == 0 {
-            
-            goingButton.setImage(UIImage(named: "Going"), for: .normal)
-            goingButton.tag = 1
-            
-            goingCountArray[0] = goingCountArray[0] + 1
-            
-            print("==================================")
-            print(userIdd)
-           
-            print(userIdd)
-            
-            
-            goingUsers.append(userIdd)
-            
-            lick()
-            print("going")
-            
-        }else {
-            
-            goingButton.setImage(UIImage(named: "NotGoing"), for: .normal)
-            goingButton.tag = 0
-            
-            goingCountArray[0] = goingCountArray[0] - 1
-            goingUsers = goingUsers.filter {$0 != userIdd}
-            
-            lick()
-            print("not going")
-        }
+        
         
     }
     func lick(){
@@ -152,31 +157,43 @@ class HomeTableViewCell: UITableViewCell {
                 let goingInt:Int = self.goingCountArray[0]
                 document!.reference.updateData(["goingCount": goingInt])
                 document!.reference.updateData(["goingUsers": self.goingUsers])
+                
         }
         
     }
     func setPLike(video: Video){
         
-        goingCountArray[0] = video.goingCount
-        eventIdentifire[0] = video.eventIdentifire
-       
-        goingUsers = video.goingUsers
         
-        var flagC:[Bool] = [false]
+        let aa = CheckUserLoginStatus()
         
-        for i in 0..<goingUsers.count {
+        if aa.checkUserLoginStatus() == true {
+            currentUserId[0] = Auth.auth().currentUser!.uid
+            goingCountArray[0] = video.goingCount
+            eventIdentifire[0] = video.eventIdentifire
             
-            if goingUsers[i] ==  userIdd {
-                flagC[0] = true
-            }else{
-                flagC[0] = false
+            goingCountLabel.text = String ("Count " + "\(goingCountArray[0])")
+            
+            goingUsers = video.goingUsers
+            
+            var flagC:[Bool] = [false]
+            
+            for i in 0..<goingUsers.count {
+                
+                if goingUsers[i] ==  currentUserId[0] {
+                    flagC[0] = true
+                }else{
+                    flagC[0] = false
+                }
+                print(goingUsers[i])
             }
-            print(goingUsers[i])
-        }
-        
-        if flagC[0] == true{
-            goingButton.setImage(UIImage(named: "Going"), for: .normal)
-            goingButton.tag = 1
+            
+            if flagC[0] == true{
+                goingButton.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
+                goingButton.tag = 1
+            }
+        }else{
+            
+            goingButton.isHidden = true
         }
     }
 }

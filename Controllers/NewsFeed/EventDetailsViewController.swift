@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import Kingfisher
+import FirebaseAuth
+import Firebase
+import FirebaseFirestore
+import FirebaseStorage
 
 class EventDetailsViewController: UIViewController {
     
@@ -14,10 +19,14 @@ class EventDetailsViewController: UIViewController {
     
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var eventTitle: UILabel!
-    @IBOutlet weak var eventDescription: UILabel!
-  
+    
+    @IBOutlet weak var eventImage: UIImageView!
+    @IBOutlet weak var eventDescriptionLabel: UILabel!
+    @IBOutlet weak var eventLocation: UILabel!
+    @IBOutlet weak var eventAdedDate: UILabel!
+    @IBOutlet weak var goingBtn: UIButton!
+    @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var userLastNameLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -25,9 +34,13 @@ class EventDetailsViewController: UIViewController {
 
         
         if let theVideo = self.video {
+            
             eventTitle.text = video?.title
-            eventDescription.text = video?.eventDescription
-            userName.text = video?.userName
+            
+            let uurl = URL(string: video?.userProfileImage ?? "")
+            self.userProfileImage.kf.setImage(with: uurl)
+            
+            
             
         }
 

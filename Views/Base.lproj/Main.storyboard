@@ -824,10 +824,24 @@
                                                     <constraint firstAttribute="height" constant="180" id="GPz-bn-l9u"/>
                                                 </constraints>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcH-zB-cA3">
-                                                <rect key="frame" x="144" y="568" width="87" height="30"/>
-                                                <state key="normal" title="GoingButton"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcH-zB-cA3">
+                                                <rect key="frame" x="87.666666666666686" y="568" width="200" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="fUC-m3-OXt"/>
+                                                    <constraint firstAttribute="width" constant="200" id="fml-GT-dkg"/>
+                                                </constraints>
+                                                <state key="normal" title="GoingButton" image="GoingBtn"/>
+                                                <connections>
+                                                    <action selector="goingBtnClicked:" destination="ZWP-jx-Sux" eventType="touchUpInside" id="GQS-fN-QFf"/>
+                                                </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXX-Kl-Jab">
+                                                <rect key="frame" x="151" y="638" width="121" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -896,13 +910,14 @@
                         <outlet property="eventLocation" destination="TMQ-g8-DpA" id="jug-Wy-b7f"/>
                         <outlet property="eventTitle" destination="lMl-OC-l4J" id="aFl-cP-V4B"/>
                         <outlet property="goingBtn" destination="PcH-zB-cA3" id="CJG-yn-WCd"/>
+                        <outlet property="goingCountLabel" destination="XXX-Kl-Jab" id="LsR-jj-man"/>
                         <outlet property="userName" destination="x9W-Ga-D6L" id="1QO-CW-GF7"/>
                         <outlet property="userProfileImage" destination="gKI-dX-NWG" id="o9Z-Qh-olW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Pp-Al-Cql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7116" y="661.33004926108379"/>
+            <point key="canvasLocation" x="7655" y="540"/>
         </scene>
     </scenes>
     <resources>

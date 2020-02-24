@@ -46,7 +46,7 @@
 		C09E10B423FCF33E00B26D78 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10B323FCF33E00B26D78 /* HomeTableViewCell.swift */; };
 		C09E10B723FCF58200B26D78 /* eventImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10B623FCF58200B26D78 /* eventImage.swift */; };
 		C09E10BD23FF866800B26D78 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10BC23FF866800B26D78 /* UserProfileViewController.swift */; };
-		C09E10C023FF875A00B26D78 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10BF23FF875A00B26D78 /* UserData.swift */; };
+		C09E10C023FF875A00B26D78 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10BF23FF875A00B26D78 /* User.swift */; };
 		C09E10C223FFBC5100B26D78 /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10C123FFBC5000B26D78 /* EventDetailsViewController.swift */; };
 		C09E10C423FFF1D400B26D78 /* eventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C09E10C323FFF1D400B26D78 /* eventModel.swift */; };
 /* End PBXBuildFile section */
@@ -118,7 +118,7 @@
 		C09E10B323FCF33E00B26D78 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		C09E10B623FCF58200B26D78 /* eventImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventImage.swift; sourceTree = "<group>"; };
 		C09E10BC23FF866800B26D78 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		C09E10BF23FF875A00B26D78 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		C09E10BF23FF875A00B26D78 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C09E10C123FFBC5000B26D78 /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
 		C09E10C323FFF1D400B26D78 /* eventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eventModel.swift; sourceTree = "<group>"; };
 		CB449CFBEC948D72CC57102B /* Pods_NIBM_Events_NIBM_EventsUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_Events_NIBM_EventsUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -180,8 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				C07F19A123EF2AEC004AD08D /* Controllers */,
-				C07F19A023EF2AE5004AD08D /* Views */,
 				C07F199F23EF2ADA004AD08D /* Models */,
+				C07F19A023EF2AE5004AD08D /* Views */,
 				C033B28823E9601000726A03 /* NIBM Events */,
 				C033B2A023E9601100726A03 /* NIBM EventsTests */,
 				C033B2AB23E9601100726A03 /* NIBM EventsUITests */,
@@ -345,7 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				C09E10BC23FF866800B26D78 /* UserProfileViewController.swift */,
-				C09E10BF23FF875A00B26D78 /* UserData.swift */,
+				C09E10BF23FF875A00B26D78 /* User.swift */,
 			);
 			path = UserProfile;
 			sourceTree = "<group>";
@@ -609,7 +609,7 @@
 				C09DD52A23ED3B3200EDA0CB /* LoginViewController.swift in Sources */,
 				C09E10AA23FBC9E000B26D78 /* EventBoardViewController.swift in Sources */,
 				C09E10B423FCF33E00B26D78 /* HomeTableViewCell.swift in Sources */,
-				C09E10C023FF875A00B26D78 /* UserData.swift in Sources */,
+				C09E10C023FF875A00B26D78 /* User.swift in Sources */,
 				C07F19BE23F2B2A8004AD08D /* AddPostViewController.swift in Sources */,
 				C07F19A823EF2EF5004AD08D /* SignOutAction.swift in Sources */,
 				C07F19C023F39027004AD08D /* CheckUserLoginStatus.swift in Sources */,

@@ -11,31 +11,39 @@ import UIKit
 class UserProfileViewController: UIViewController {
     @IBOutlet weak var closeButtonAction: UIButton!
     
+    struct Resolution {
+        var name = 0
+        var height = 0
+    }
+    
+    var video:Video?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       
+       print("-----------------------------------")
+        print( video?.userName)
+        print("-----------------------------------")
+        
+    }
+    func setVideo(video: Video)  {
+        
+        
+        var arr = video.goingUsers
+        
+        var usernamec = video.userName
+        
+
+        
+//        print("-----------------------------------")
+        print(usernamec)
+        
+        
+        
+        
     }
     
-//    func setUser(userD: UserData)  {
-//        
-//        print("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\")
-//        print(userD.contactNumber)
-//        
-////        tapedLabel()
-////
-////        userProfileImage.roundedImage()
-////
-////        let url = URL(string: video.iamage ?? "")
-////        self.postImageView.kf.setImage(with: url)
-////        postTitle.text = video.title
-////        eventDescription.text = video.eventDescription
-////
-////        userName.text = video.userName
-////        let uurl = URL(string: video.userProfileImage ?? "")
-////        self.userProfileImage.kf.setImage(with: uurl)
-//        
-//    }
+  
     @IBAction func closeButtonAction(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)

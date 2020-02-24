@@ -8,16 +8,14 @@
 
 import UIKit
 import Kingfisher
-
 import FirebaseAuth
 import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 
 
-
-
 class HomeTableViewCell: UITableViewCell {
+
     
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTitle: UILabel!
@@ -26,17 +24,26 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userProfileImage: UIImageView!
     
-
-    
-    
     @IBOutlet weak var goingButton: UIButton!
     @IBOutlet weak var goingCountLabel: UILabel!
+    
+    
+     var delegate:CellDelegator!
+    
+    
     
     var goingCountArray:[Int] = [0]
     var goingUsers:[String] = [""]
     var eventIdentifire:[String] = [""]
     var currentUserId:[String] = [""]
     
+    
+    var userFirstName:[String] = [""]
+    var userLastName:[String] = [""]
+    var userContactNumber:[String] = [""]
+    var userFBUrl:[String] = [""]
+    var userProfileImageUrl:[String] = [""]
+  
     
     
     //    let userIdd = "Aw2nt3h4DI9ZBdwJzQ4k3jVKRvWI3"
@@ -64,6 +71,16 @@ class HomeTableViewCell: UITableViewCell {
         
         eventDescription.text = video.eventDescription
         
+        
+        
+//        ÷userNameSet[0] = video.userName
+//        BroadService.sharedInstance.storedVideoLink = videoLink
+//        HomeTableViewCell.userDetails.userNameCheck = video.userName
+        
+        
+//        UserDetails.init(userNameStruct: video.userName)
+//
+//       print(UserDetails.self)
         userName.text = video.userName
         let uurl = URL(string: video.userProfileImage ?? "")
         self.userProfileImage.kf.setImage(with: uurl)
@@ -88,6 +105,14 @@ class HomeTableViewCell: UITableViewCell {
         let destination = storyboard.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
         
         print("tapped")
+        
+        let v = Video(image: "hhhghgh", title: "jhgghgjgjgj", eventDescription: "hhgghgjgg", userName:  "userNameSet[0]"  , userProfileImage: "hjhgjjhgg", goingCount: 888, eventIdentifire: "vvhgvghvhgvhg", goingUsers: ["hvjhv"], userID: "jhvjhv", currntUserID: "jjjjj");
+        
+        //        let b = userName
+        
+        if (self.delegate != nil) { //Just to be safe.
+            self.delegate.callSegueFromCell(data: v)
+        }
     }
     
     
@@ -155,6 +180,7 @@ class HomeTableViewCell: UITableViewCell {
                 }
                 let document = querySnapshot!.documents.first
                 let goingInt:Int = self.goingCountArray[0]
+                print(goingInt)
                 document!.reference.updateData(["goingCount": goingInt])
                 document!.reference.updateData(["goingUsers": self.goingUsers])
                 

@@ -12,7 +12,12 @@ import FirebaseAuth
 import FirebaseFirestore
 import Kingfisher
 
-class EventBoardViewController: UIViewController {
+
+protocol CellDelegator {
+    func callSegueFromCell(data dataobject: Video)
+}
+
+class EventBoardViewController: UIViewController, CellDelegator {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,20 +27,39 @@ class EventBoardViewController: UIViewController {
     var videoList:[Video] = []
     //    var userDataList:[UserData] = []
     
-//    var goingUsers = [String]()
+    //    var goingUsers = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-//        tableView.delegate = self
-//        tableView.dataSource = self
+        //        tableView.delegate = self
+        //        tableView.dataSource = self
         retrieveBooks()
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
         
     }
+    
+    // conform to Cell deligator
+    func callSegueFromCell(data dataobject: Video) {
+        //self.performSegueWithIdentifier("showComments", sender:dataobject )
+        print("---------------------------")
+        print("callSegueFromCell")
+        let viewName = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
+        
+//         let viewName = tableView.dequeueReusableCell(withIdentifier: "UserProfileVC")  as! UserProfileViewController
+        
+        viewName.video = dataobject
+       
+        viewName.setVideo(video: dataobject)
+        
+        
+        self.present(viewName, animated: true, completion: nil)
+        
+    }
+    
     func retrieveBooks(){
         
         let docRef = Firestore.firestore().collection("event")
@@ -58,10 +82,10 @@ class EventBoardViewController: UIViewController {
                 let eventIdentifire = data["eventID"] as? String
                 let goingUsers = data["goingUsers"] as! [String]
                 
-               
                 
                 
-//                self.goingUsers.append(goingUsersget!)
+                
+                //                self.goingUsers.append(goingUsersget!)
                 
                 
                 
@@ -77,12 +101,12 @@ class EventBoardViewController: UIViewController {
                     let fbURL = dataDescription?["facebookurl"] as? String
                     let userProfileImage = dataDescription?["imageURL"] as? String
                     let currntUserID = dataDescription?["uid"] as? String
-                   
-                   
                     
                     
                     
-//                    let video:Video = Video(image: imageURL!, title: title!, eventDescription: eventDescription!, userName: userFName!, userProfileImage: userProfileImage!)
+                    
+                    
+                    //                    let video:Video = Video(image: imageURL!, title: title!, eventDescription: eventDescription!, userName: userFName!, userProfileImage: userProfileImage!)
                     
                     let video:Video = Video(image: imageURL!, title: title!, eventDescription: eventDescription!, userName: userFName!, userProfileImage: userProfileImage!, goingCount: goingCount!, eventIdentifire: eventIdentifire!,goingUsers:goingUsers,userID:userID!,currntUserID:currntUserID!)
                     
@@ -100,14 +124,14 @@ class EventBoardViewController: UIViewController {
             }
         }
     }
-   
+    
     
 }
 
 extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
+        
         
         let eventsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "eventDetailsVC") as! EventDetailsViewController
         
@@ -136,6 +160,7 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         cell.setVideo(video: video)
         cell.setPLike(video: video)
         
+        cell.delegate = self
         
         
         return cell

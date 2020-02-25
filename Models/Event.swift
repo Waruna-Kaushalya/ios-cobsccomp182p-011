@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Video {
+class Event {
     var iamage: String
     var title: String
     var eventDescription: String

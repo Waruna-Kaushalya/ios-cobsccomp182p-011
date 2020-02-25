@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="3161" y="899"/>
         </scene>
-        <!--Home View Controller-->
+        <!--View Controller-->
         <scene sceneID="hmU-Ys-5zE">
             <objects>
-                <viewController storyboardIdentifier="HomeVCTest" id="bww-7C-zqO" customClass="HomeViewController" customModule="NIBM_Events" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVCTest" id="bww-7C-zqO" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vh1-SP-5ty">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="3161" y="188"/>
         </scene>
-        <!--Add Post View Controller-->
+        <!--View Controller-->
         <scene sceneID="Fwc-uW-xB7">
             <objects>
-                <viewController storyboardIdentifier="AddPostVC" id="uTg-vp-C8A" customClass="AddPostViewController" customModule="NIBM_Events" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddPostVC" id="uTg-vp-C8A" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aGn-9S-o1H">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -361,7 +361,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="685"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HomeTableVCELL" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VideoCell" id="9ir-cJ-tUO" customClass="HomeTableViewCell" customModule="NIBM_Events" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="HomeTableVCELL" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="EventCell" id="9ir-cJ-tUO" customClass="HomeTableViewCell" customModule="NIBM_Events" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="420"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9ir-cJ-tUO" id="JGX-3s-kn4">
@@ -701,7 +701,6 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Close"/>
                                                 <connections>
-                                                    <action selector="closeButtonAction:" destination="ZWP-jx-Sux" eventType="touchUpInside" id="cRD-GB-7bd"/>
                                                     <action selector="closeButtonAction:" destination="qcG-R4-hVI" eventType="touchUpInside" id="mFj-qc-uta"/>
                                                 </connections>
                                             </button>
@@ -768,7 +767,7 @@
                                                 </constraints>
                                                 <state key="normal" title="Close" image="close"/>
                                                 <connections>
-                                                    <action selector="closeButtonAction:" destination="ZWP-jx-Sux" eventType="touchUpInside" id="qtp-CM-z0y"/>
+                                                    <action selector="closeButtonClick:" destination="ZWP-jx-Sux" eventType="touchUpInside" id="pLb-wU-KBY"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="zFW-Zg-Aql">
@@ -917,7 +916,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Pp-Al-Cql" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7655" y="540"/>
+            <point key="canvasLocation" x="7653.6000000000004" y="539.40886699507394"/>
         </scene>
     </scenes>
     <resources>

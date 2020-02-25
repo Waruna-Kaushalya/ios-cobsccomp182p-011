@@ -15,7 +15,7 @@ import FirebaseStorage
 
 class EventDetailsViewController: UIViewController {
     
-    var video:Video?
+    var event:Event?
     
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var eventTitle: UILabel!
@@ -28,229 +28,38 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var goingCountLabel: UILabel!
     
-    
-    
-    var goingCountArray:[Int] = [0]
-    var goingUsers:[String] = [""]
-    var eventIdentifire:[String] = [""]
-    var currentUserId:[String] = [""]
-    
+    let eventAtendingDB = EventAtendingDB()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-//        setData()
-        
         userProfileImage.roundedImage()
         
+        goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
         
-    
-        //==========================
-        let dd = Firestore.firestore()
-        dd.collection("event").whereField("eventID", isEqualTo: eventIdentifire[0])
-            .addSnapshotListener { querySnapshot, error in
-                
-//                guard (querySnapshot?.documents) != nil else {
-//                    print("Error fetching documents: \(error!)")
-//                    return
-//                }
-                
-                
-                
-                  let document = querySnapshot!.documents.first
-                print(document)
-                
-//                eventId = querySnapshot.value?["eventID"] as? String ?? ""
-                
-                let eventId  = document!.get("eventID") as! String
-                
-              
-                
-               
-                
-//                let goingCount = document!.get("goingCount") as! Int
-                
-             
-//                let goingUsersList = document!.get("goingUsers") as! [String]
-                
-                
-//                self.currentUserId[0] = Auth.auth().currentUser!.uid
-//                self.goingCountArray[0] = goingCount
-//                self.eventIdentifire[0] = eventId
-                
-                self.goingCountLabel.text = String ("Count " + "\(self.goingCountArray[0])")
-                
-//                self.goingUsers = goingUsersList
-                
-                
-                
-                
-        }
-        //=======================
+        let state = GoingCountStruct.goingOrNot
+        print("My view state:\(state)")
         
-        
-        if let video = self.video {
+        if state == true{
+            goingBtn.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
+            goingBtn.tag = 1
             
             
+            goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
             
-            let aa = CheckUserLoginStatus()
+        }else{
+            goingBtn.setImage(UIImage(named: "GoingBtn"), for: .normal)
+            goingBtn.tag = 0
             
-            if aa.checkUserLoginStatus() == true {
-                //===============
-                //                currentUserId[0] = Auth.auth().currentUser!.uid
-                //                goingCountArray[0] = video.goingCount
-                //                eventIdentifire[0] = video.eventIdentifire
-                //
-                //                goingCountLabel.text = String ("Count " + "\(goingCountArray[0])")
-                //
-                //                goingUsers = video.goingUsers
-                //=================
-                
-                var flagC:[Bool] = [false]
-                
-                for i in 0..<goingUsers.count {
-                    
-                    if goingUsers[i] ==  currentUserId[0] {
-                        flagC[0] = true
-                    }else{
-                        flagC[0] = false
-                    }
-                    print(goingUsers[i])
-                }
-                
-                if flagC[0] == true{
-                    goingBtn.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
-                    goingBtn.tag = 1
-                }
-            }else{
-                
-                goingBtn.isHidden = true
-            }
-            
-            
-            var arr = video.goingUsers //
-            
-            eventTitle.text = video.title
-            
-            eventDescriptionLabel.text = video.eventDescription
-            
-            eventDescriptionLabel.text = video.eventDescription
-            
-            let userProfileUrl = URL(string: video.userProfileImage ?? "")
-            self.userProfileImage.kf.setImage(with: userProfileUrl)
-            
-            let eventImageurl = URL(string: video.iamage ?? "")
-            self.eventImage.kf.setImage(with: eventImageurl)
+            goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber )")
             
         }
         
-    }
-    func setData (){
-//        let dd = Firestore.firestore()
-//        dd.collection("event").whereField("eventID", isEqualTo: eventIdentifire[0])
-//            .addSnapshotListener { querySnapshot, error in
-//
-//                guard (querySnapshot?.documents) != nil else {
-//                    print("Error fetching documents: \(error!)")
-//                    return
-//                }
-//
-//                let document = querySnapshot!.documents.first
-//
-//                let goingCount = document?.get("goingCount") as! Int
-//
-//                let eventId = document!.get("eventID") as! String
-//                let goingUsersList = document!.get("goingUsers") as! [String]
-//
-//
-//                self.currentUserId[0] = Auth.auth().currentUser!.uid
-//                self.goingCountArray[0] = goingCount
-//                self.eventIdentifire[0] = eventId
-//
-//                self.goingCountLabel.text = String ("Count " + "\(self.goingCountArray[0])")
-//
-//                self.goingUsers = goingUsersList
-//
-//
-//
-//
-//        }
-    }
-    
-    func lick(){
-        
-        print(goingCountArray[0])
-        print(eventIdentifire[0])
-        
-        print(eventIdentifire[0])
-        
-        let dd = Firestore.firestore()
-        dd.collection("event").whereField("eventID", isEqualTo: eventIdentifire[0])
-            .addSnapshotListener { querySnapshot, error in
-                
-                guard (querySnapshot?.documents) != nil else {
-                    print("Error fetching documents: \(error!)")
-                    return
-                }
-                
-                let document = querySnapshot!.documents.first
-                let latMax = document!.get("goingCount") as! Int
-                print("666666666666666666666666666666666666666666")
-                print(latMax)
-                
-                let goingInt:Int = self.goingCountArray[0]
-                print(goingInt)
-                document!.reference.updateData(["goingCount": goingInt])
-                document!.reference.updateData(["goingUsers": self.goingUsers])
-                
-        }
+        setElement()
         
     }
-    
-    
-    //    func setPLike(video: Video){
-    //
-    //
-    //        let aa = CheckUserLoginStatus()
-    //
-    //        if aa.checkUserLoginStatus() == true {
-    //            currentUserId[0] = Auth.auth().currentUser!.uid
-    //            goingCountArray[0] = video.goingCount
-    //            eventIdentifire[0] = video.eventIdentifire
-    //
-    //            goingCountLabel.text = String ("Count " + "\(goingCountArray[0])")
-    //
-    //            goingUsers = video.goingUsers
-    //
-    //            var flagC:[Bool] = [false]
-    //
-    //            for i in 0..<goingUsers.count {
-    //
-    //                if goingUsers[i] ==  currentUserId[0] {
-    //                    flagC[0] = true
-    //                }else{
-    //                    flagC[0] = false
-    //                }
-    //                print(goingUsers[i])
-    //            }
-    //
-    //            if flagC[0] == true{
-    //                goingBtn.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
-    //                goingBtn.tag = 1
-    //            }
-    //        }else{
-    //
-    //            goingBtn.isHidden = true
-    //        }
-    //    }
-    
-    
     @IBAction func goingBtnClicked(_ sender: UIButton) {
-        
-        
-        print(currentUserId[0])
+        //        print(currentUserId[0])
         let aa = CheckUserLoginStatus()
         
         if aa.checkUserLoginStatus() == true {
@@ -259,20 +68,16 @@ class EventDetailsViewController: UIViewController {
                 goingBtn.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
                 goingBtn.tag = 1
                 
-                goingCountArray[0] = goingCountArray[0] + 1
+                GoingCountStruct.goingCountNumber = GoingCountStruct.goingCountNumber + 1
                 
-                goingCountLabel.text = String ("Count " + "\(goingCountArray[0])")
+                goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
                 
+                GoingCountStruct.goingUserList.append( UserStruct.currentUserId )
                 
-                print("==================================")
-                print(currentUserId[0])
+                GoingCountStruct.goingOrNot = true
                 
-                print(currentUserId[0])
-                
-                
-                goingUsers.append(currentUserId[0])
-                
-                self.lick()
+                eventAtendingDB.eventAtendingDB()
+                //                lick()
                 print("going")
                 
             }else {
@@ -280,34 +85,55 @@ class EventDetailsViewController: UIViewController {
                 goingBtn.setImage(UIImage(named: "GoingBtn"), for: .normal)
                 goingBtn.tag = 0
                 
-                goingCountArray[0] = goingCountArray[0] - 1
-                goingCountLabel.text = String ("Count " + "\(goingCountArray[0])")
+                GoingCountStruct.goingCountNumber = GoingCountStruct.goingCountNumber - 1
+                goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
                 
-                goingUsers = goingUsers.filter {$0 != currentUserId[0]}
+                GoingCountStruct.goingUserList = GoingCountStruct.goingUserList.filter {$0 !=  UserStruct.currentUserId }
                 
-                self.lick()
+                GoingCountStruct.goingOrNot = false
+                
+                eventAtendingDB.eventAtendingDB()
+                //                lick()
                 print("not going")
             }
             
         }else{
-            print("{[[[[[[[[[[[[[]]]]]]]]]]]]]}")
+            
             UIAlertController(title: "Alert", message: "User must login", preferredStyle: .alert)
             
-            
         }
-        
-        
-        
-        
     }
     
     
-    
-    @IBAction func closeButtonAction(_ sender: Any) {
+    func setElement(){
+        eventTitle.text = event?.title
+        //        eventImage
+        eventDescriptionLabel.text = event?.eventDescription
         
-        self.dismiss(animated: true, completion: nil)
+        let url = URL(string: event?.iamage ?? "")
+        self.eventImage.kf.setImage(with: url)
+        //        eventLocation
+        //        eventAdedDate
+        
+        //        userProfileImage
+        userName.text = event?.userFirstName
     }
     
+    @IBAction func closeButtonClick(_ sender: Any) {
+        let trans = TransitionController()
+        trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: self)
+        //                navigationController?.popViewController(animated: true)
+        //
+        //                dismiss(animated: true, completion: nil)
+        //
+        //        let eventsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeVC") as! HomeTableViewCell
+        //
+        ////        eventsController.dfgt()
+        ////        self.present(eventsController, animated: true, completion: nil)
+        //
+        //            eventsController.dfgt()
+        //        self.present(viewName, animated: true, completion: nil)
+    }
     
     
     

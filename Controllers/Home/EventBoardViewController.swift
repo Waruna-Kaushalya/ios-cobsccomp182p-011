@@ -14,27 +14,19 @@ import Kingfisher
 
 
 protocol CellDelegator {
-    func callSegueFromCell(data dataobject: Video)
+    func callSegueFromCell(data dataobject: User)
 }
 
 class EventBoardViewController: UIViewController, CellDelegator {
     
     @IBOutlet weak var tableView: UITableView!
     
-    //    var itemName:[]
+    var eventList:[Event] = []
     
-    
-    var videoList:[Video] = []
-    //    var userDataList:[UserData] = []
-    
-    //    var goingUsers = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        //        tableView.delegate = self
-        //        tableView.dataSource = self
         retrieveBooks()
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -42,18 +34,15 @@ class EventBoardViewController: UIViewController, CellDelegator {
         
     }
     
-    // conform to Cell deligator
-    func callSegueFromCell(data dataobject: Video) {
-        //self.performSegueWithIdentifier("showComments", sender:dataobject )
-        print("---------------------------")
-        print("callSegueFromCell")
+    func callSegueFromCell(data dataobject: User) {
+        
         let viewName = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
         
-//         let viewName = tableView.dequeueReusableCell(withIdentifier: "UserProfileVC")  as! UserProfileViewController
         
-        viewName.video = dataobject
-       
-        viewName.setVideo(video: dataobject)
+        
+        viewName.user = dataobject
+        
+        viewName.setUser(user: dataobject)
         
         
         self.present(viewName, animated: true, completion: nil)
@@ -67,7 +56,7 @@ class EventBoardViewController: UIViewController, CellDelegator {
         docRef.getDocuments() { (querySnapshot, err) in
             
             
-            self.videoList.removeAll()
+            self.eventList.removeAll()
             //            self.userDataList.removeAll()
             
             for document in querySnapshot!.documents {
@@ -82,13 +71,7 @@ class EventBoardViewController: UIViewController, CellDelegator {
                 let eventIdentifire = data["eventID"] as? String
                 let goingUsers = data["goingUsers"] as! [String]
                 
-                
-                
-                
-                //                self.goingUsers.append(goingUsersget!)
-                
-                
-                
+
                 let dataRef = Firestore.firestore().collection("users").whereField("uid", isEqualTo: userID ?? "")
                 dataRef.getDocuments { (querySnapshot, err) in
                     
@@ -101,22 +84,15 @@ class EventBoardViewController: UIViewController, CellDelegator {
                     let fbURL = dataDescription?["facebookurl"] as? String
                     let userProfileImage = dataDescription?["imageURL"] as? String
                     let currntUserID = dataDescription?["uid"] as? String
+
+                    let event:Event = Event(image: imageURL!, title: title!, eventDescription: eventDescription!, userFirstName: userFName!, userLastName: userLName!, userProfileImage: userProfileImage!, goingCount: goingCount!, eventIdentifire: eventIdentifire!, goingUsers: goingUsers, userID: userID!, currntUserID: currntUserID!, contactNumber: phoneNumber!,userFBUrl:fbURL!)
                     
+
                     
-                    
-                    
-                    
-                    //                    let video:Video = Video(image: imageURL!, title: title!, eventDescription: eventDescription!, userName: userFName!, userProfileImage: userProfileImage!)
-                    
-                    let video:Video = Video(image: imageURL!, title: title!, eventDescription: eventDescription!, userName: userFName!, userProfileImage: userProfileImage!, goingCount: goingCount!, eventIdentifire: eventIdentifire!,goingUsers:goingUsers,userID:userID!,currntUserID:currntUserID!)
-                    
-                    
-                    let asd = UserModel()
-                    asd.email = "vsdvdv b sdbv b sd"
                     
                     
                     DispatchQueue.main.async {
-                        self.videoList.append(video)
+                        self.eventList.append(event)
                         self.tableView.reloadData()
                     }
                     
@@ -135,7 +111,7 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         
         let eventsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "eventDetailsVC") as! EventDetailsViewController
         
-        eventsController.video = videoList[indexPath.row]
+        eventsController.event = eventList[indexPath.row]
         
         self.present(eventsController, animated: true, completion: nil)
         
@@ -146,19 +122,19 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.videoList.count
+        return self.eventList.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "VideoCell")  as! HomeTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell")  as! HomeTableViewCell
         
-        print(indexPath.row)
-        let video:Video = self.videoList[indexPath.row]
+//        print(indexPath.row)
+        let event:Event = self.eventList[indexPath.row]
         
-        cell.setVideo(video: video)
-        cell.setPLike(video: video)
+        cell.setEvent(event: event)
+        cell.setPLike(event: event)
         
         cell.delegate = self
         

@@ -16,39 +16,46 @@ class UserProfileViewController: UIViewController {
         var height = 0
     }
     
-    var video:Video?
+    var user:User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       print("-----------------------------------")
-        print( video?.userName)
-        print("-----------------------------------")
+        
+        let asd = UserModel()
+        print(asd.email)
+        
+        print(user?.userFirstName)
+        print(user?.userLastName)
+        print(user?.userContactNumber)
+        print(user?.userID)
+        print(user?.userFBUrl)
+        print(user?.userProfileImageUrl)
         
     }
-    func setVideo(video: Video)  {
+    func setUser(user: User)  {
         
         
-        var arr = video.goingUsers
+        //        var arr = user.goingUsers
+        //        
+        //        var usernamec = user.userName
         
-        var usernamec = video.userName
         
-
         
-//        print("-----------------------------------")
-        print(usernamec)
+        //        print("-----------------------------------")
+        
         
         
         
         
     }
     
-  
+    
     @IBAction func closeButtonAction(_ sender: Any) {
+        let trans = 
         
         self.dismiss(animated: true, completion: nil)
     }
-
     
-
+    
+    
 }

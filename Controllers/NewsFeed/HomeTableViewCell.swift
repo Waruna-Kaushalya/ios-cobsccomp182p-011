@@ -15,7 +15,7 @@ import FirebaseStorage
 
 
 class HomeTableViewCell: UITableViewCell {
-
+    
     
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var postTitle: UILabel!
@@ -28,63 +28,32 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var goingCountLabel: UILabel!
     
     
-     var delegate:CellDelegator!
+    var delegate:CellDelegator!
     
-    
-    
-    var goingCountArray:[Int] = [0]
-    var goingUsers:[String] = [""]
-    var eventIdentifire:[String] = [""]
-    var currentUserId:[String] = [""]
-    
-    
-    var userFirstName:[String] = [""]
-    var userLastName:[String] = [""]
-    var userContactNumber:[String] = [""]
-    var userFBUrl:[String] = [""]
-    var userProfileImageUrl:[String] = [""]
-  
-    
-    
-    //    let userIdd = "Aw2nt3h4DI9ZBdwJzQ4k3jVKRvWI3"
-    
-    func setVideo(video: Video)  {
+    let eventAtendingDB = EventAtendingDB()
+
+    func setEvent(event: Event)  {
         
-        
-        var arr = video.goingUsers
-        
-        
-        //        var arr = ["a", "b", "c", "d"]
-        //add element
-        //        numbers.append(100)
-        
-        
-        //remove element
-        //        var farray = arr.filter {$0 != "b"}
-        //        goingButton.setImage(UIImage(named: "Going"), for: .normal)
-        //        goingButton.tag = 0
         userProfileImage.roundedImage()
         
-        let url = URL(string: video.iamage ?? "")
+        postTitle.text = event.title
+        
+        eventDescription.text = event.eventDescription
+        
+        userName.text = event.userFirstName
+        
+        let url = URL(string: event.iamage ?? "")
         self.postImageView.kf.setImage(with: url)
-        postTitle.text = video.title
         
-        eventDescription.text = video.eventDescription
-        
-        
-        
-//        ÷userNameSet[0] = video.userName
-//        BroadService.sharedInstance.storedVideoLink = videoLink
-//        HomeTableViewCell.userDetails.userNameCheck = video.userName
-        
-        
-//        UserDetails.init(userNameStruct: video.userName)
-//
-//       print(UserDetails.self)
-        userName.text = video.userName
-        let uurl = URL(string: video.userProfileImage ?? "")
+        let uurl = URL(string: event.userProfileImage ?? "")
         self.userProfileImage.kf.setImage(with: uurl)
         
+        UserStruct.userFirstName = event.userFirstName
+        UserStruct.userLastName = event.userLastName
+        UserStruct.userContactNumber = event.contactNumber
+        UserStruct.userFBUrl = event.userFBUrl
+        UserStruct.userProfileImageUrl = event.userProfileImage
+        UserStruct.currentUserId = event.userID
         
         tapedLabel()
         
@@ -97,18 +66,15 @@ class HomeTableViewCell: UITableViewCell {
         userName.addGestureRecognizer(labelTapGesture)
     }
     
-    
-    
     @objc func doSomethingOnTap() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let destination = storyboard.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
         
-        print("tapped")
+        //        print("tapped")
         
-        let v = Video(image: "hhhghgh", title: "jhgghgjgjgj", eventDescription: "hhgghgjgg", userName:  "userNameSet[0]"  , userProfileImage: "hjhgjjhgg", goingCount: 888, eventIdentifire: "vvhgvghvhgvhg", goingUsers: ["hvjhv"], userID: "jhvjhv", currntUserID: "jjjjj");
         
-        //        let b = userName
+        let v = User(userFirstName:   UserStruct.userFirstName, userLastName:   UserStruct.userLastName, userContactNumber:   UserStruct.userContactNumber, userFBUrl:    UserStruct.userFBUrl, userProfileImageUrl:    UserStruct.userProfileImageUrl, userID:   UserStruct.currentUserId)
         
         if (self.delegate != nil) { //Just to be safe.
             self.delegate.callSegueFromCell(data: v)
@@ -117,109 +83,97 @@ class HomeTableViewCell: UITableViewCell {
     
     
     @IBAction func btnGoing_Clicked(_ sender: UIButton) {
-        print(currentUserId[0])
+        //        print(currentUserId[0])
         let aa = CheckUserLoginStatus()
         
         if aa.checkUserLoginStatus() == true {
             if goingButton.tag == 0 {
                 
+                GoingCountStruct.goingOrNot = true
+                
                 goingButton.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
                 goingButton.tag = 1
                 
-                goingCountArray[0] = goingCountArray[0] + 1
+                GoingCountStruct.goingCountNumber = GoingCountStruct.goingCountNumber + 1
                 
-                goingCountLabel.text = String ("Count " + "\(goingCountArray[0])")
+                goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
                 
+                GoingCountStruct.goingCountNumber =  GoingCountStruct.goingCountNumber
                 
-                print("==================================")
-                print(currentUserId[0])
-                
-                print(currentUserId[0])
-                
-                
-                goingUsers.append(currentUserId[0])
-                
-                lick()
+                GoingCountStruct.goingUserList.append( UserStruct.currentUserId )
+                eventAtendingDB.eventAtendingDB()
+                //                lick()
                 print("going")
                 
             }else {
                 
+                GoingCountStruct.goingOrNot = false
+                
+                print("222222222222222222")
+                
                 goingButton.setImage(UIImage(named: "GoingBtn"), for: .normal)
                 goingButton.tag = 0
                 
-                goingCountArray[0] = goingCountArray[0] - 1
-                goingCountLabel.text = String ("Count " + "\(goingCountArray[0])")
+                GoingCountStruct.goingCountNumber = GoingCountStruct.goingCountNumber - 1
+                goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
                 
-                goingUsers = goingUsers.filter {$0 != currentUserId[0]}
+                GoingCountStruct.goingCountNumber =  GoingCountStruct.goingCountNumber
                 
-                lick()
+                GoingCountStruct.goingUserList = GoingCountStruct.goingUserList.filter {$0 !=  UserStruct.currentUserId }
+                
+                eventAtendingDB.eventAtendingDB()
+                //                lick()
                 print("not going")
             }
             
         }else{
-            print("{[[[[[[[[[[[[[]]]]]]]]]]]]]}")
             UIAlertController(title: "Alert", message: "User must login", preferredStyle: .alert)
-            
-            
-        }
-        
-        
-        
-    }
-    func lick(){
-        
-        print(goingCountArray[0])
-        print(eventIdentifire[0])
-        
-        let db = Firestore.firestore()
-        db.collection("event").whereField("eventID", isEqualTo: eventIdentifire[0])
-            .addSnapshotListener { querySnapshot, error in
-                guard (querySnapshot?.documents) != nil else {
-                    print("Error fetching documents: \(error!)")
-                    return
-                }
-                let document = querySnapshot!.documents.first
-                let goingInt:Int = self.goingCountArray[0]
-                print(goingInt)
-                document!.reference.updateData(["goingCount": goingInt])
-                document!.reference.updateData(["goingUsers": self.goingUsers])
-                
         }
         
     }
-    func setPLike(video: Video){
+    
+    func setPLike(event: Event){
         
         
         let aa = CheckUserLoginStatus()
         
         if aa.checkUserLoginStatus() == true {
-            currentUserId[0] = Auth.auth().currentUser!.uid
-            goingCountArray[0] = video.goingCount
-            eventIdentifire[0] = video.eventIdentifire
+            UserStruct.currentUserId = Auth.auth().currentUser!.uid
             
-            goingCountLabel.text = String ("Count " + "\(goingCountArray[0])")
+            GoingCountStruct.goingCountNumber =  event.goingCount
+            GoingCountStruct.eventIdentifire = event.eventIdentifire
             
-            goingUsers = video.goingUsers
+            GoingCountStruct.goingUserList  = event.goingUsers
+            
+            goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
             
             var flagC:[Bool] = [false]
             
-            for i in 0..<goingUsers.count {
-                
-                if goingUsers[i] ==  currentUserId[0] {
-                    flagC[0] = true
-                }else{
-                    flagC[0] = false
+            if GoingCountStruct.goingUserList.count != 0{
+                for i in 0..<GoingCountStruct.goingUserList.count {
+                    
+                    if GoingCountStruct.goingUserList[i] ==   UserStruct.currentUserId  {
+                        flagC[0] = true
+                    }else{
+                        flagC[0] = false
+                    }
                 }
-                print(goingUsers[i])
+                
+                if flagC[0] == true{
+                    goingButton.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
+                    goingButton.tag = 1
+                    GoingCountStruct.goingOrNot = true
+                    
+                    print("3333333333333333333")
+                }else{
+                    GoingCountStruct.goingOrNot = false
+                    print("4444444444444444444444")
+                }
+                
+            }else{
+                goingButton.isHidden = false
+                
             }
-            
-            if flagC[0] == true{
-                goingButton.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
-                goingButton.tag = 1
-            }
-        }else{
-            
-            goingButton.isHidden = true
         }
     }
 }

@@ -12,7 +12,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 
-class EventAtendingDB{
+class PushGoingDataFirbase{
     func eventAtendingDB(){
         
         let db = Firestore.firestore()

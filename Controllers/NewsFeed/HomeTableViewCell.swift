@@ -14,6 +14,7 @@ import FirebaseFirestore
 import FirebaseStorage
 
 
+
 class HomeTableViewCell: UITableViewCell {
     
     
@@ -30,8 +31,10 @@ class HomeTableViewCell: UITableViewCell {
     
     var delegate:CellDelegator!
     
-    let eventAtendingDB = EventAtendingDB()
-
+  
+    
+    let eventAtendingDB = PushGoingDataFirbase()
+    
     func setEvent(event: Event)  {
         
         userProfileImage.roundedImage()
@@ -48,8 +51,17 @@ class HomeTableViewCell: UITableViewCell {
         let uurl = URL(string: event.userProfileImage ?? "")
         self.userProfileImage.kf.setImage(with: uurl)
         
+//        let FirstName = event.userFirstName
+//
+//        let LastName = event.userLastName
+        
         UserStruct.userFirstName = event.userFirstName
         UserStruct.userLastName = event.userLastName
+        
+//        print("===================================")
+//        print(FirstName)
+//         print(LastName)
+//         print("===================================")
         UserStruct.userContactNumber = event.contactNumber
         UserStruct.userFBUrl = event.userFBUrl
         UserStruct.userProfileImageUrl = event.userProfileImage
@@ -59,6 +71,8 @@ class HomeTableViewCell: UITableViewCell {
         
     }
     func tapedLabel(){
+        
+        
         userName.isUserInteractionEnabled = true
         
         let labelTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.doSomethingOnTap))
@@ -68,17 +82,37 @@ class HomeTableViewCell: UITableViewCell {
     
     @objc func doSomethingOnTap() {
         
+        
+        
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        
+        //Get the indexpath of cell where button was tapped
+//                    let indexPath = self.collectionView.indexPathForCell(cell)
+//                    print(indexPath!.row)
+        
+        let indexPath = (self.superview as! UITableView).indexPath(for: self)
+        print("00000000000000000000004004004000404004400404044000404")
+        print(indexPath?.row)
+
+        
         let destination = storyboard.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
         
         //        print("tapped")
+        let v = Event(image: "rrr", title: "rrr", eventDescription: "rrr", userFirstName: UserStruct.userFirstName, userLastName: UserStruct.userLastName, userProfileImage: UserStruct.userProfileImageUrl , goingCount: 333, eventIdentifire: "vvv", goingUsers: ["fff"], userID: UserStruct.currentUserId, currntUserID: UserStruct.currentUserId, contactNumber: UserStruct.userContactNumber, userFBUrl: UserStruct.userFBUrl )
         
-        
-        let v = User(userFirstName:   UserStruct.userFirstName, userLastName:   UserStruct.userLastName, userContactNumber:   UserStruct.userContactNumber, userFBUrl:    UserStruct.userFBUrl, userProfileImageUrl:    UserStruct.userProfileImageUrl, userID:   UserStruct.currentUserId)
+//        let v = Eve(userFirstName:   UserStruct.userFirstName, userLastName:   UserStruct.userLastName, userContactNumber:   UserStruct.userContactNumber, userFBUrl:    UserStruct.userFBUrl, userProfileImageUrl:    UserStruct.userProfileImageUrl, userID:   UserStruct.currentUserId)
         
         if (self.delegate != nil) { //Just to be safe.
-            self.delegate.callSegueFromCell(data: v)
+//            self.delegate.callSegueFromCell(data: v)
+            self.delegate.callSegueFromCell(data: v, cellForRowAt: indexPath!)
         }
+        
+//        func btnCloseTapped(cell: MyCell) {
+//            //Get the indexpath of cell where button was tapped
+//            let indexPath = self.collectionView.indexPathForCell(cell)
+//            print(indexPath!.row)
+//        }
+        
     }
     
     

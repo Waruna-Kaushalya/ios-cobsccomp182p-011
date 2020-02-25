@@ -8,54 +8,59 @@
 
 import UIKit
 
-class UserProfileViewController: UIViewController {
+class UserProfileViewController: UIViewController, UITableViewDelegate {
     @IBOutlet weak var closeButtonAction: UIButton!
     
-    struct Resolution {
-        var name = 0
-        var height = 0
-    }
+    @IBOutlet weak var userProfileImage: UIImageView!
     
-    var user:User?
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var nameLabelText: UILabel!
+    
+    @IBOutlet weak var contactNumberLabel: UILabel!
+    @IBOutlet weak var contactNumberLabelText: UILabel!
+    
+    @IBOutlet weak var fbUrlLabel: UILabel!
+    @IBOutlet weak var fbUrlLabelText: UILabel!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let asd = UserModel()
-        print(asd.email)
-        
-        print(user?.userFirstName)
-        print(user?.userLastName)
-        print(user?.userContactNumber)
-        print(user?.userID)
-        print(user?.userFBUrl)
-        print(user?.userProfileImageUrl)
+        setElements()
         
     }
-    func setUser(user: User)  {
+    func setElements(){
         
+        userProfileImage.roundedImage()
         
-        //        var arr = user.goingUsers
-        //        
-        //        var usernamec = user.userName
+        nameLabelText.text =  UserStruct.userFirstName + " " + UserStruct.userLastName
+        contactNumberLabelText.text =  UserStruct.userContactNumber
+        fbUrlLabelText.text =  UserStruct.userFBUrl
         
-        
-        
-        //        print("-----------------------------------")
-        
-        
-        
-        
+        let url = URL(string: UserStruct.userProfileImageUrl)
+        self.userProfileImage.kf.setImage(with: url)
         
     }
     
+    func setUser(event: Event)  {
+        
+        
+        print(event.userFirstName)
+        print(event.userLastName)
+        
+        
+        UserStruct.userFirstName = event.userFirstName
+        UserStruct.userLastName = event.userLastName
+        UserStruct.userContactNumber = event.contactNumber
+        UserStruct.userFBUrl = event.userFBUrl
+        UserStruct.userProfileImageUrl = event.userProfileImage
+        
+    }
     
     @IBAction func closeButtonAction(_ sender: Any) {
-        let trans = 
+        
         
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-    
 }

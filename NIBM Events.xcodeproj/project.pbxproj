@@ -20,7 +20,9 @@
 		C033B2AD23E9601100726A03 /* NIBM_EventsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B2AC23E9601100726A03 /* NIBM_EventsUITests.swift */; };
 		C061DD7F240454EE002E3E6E /* GoingCountStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061DD7E240454EE002E3E6E /* GoingCountStruct.swift */; };
 		C061DD812404FEED002E3E6E /* UserStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061DD802404FEED002E3E6E /* UserStruct.swift */; };
-		C061DD83240512F0002E3E6E /* EventAtendingDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061DD82240512F0002E3E6E /* EventAtendingDB.swift */; };
+		C061DD83240512F0002E3E6E /* PushGoingDataFirbase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061DD82240512F0002E3E6E /* PushGoingDataFirbase.swift */; };
+		C061DD85240518D7002E3E6E /* CreateEventStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061DD84240518D7002E3E6E /* CreateEventStruct.swift */; };
+		C061DD8724051D65002E3E6E /* PushEventDataFireBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061DD8624051D65002E3E6E /* PushEventDataFireBase.swift */; };
 		C07F199723EF2564004AD08D /* TransitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199623EF2564004AD08D /* TransitionVC.swift */; };
 		C07F199A23EF259B004AD08D /* AlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199923EF259B004AD08D /* AlertMessages.swift */; };
 		C07F199C23EF25E0004AD08D /* CheckPasswordAndEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199B23EF25E0004AD08D /* CheckPasswordAndEmail.swift */; };
@@ -28,10 +30,8 @@
 		C07F19A823EF2EF5004AD08D /* SignOutAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19A723EF2EF5004AD08D /* SignOutAction.swift */; };
 		C07F19AB23F03AFE004AD08D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19AA23F03AFE004AD08D /* NavigationBar.swift */; };
 		C07F19B123F14EC9004AD08D /* TextFieldUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19B023F14EC9004AD08D /* TextFieldUtilities.swift */; };
-		C07F19B423F155E1004AD08D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19B323F155E1004AD08D /* HomeViewController.swift */; };
 		C07F19B623F2918E004AD08D /* PasswordUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19B523F2918E004AD08D /* PasswordUtilities.swift */; };
 		C07F19B823F29226004AD08D /* EmailUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19B723F29226004AD08D /* EmailUtilities.swift */; };
-		C07F19BE23F2B2A8004AD08D /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19BD23F2B2A8004AD08D /* AddPostViewController.swift */; };
 		C07F19C023F39027004AD08D /* CheckUserLoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19BF23F39027004AD08D /* CheckUserLoginStatus.swift */; };
 		C07F19C223F3D332004AD08D /* CurrentUserDataRetrivel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19C123F3D332004AD08D /* CurrentUserDataRetrivel.swift */; };
 		C07F19C423F54562004AD08D /* UIImageUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F19C323F54562004AD08D /* UIImageUtilities.swift */; };
@@ -95,7 +95,9 @@
 		C033B2AE23E9601100726A03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C061DD7E240454EE002E3E6E /* GoingCountStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoingCountStruct.swift; sourceTree = "<group>"; };
 		C061DD802404FEED002E3E6E /* UserStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStruct.swift; sourceTree = "<group>"; };
-		C061DD82240512F0002E3E6E /* EventAtendingDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAtendingDB.swift; sourceTree = "<group>"; };
+		C061DD82240512F0002E3E6E /* PushGoingDataFirbase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushGoingDataFirbase.swift; sourceTree = "<group>"; };
+		C061DD84240518D7002E3E6E /* CreateEventStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventStruct.swift; sourceTree = "<group>"; };
+		C061DD8624051D65002E3E6E /* PushEventDataFireBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushEventDataFireBase.swift; sourceTree = "<group>"; };
 		C07F199623EF2564004AD08D /* TransitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionVC.swift; sourceTree = "<group>"; };
 		C07F199923EF259B004AD08D /* AlertMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessages.swift; sourceTree = "<group>"; };
 		C07F199B23EF25E0004AD08D /* CheckPasswordAndEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPasswordAndEmail.swift; sourceTree = "<group>"; };
@@ -103,10 +105,8 @@
 		C07F19A723EF2EF5004AD08D /* SignOutAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutAction.swift; sourceTree = "<group>"; };
 		C07F19AA23F03AFE004AD08D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		C07F19B023F14EC9004AD08D /* TextFieldUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldUtilities.swift; sourceTree = "<group>"; };
-		C07F19B323F155E1004AD08D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C07F19B523F2918E004AD08D /* PasswordUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordUtilities.swift; sourceTree = "<group>"; };
 		C07F19B723F29226004AD08D /* EmailUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailUtilities.swift; sourceTree = "<group>"; };
-		C07F19BD23F2B2A8004AD08D /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		C07F19BF23F39027004AD08D /* CheckUserLoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckUserLoginStatus.swift; sourceTree = "<group>"; };
 		C07F19C123F3D332004AD08D /* CurrentUserDataRetrivel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserDataRetrivel.swift; sourceTree = "<group>"; };
 		C07F19C323F54562004AD08D /* UIImageUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageUtilities.swift; sourceTree = "<group>"; };
@@ -259,6 +259,7 @@
 				C09E10BF23FF875A00B26D78 /* User.swift */,
 				C09E10B623FCF58200B26D78 /* Event.swift */,
 				C061DD7E240454EE002E3E6E /* GoingCountStruct.swift */,
+				C061DD84240518D7002E3E6E /* CreateEventStruct.swift */,
 				C061DD802404FEED002E3E6E /* UserStruct.swift */,
 				C033B29323E9601100726A03 /* Assets.xcassets */,
 			);
@@ -316,11 +317,10 @@
 		C07F19B223F155C0004AD08D /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C07F19B323F155E1004AD08D /* HomeViewController.swift */,
-				C07F19BD23F2B2A8004AD08D /* AddPostViewController.swift */,
 				C09E107823F66C7100B26D78 /* MyProfileViewController.swift */,
 				C09E107C23F6B50500B26D78 /* AddEventViewController.swift */,
 				C09E10A923FBC9E000B26D78 /* EventBoardViewController.swift */,
+				C061DD8624051D65002E3E6E /* PushEventDataFireBase.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -346,7 +346,7 @@
 				C09E10B323FCF33E00B26D78 /* HomeTableViewCell.swift */,
 				C09E10C123FFBC5000B26D78 /* EventDetailsViewController.swift */,
 				C09E10C323FFF1D400B26D78 /* eventModel.swift */,
-				C061DD82240512F0002E3E6E /* EventAtendingDB.swift */,
+				C061DD82240512F0002E3E6E /* PushGoingDataFirbase.swift */,
 			);
 			path = NewsFeed;
 			sourceTree = "<group>";
@@ -602,6 +602,7 @@
 			files = (
 				C09E10B723FCF58200B26D78 /* Event.swift in Sources */,
 				C09DD52F23ED46A300EDA0CB /* ButtonUtilities.swift in Sources */,
+				C061DD8724051D65002E3E6E /* PushEventDataFireBase.swift in Sources */,
 				C09E107D23F6B50500B26D78 /* AddEventViewController.swift in Sources */,
 				C07F19B623F2918E004AD08D /* PasswordUtilities.swift in Sources */,
 				C07F199A23EF259B004AD08D /* AlertMessages.swift in Sources */,
@@ -613,15 +614,14 @@
 				C09E10BD23FF866800B26D78 /* UserProfileViewController.swift in Sources */,
 				C061DD812404FEED002E3E6E /* UserStruct.swift in Sources */,
 				C07F199723EF2564004AD08D /* TransitionVC.swift in Sources */,
-				C061DD83240512F0002E3E6E /* EventAtendingDB.swift in Sources */,
+				C061DD83240512F0002E3E6E /* PushGoingDataFirbase.swift in Sources */,
 				C09DD52C23ED3B6D00EDA0CB /* SignUPViewController.swift in Sources */,
-				C07F19B423F155E1004AD08D /* HomeViewController.swift in Sources */,
+				C061DD85240518D7002E3E6E /* CreateEventStruct.swift in Sources */,
 				C07F19AB23F03AFE004AD08D /* NavigationBar.swift in Sources */,
 				C09DD52A23ED3B3200EDA0CB /* LoginViewController.swift in Sources */,
 				C09E10AA23FBC9E000B26D78 /* EventBoardViewController.swift in Sources */,
 				C09E10B423FCF33E00B26D78 /* HomeTableViewCell.swift in Sources */,
 				C09E10C023FF875A00B26D78 /* User.swift in Sources */,
-				C07F19BE23F2B2A8004AD08D /* AddPostViewController.swift in Sources */,
 				C07F19A823EF2EF5004AD08D /* SignOutAction.swift in Sources */,
 				C061DD7F240454EE002E3E6E /* GoingCountStruct.swift in Sources */,
 				C07F19C023F39027004AD08D /* CheckUserLoginStatus.swift in Sources */,

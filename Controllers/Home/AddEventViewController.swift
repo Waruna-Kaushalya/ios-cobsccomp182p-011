@@ -25,7 +25,7 @@ class AddEventViewController: UIViewController {
     
     let firbaseProfileimageUrl = "gs://ios-nibm.appspot.com"
     
-   
+    
     
     
     var image: UIImage? = nil
@@ -86,29 +86,42 @@ class AddEventViewController: UIViewController {
     
     @IBAction func publishedButtonTapped(_ sender: Any) {
         
-        let eventTitleTxt = eventTitle.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        let eventDescriptionTxt = eventDescription.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         
-        let userID : String = (Auth.auth().currentUser?.uid)!
-        print("Current user ID is " + userID)
+        CreateEventStruct.eventTitleTxt = eventTitle.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        CreateEventStruct.eventDescriptionTxt = eventDescription.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        
+                let userID : String = (Auth.auth().currentUser?.uid)!
+        CreateEventStruct.userID = userID
+        
+        print("Current user ID is " + CreateEventStruct.userID)
         
         guard let imageSelected  = self.image else{
             alertMSG.warningAlertMessage(_AlertMessage: "Please Select Profile Image", _viewCFrom: self)
             return
         }
-        guard  let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {
+        
+        
+        
+        
+        //compress image size ****
+        guard  let imageData = imageSelected.jpegData(compressionQuality: 0.0) else {
             return
         }
         
         
         let storageRef = Storage.storage().reference(forURL: self.firbaseProfileimageUrl)
-        let storageProfileRef = storageRef.child("eventImages").child(userID)
+        let storageProfileRef = storageRef.child("eventImages").child(CreateEventStruct.userID)
+        
         
         
         let metaData = StorageMetadata()
         
+        
         metaData.contentType = "image/jpg"
+        
+        
         storageProfileRef.putData(imageData, metadata: metaData, completion: { (storageMetaData, error) in
             if error != nil{
                 print("Errrror")
@@ -117,46 +130,53 @@ class AddEventViewController: UIViewController {
             
             storageProfileRef.downloadURL(completion: { (url, error) in
                 if let metaImageUrl = url?.absoluteString{
+                    CreateEventStruct.metaImageUrl = metaImageUrl
                     print(metaImageUrl)
                     
                     let uuid = UUID().uuidString
+                    CreateEventStruct.eventID = uuid
                     print(uuid)
                     
-                    self.pushDataToFireBase(_UID: userID, eventTitle: eventTitleTxt, eventDescription: eventDescriptionTxt, _imageURL: metaImageUrl,eventID:uuid)
+//                    self.pushDataToFireBase()
+                    let pushData = PushDataToFireBase()
+                    pushData.pushDataToFireBase()
+                    
+                    if CreateEventStruct.flag == true{
+                        let trans = TransitionController()
+                        trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: self)
+                    }
+                    else{
+                        self.alertMSG.warningAlertMessage(_AlertMessage: ERROR_SAVING_DATA, _viewCFrom: self)
+                    }
                     
                 }
             })
         })
         
     }
-    func pushDataToFireBase(_UID:String,eventTitle:String,eventDescription:String,_imageURL: String,eventID:String )  {
-        let db = Firestore.firestore()
-        
-        
-        var goingCount:Int = 0
-         var goingUsers = [String]()
-        
-
-        db.collection("event").addDocument(data: ["userID":_UID,"eventtitle":eventTitle,"eventdescription":eventDescription,"eventImageUrl":_imageURL,"eventID":eventID,"goingCount":goingCount,"goingUsers":goingUsers ]) { (error) in
-            if error != nil {
-                
-                
-                
-                self.alertMSG.warningAlertMessage(_AlertMessage: ERROR_SAVING_DATA, _viewCFrom: self)
-                
-            }else{
-                
-                let trans = TransitionController()
-                trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: self)
-                
-            }
-        }
-        
-    }
-    
-    
+//    func pushDataToFireBase()  {
+//        
+//
+//        var goingCount:Int = 0
+//        var goingUsers = [String]()
+//        
+//        let db = Firestore.firestore()
+//        db.collection("event").addDocument(data: ["userID":CreateEventStruct.userID,"eventtitle":CreateEventStruct.eventTitleTxt,"eventdescription":CreateEventStruct.eventDescriptionTxt,"eventImageUrl":CreateEventStruct.metaImageUrl,"eventID":CreateEventStruct.eventID ,"goingCount":goingCount,"goingUsers":goingUsers ]) { (error) in
+//            if error != nil {
+//                
+//                
+//                
+//                self.alertMSG.warningAlertMessage(_AlertMessage: ERROR_SAVING_DATA, _viewCFrom: self)
+//                
+//            }else{
+//                
+//                let trans = TransitionController()
+//                trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: self)
+//                
+//            }
+//        }
+//    }
 }
-
 
 extension AddEventViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     

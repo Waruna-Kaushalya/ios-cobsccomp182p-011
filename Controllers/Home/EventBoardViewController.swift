@@ -14,10 +14,14 @@ import Kingfisher
 
 
 protocol CellDelegator {
-    func callSegueFromCell(data dataobject: User)
+    func callSegueFromCell(data dataobject: Event,  cellForRowAt indexPath: IndexPath)
 }
 
 class EventBoardViewController: UIViewController, CellDelegator {
+   
+    
+    
+    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,20 +38,7 @@ class EventBoardViewController: UIViewController, CellDelegator {
         
     }
     
-    func callSegueFromCell(data dataobject: User) {
-        
-        let viewName = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
-        
-        
-        
-        viewName.user = dataobject
-        
-        viewName.setUser(user: dataobject)
-        
-        
-        self.present(viewName, animated: true, completion: nil)
-        
-    }
+ 
     
     func retrieveBooks(){
         
@@ -71,7 +62,7 @@ class EventBoardViewController: UIViewController, CellDelegator {
                 let eventIdentifire = data["eventID"] as? String
                 let goingUsers = data["goingUsers"] as! [String]
                 
-
+                
                 let dataRef = Firestore.firestore().collection("users").whereField("uid", isEqualTo: userID ?? "")
                 dataRef.getDocuments { (querySnapshot, err) in
                     
@@ -84,10 +75,10 @@ class EventBoardViewController: UIViewController, CellDelegator {
                     let fbURL = dataDescription?["facebookurl"] as? String
                     let userProfileImage = dataDescription?["imageURL"] as? String
                     let currntUserID = dataDescription?["uid"] as? String
-
+                    
                     let event:Event = Event(image: imageURL!, title: title!, eventDescription: eventDescription!, userFirstName: userFName!, userLastName: userLName!, userProfileImage: userProfileImage!, goingCount: goingCount!, eventIdentifire: eventIdentifire!, goingUsers: goingUsers, userID: userID!, currntUserID: currntUserID!, contactNumber: phoneNumber!,userFBUrl:fbURL!)
                     
-
+                    
                     
                     
                     
@@ -130,7 +121,7 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell")  as! HomeTableViewCell
         
-//        print(indexPath.row)
+        //        print(indexPath.row)
         let event:Event = self.eventList[indexPath.row]
         
         cell.setEvent(event: event)
@@ -143,11 +134,47 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
+   
+    func callSegueFromCell(data dataobject: Event, cellForRowAt indexPath: IndexPath) {
+        
+        
+        
+        let event:Event = self.eventList[indexPath.row]
+        
+        let viewName = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
+        
+//        viewName. = dataobject
+        
+        viewName.setUser(event: event)
+        
+        
+        self.present(viewName, animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
+//    func callSegueFromCell(data dataobject: User, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        let viewName = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
+//
+//        viewName.user = dataobject
+//
+//        viewName.setUser(user: dataobject)
+//
+//
+//        self.present(viewName, animated: true, completion: nil)
+//
+//    }
+    
     func transToProfile()  {
         let Trans = TransitionController()
         Trans.trancVC(_viewCIdentifire: "UserProfileVC", _viewCFrom: self)
         
     }
+    
+    
     
     
 }

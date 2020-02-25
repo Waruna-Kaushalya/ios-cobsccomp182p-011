@@ -21,7 +21,7 @@ class MyProfileViewController: UIViewController {
         
         
         
-//        let trans = TransitionController()
+        //        let trans = TransitionController()
         
         let  aa = CheckUserLoginStatus()
         
@@ -29,12 +29,12 @@ class MyProfileViewController: UIViewController {
             let alert = AlertMessages()
             alert.ActionAlert(_title: "User not login", _message: "User must login to view profile", _viewCIdentifier: "LoginNavIVC", _viewControllerName: self)
         }else{
-        let athentication = TouchFaceIDAuthentication()
-        
-        athentication.authenticateUser(_viewIdentifire: "HomeVC", _viewFrom: self)
+            let athentication = TouchFaceIDAuthentication()
+            
+            athentication.authenticateUser(_viewIdentifire: "HomeVC", _viewFrom: self)
         }
         
-      
+        
         
         
         
@@ -74,35 +74,35 @@ class MyProfileViewController: UIViewController {
     func setElements(){
         profileImage.roundedImage()
         
-//        contactNumberTextLabel.labelStyle()
-//        nameTextlabel.labelStyle()
+        //        contactNumberTextLabel.labelStyle()
+        //        nameTextlabel.labelStyle()
         
-//        signOutButton.styleButton()
-//        signOutButton.buttonRadiusAll()
+        //        signOutButton.styleButton()
+        //        signOutButton.buttonRadiusAll()
     }
     @IBAction func signoutAction(_ sender: Any) {
         let signOut = SignOutAction()
         signOut.showAlertSignOut(_viewIdentifier: "LoginNavIVC", _viewC: self)
         
-//        showAlertSignOut()
-//        let signOut = SignOutAction()
-//        signOut.signOutAction(_viewIdentifier: "LoginNavIVC", _viewC: self)
+        //        showAlertSignOut()
+        //        let signOut = SignOutAction()
+        //        signOut.signOutAction(_viewIdentifier: "LoginNavIVC", _viewC: self)
     }
-//    func showAlertSignOut() {
-//
-//        let alert = UIAlertController(title: "Sign out?", message: "You can always access your content by signing back in", preferredStyle: UIAlertController.Style.alert)
-//
-//        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
-//            //Cancel Action
-//        }))
-//        alert.addAction(UIAlertAction(title: "Sign out",
-//                                      style: UIAlertAction.Style.destructive,
-//                                      handler: {(_: UIAlertAction!) in
-//
-//                                        let signOut = SignOutAction()
-//                                        signOut.signOutAction(_viewIdentifier: "LoginNavIVC", _viewC: self)
-//        }))
-//        self.present(alert, animated: true, completion: nil)
-//    }
+    //    func showAlertSignOut() {
+    //
+    //        let alert = UIAlertController(title: "Sign out?", message: "You can always access your content by signing back in", preferredStyle: UIAlertController.Style.alert)
+    //
+    //        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { _ in
+    //            //Cancel Action
+    //        }))
+    //        alert.addAction(UIAlertAction(title: "Sign out",
+    //                                      style: UIAlertAction.Style.destructive,
+    //                                      handler: {(_: UIAlertAction!) in
+    //
+    //                                        let signOut = SignOutAction()
+    //                                        signOut.signOutAction(_viewIdentifier: "LoginNavIVC", _viewC: self)
+    //        }))
+    //        self.present(alert, animated: true, completion: nil)
+    //    }
     
 }

@@ -28,7 +28,7 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var goingCountLabel: UILabel!
     
-    let eventAtendingDB = EventAtendingDB()
+    let eventAtendingDB = PushGoingDataFirbase()
     
     override func viewDidLoad() {
         super.viewDidLoad()

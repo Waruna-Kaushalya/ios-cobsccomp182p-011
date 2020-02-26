@@ -23,6 +23,7 @@
 		C061DD83240512F0002E3E6E /* PushGoingDataFirbase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061DD82240512F0002E3E6E /* PushGoingDataFirbase.swift */; };
 		C061DD85240518D7002E3E6E /* CreateEventStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061DD84240518D7002E3E6E /* CreateEventStruct.swift */; };
 		C061DD8724051D65002E3E6E /* PushEventDataFireBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061DD8624051D65002E3E6E /* PushEventDataFireBase.swift */; };
+		C061DD892405AFDF002E3E6E /* GetGoingDataFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061DD882405AFDF002E3E6E /* GetGoingDataFirebase.swift */; };
 		C07F199723EF2564004AD08D /* TransitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199623EF2564004AD08D /* TransitionVC.swift */; };
 		C07F199A23EF259B004AD08D /* AlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199923EF259B004AD08D /* AlertMessages.swift */; };
 		C07F199C23EF25E0004AD08D /* CheckPasswordAndEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199B23EF25E0004AD08D /* CheckPasswordAndEmail.swift */; };
@@ -98,6 +99,7 @@
 		C061DD82240512F0002E3E6E /* PushGoingDataFirbase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushGoingDataFirbase.swift; sourceTree = "<group>"; };
 		C061DD84240518D7002E3E6E /* CreateEventStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventStruct.swift; sourceTree = "<group>"; };
 		C061DD8624051D65002E3E6E /* PushEventDataFireBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushEventDataFireBase.swift; sourceTree = "<group>"; };
+		C061DD882405AFDF002E3E6E /* GetGoingDataFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetGoingDataFirebase.swift; sourceTree = "<group>"; };
 		C07F199623EF2564004AD08D /* TransitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionVC.swift; sourceTree = "<group>"; };
 		C07F199923EF259B004AD08D /* AlertMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessages.swift; sourceTree = "<group>"; };
 		C07F199B23EF25E0004AD08D /* CheckPasswordAndEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPasswordAndEmail.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 				C09E10C123FFBC5000B26D78 /* EventDetailsViewController.swift */,
 				C09E10C323FFF1D400B26D78 /* eventModel.swift */,
 				C061DD82240512F0002E3E6E /* PushGoingDataFirbase.swift */,
+				C061DD882405AFDF002E3E6E /* GetGoingDataFirebase.swift */,
 			);
 			path = NewsFeed;
 			sourceTree = "<group>";
@@ -612,6 +615,7 @@
 				C07F19C623F55E7B004AD08D /* FloatingTextField.swift in Sources */,
 				C07F19C223F3D332004AD08D /* CurrentUserDataRetrivel.swift in Sources */,
 				C09E10BD23FF866800B26D78 /* UserProfileViewController.swift in Sources */,
+				C061DD892405AFDF002E3E6E /* GetGoingDataFirebase.swift in Sources */,
 				C061DD812404FEED002E3E6E /* UserStruct.swift in Sources */,
 				C07F199723EF2564004AD08D /* TransitionVC.swift in Sources */,
 				C061DD83240512F0002E3E6E /* PushGoingDataFirbase.swift in Sources */,

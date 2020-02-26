@@ -31,19 +31,20 @@ class HomeTableViewCell: UITableViewCell {
     
     var delegate:CellDelegator!
     
-  
+    var eventIdentifire:[String] = [""]
     
     let eventAtendingDB = PushGoingDataFirbase()
     
     func setEvent(event: Event)  {
         
+        
+        
+        //Set elements
         userProfileImage.roundedImage()
-        
         postTitle.text = event.title
-        
         eventDescription.text = event.eventDescription
-        
         userName.text = event.userFirstName
+        
         
         let url = URL(string: event.iamage ?? "")
         self.postImageView.kf.setImage(with: url)
@@ -51,75 +52,81 @@ class HomeTableViewCell: UITableViewCell {
         let uurl = URL(string: event.userProfileImage ?? "")
         self.userProfileImage.kf.setImage(with: uurl)
         
-//        let FirstName = event.userFirstName
-//
-//        let LastName = event.userLastName
-        
         UserStruct.userFirstName = event.userFirstName
         UserStruct.userLastName = event.userLastName
-        
-//        print("===================================")
-//        print(FirstName)
-//         print(LastName)
-//         print("===================================")
         UserStruct.userContactNumber = event.contactNumber
         UserStruct.userFBUrl = event.userFBUrl
         UserStruct.userProfileImageUrl = event.userProfileImage
         UserStruct.currentUserId = event.userID
         
+        GoingCountStruct.eventIdentifire = event.eventIdentifire
+        GoingCountStruct.goingCountNumber =  event.goingCount
+        
+        print("====================111111================================")
+        print(GoingCountStruct.goingCountNumber )
+         print("======================111111===============================")
+        GoingCountStruct.goingUserList  = event.goingUsers
+        
+        eventIdentifire[0] = event.eventIdentifire
+        
+        GoingCountStruct.eventID =  eventIdentifire[0]
+        
+        goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
+        
         tapedLabel()
         
+        setPLike(event:event)
+        
     }
-    func tapedLabel(){
+    func setPLike(event: Event){
         
         
-        userName.isUserInteractionEnabled = true
+        let aa = CheckUserLoginStatus()
         
-        let labelTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.doSomethingOnTap))
-        
-        userName.addGestureRecognizer(labelTapGesture)
-    }
-    
-    @objc func doSomethingOnTap() {
-        
-        
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        //Get the indexpath of cell where button was tapped
-//                    let indexPath = self.collectionView.indexPathForCell(cell)
-//                    print(indexPath!.row)
-        
-        let indexPath = (self.superview as! UITableView).indexPath(for: self)
-        print("00000000000000000000004004004000404004400404044000404")
-        print(indexPath?.row)
-
-        
-        let destination = storyboard.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
-        
-        //        print("tapped")
-        let v = Event(image: "rrr", title: "rrr", eventDescription: "rrr", userFirstName: UserStruct.userFirstName, userLastName: UserStruct.userLastName, userProfileImage: UserStruct.userProfileImageUrl , goingCount: 333, eventIdentifire: "vvv", goingUsers: ["fff"], userID: UserStruct.currentUserId, currntUserID: UserStruct.currentUserId, contactNumber: UserStruct.userContactNumber, userFBUrl: UserStruct.userFBUrl )
-        
-//        let v = Eve(userFirstName:   UserStruct.userFirstName, userLastName:   UserStruct.userLastName, userContactNumber:   UserStruct.userContactNumber, userFBUrl:    UserStruct.userFBUrl, userProfileImageUrl:    UserStruct.userProfileImageUrl, userID:   UserStruct.currentUserId)
-        
-        if (self.delegate != nil) { //Just to be safe.
-//            self.delegate.callSegueFromCell(data: v)
-            self.delegate.callSegueFromCell(data: v, cellForRowAt: indexPath!)
+        if aa.checkUserLoginStatus() == true {
+            UserStruct.currentUserId = Auth.auth().currentUser!.uid
+            
+            
+            var flagC:[Bool] = [false]
+            
+            if GoingCountStruct.goingUserList.count != 0 && GoingCountStruct.goingCountNumber != 0{
+                for i in 0..<GoingCountStruct.goingUserList.count {
+                    
+                    if GoingCountStruct.goingUserList[i] ==  UserStruct.currentUserId  {
+                        flagC[0] = true
+                    }else{
+                        flagC[0] = false
+                    }
+                }
+                
+                if flagC[0] == true{
+                    goingButton.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
+                    goingButton.tag = 1
+                    
+                    GoingCountStruct.goingOrNot = true
+                    
+                }else{
+                    goingButton.setImage(UIImage(named: "GoingBtn"), for: .normal)
+                    goingButton.tag = 0
+                    GoingCountStruct.goingOrNot = false
+                }
+            }
+            else{
+                
+                goingButton.setImage(UIImage(named: "GoingBtn"), for: .normal)
+                goingButton.tag = 0
+                GoingCountStruct.goingOrNot = false
+                
+            }
+        }else{
+            goingButton.isHidden = false
         }
-        
-//        func btnCloseTapped(cell: MyCell) {
-//            //Get the indexpath of cell where button was tapped
-//            let indexPath = self.collectionView.indexPathForCell(cell)
-//            print(indexPath!.row)
-//        }
-        
     }
     
     
     @IBAction func btnGoing_Clicked(_ sender: UIButton) {
-        //        print(currentUserId[0])
-        let aa = CheckUserLoginStatus()
         
+        let aa = CheckUserLoginStatus()
         if aa.checkUserLoginStatus() == true {
             if goingButton.tag == 0 {
                 
@@ -130,33 +137,42 @@ class HomeTableViewCell: UITableViewCell {
                 
                 GoingCountStruct.goingCountNumber = GoingCountStruct.goingCountNumber + 1
                 
+                print("===================222222=================================")
+                print(GoingCountStruct.goingCountNumber )
+                print("======================222222===============================")
+                
                 goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
                 
-                GoingCountStruct.goingCountNumber =  GoingCountStruct.goingCountNumber
+                GoingCountStruct.goingUserList.append(UserStruct.currentUserId)
                 
-                GoingCountStruct.goingUserList.append( UserStruct.currentUserId )
-                eventAtendingDB.eventAtendingDB()
-                //                lick()
+                GoingCountStruct.eventID =  eventIdentifire[0]
+                
+                //Push data to firebase
+                eventAtendingDB.eventAtendingDB(eventIdentifire: eventIdentifire[0])
+                
                 print("going")
                 
             }else {
                 
                 GoingCountStruct.goingOrNot = false
                 
-                print("222222222222222222")
-                
                 goingButton.setImage(UIImage(named: "GoingBtn"), for: .normal)
                 goingButton.tag = 0
                 
                 GoingCountStruct.goingCountNumber = GoingCountStruct.goingCountNumber - 1
-                goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
                 
-                GoingCountStruct.goingCountNumber =  GoingCountStruct.goingCountNumber
+                print("=====================333333===============================")
+                print(GoingCountStruct.goingCountNumber )
+                print("======================333333===============================")
+                
+                goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
                 
                 GoingCountStruct.goingUserList = GoingCountStruct.goingUserList.filter {$0 !=  UserStruct.currentUserId }
                 
-                eventAtendingDB.eventAtendingDB()
-                //                lick()
+                GoingCountStruct.eventID =  eventIdentifire[0]
+                
+                //Push data to firebase
+                eventAtendingDB.eventAtendingDB(eventIdentifire: eventIdentifire[0])
                 print("not going")
             }
             
@@ -166,48 +182,33 @@ class HomeTableViewCell: UITableViewCell {
         
     }
     
-    func setPLike(event: Event){
+    
+    func tapedLabel(){
+        
+        userName.isUserInteractionEnabled = true
+        let labelTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.doSomethingOnTap))
+        userName.addGestureRecognizer(labelTapGesture)
+    }
+    
+    @objc func doSomethingOnTap() {
         
         
-        let aa = CheckUserLoginStatus()
+        //        print("tapped")
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         
-        if aa.checkUserLoginStatus() == true {
-            UserStruct.currentUserId = Auth.auth().currentUser!.uid
-            
-            GoingCountStruct.goingCountNumber =  event.goingCount
-            GoingCountStruct.eventIdentifire = event.eventIdentifire
-            
-            GoingCountStruct.goingUserList  = event.goingUsers
-            
-            goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
-            
-            var flagC:[Bool] = [false]
-            
-            if GoingCountStruct.goingUserList.count != 0{
-                for i in 0..<GoingCountStruct.goingUserList.count {
-                    
-                    if GoingCountStruct.goingUserList[i] ==   UserStruct.currentUserId  {
-                        flagC[0] = true
-                    }else{
-                        flagC[0] = false
-                    }
-                }
-                
-                if flagC[0] == true{
-                    goingButton.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
-                    goingButton.tag = 1
-                    GoingCountStruct.goingOrNot = true
-                    
-                    print("3333333333333333333")
-                }else{
-                    GoingCountStruct.goingOrNot = false
-                    print("4444444444444444444444")
-                }
-                
-            }else{
-                goingButton.isHidden = false
-                
-            }
+        //Get the indexpath of cell where button was tapped
+        
+        let indexPath = (self.superview as! UITableView).indexPath(for: self)
+        
+        let destination = storyboard.instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
+        
+        
+        let v = Event(image: "rrr", title: "rrr", eventDescription: "rrr", userFirstName: UserStruct.userFirstName, userLastName: UserStruct.userLastName, userProfileImage: UserStruct.userProfileImageUrl , goingCount: 333, eventIdentifire: "vvv", goingUsers: ["fff"], userID: UserStruct.currentUserId, currntUserID: UserStruct.currentUserId, contactNumber: UserStruct.userContactNumber, userFBUrl: UserStruct.userFBUrl )
+        
+        //        let v = Eve(userFirstName:   UserStruct.userFirstName, userLastName:   UserStruct.userLastName, userContactNumber:   UserStruct.userContactNumber, userFBUrl:    UserStruct.userFBUrl, userProfileImageUrl:    UserStruct.userProfileImageUrl, userID:   UserStruct.currentUserId)
+        
+        if (self.delegate != nil) {
+            self.delegate.callSegueFromCell(data: v, cellForRowAt: indexPath!)
         }
     }
 }

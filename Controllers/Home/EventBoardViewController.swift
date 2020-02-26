@@ -97,14 +97,22 @@ class EventBoardViewController: UIViewController, CellDelegator {
 
 extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
         let eventsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "eventDetailsVC") as! EventDetailsViewController
         
-        eventsController.event = eventList[indexPath.row]
+        let event:Event = self.eventList[indexPath.row]
+        
+        print(event.eventIdentifire)
+        
+        eventsController.event = event
+        
         
         self.present(eventsController, animated: true, completion: nil)
+        
+        
         
     }
     
@@ -121,11 +129,17 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell")  as! HomeTableViewCell
         
-        //        print(indexPath.row)
+                print(indexPath.row)
         let event:Event = self.eventList[indexPath.row]
         
+        
+        print("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+        print(event.eventIdentifire)
+         print("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
+      
+        
         cell.setEvent(event: event)
-        cell.setPLike(event: event)
+//        cell.setPLike(event: event)
         
         cell.delegate = self
         

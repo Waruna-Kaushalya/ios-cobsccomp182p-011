@@ -157,7 +157,9 @@ class SignUPViewController: UIViewController{
                 alertMSG.warningAlertMessage(_AlertMessage: "Please Select Profile Image", _viewCFrom: self)
                 return
             }
-            guard  let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {
+            
+            //compress image
+            guard  let imageData = imageSelected.jpegData(compressionQuality: 0.0) else {
                 return
             }
             

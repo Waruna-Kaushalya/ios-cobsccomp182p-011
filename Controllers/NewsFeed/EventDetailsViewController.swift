@@ -13,7 +13,12 @@ import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 
+
+
+
 class EventDetailsViewController: UIViewController {
+    
+    
     
     var event:Event?
     
@@ -30,34 +35,134 @@ class EventDetailsViewController: UIViewController {
     
     let eventAtendingDB = PushGoingDataFirbase()
     
+    var eventIdentifire:[String] = [""]
+    //    var goingUserList:[String] = [""]
+    //    var goingCount:[Int] = [0]
+    var currentUserId:[String] = [""]
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userProfileImage.roundedImage()
+        eventIdentifire[0] = event!.eventIdentifire
         
-        goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
+        getGoingDataFirebase()
         
-        let state = GoingCountStruct.goingOrNot
-        print("My view state:\(state)")
         
-        if state == true{
-            goingBtn.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
-            goingBtn.tag = 1
+    }
+    
+    func getGoingDataFirebase(){
+        
+        let docRef = Firestore.firestore().collection("event").whereField("eventID", isEqualTo: self.event!.eventIdentifire)
+        
+        print(self.event!.eventIdentifire)
+        
+        docRef.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print(err.localizedDescription)
+                return
+            } else if querySnapshot!.documents.count != 1 {
+                print("More than one documents or none")
+            } else {
+                let document = querySnapshot!.documents.first
+                let dataDescription = document?.data()
+                
+                
+                GoingCountStruct.goingCountNumber = dataDescription?["goingCount"] as! Int
+                
+                GoingCountStruct.goingUserList = dataDescription?["goingUsers"]  as! [String]
+                
+                
+                
+                print("AAAAAA")
+                
+                if GoingCountStruct.goingUserList.count == 0  {
+                    print("going count nil")
+                    GoingCountStruct.goingCountNumber = 0
+                }
+                
+            }
             
-            
-            goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
-            
-        }else{
-            goingBtn.setImage(UIImage(named: "GoingBtn"), for: .normal)
-            goingBtn.tag = 0
-            
-            goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber )")
+            DispatchQueue.main.async {
+                self.setElement()
+                self.setPLike()
+                
+                print("BBB")
+            }
             
         }
         
-        setElement()
+        
         
     }
+    
+    func setPLike(){
+        
+        
+        let aa = CheckUserLoginStatus()
+        
+        if aa.checkUserLoginStatus() == true {
+            currentUserId[0] = Auth.auth().currentUser!.uid
+            
+            
+            var flagC:[Bool] = [false]
+            
+            if GoingCountStruct.goingUserList.count != 0 && GoingCountStruct.goingCountNumber  != 0{
+                for i in 0..<GoingCountStruct.goingUserList.count {
+                    
+                    if GoingCountStruct.goingUserList[i] ==  currentUserId[0]  {
+                        flagC[0] = true
+                    }else{
+                        flagC[0] = false
+                    }
+                }
+                
+                if flagC[0] == true{
+                    goingBtn.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
+                    goingBtn.tag = 1
+                    
+                    GoingCountStruct.goingOrNot = true
+                    
+                }else{
+                    goingBtn.setImage(UIImage(named: "GoingBtn"), for: .normal)
+                    goingBtn.tag = 0
+                    GoingCountStruct.goingOrNot = false
+                }
+            }
+            else{
+                
+                goingBtn.setImage(UIImage(named: "GoingBtn"), for: .normal)
+                goingBtn.tag = 0
+                GoingCountStruct.goingOrNot = false
+                
+            }
+        }else{
+            goingBtn.isHidden = false
+        }
+    }
+    
+    
+    
+    func setElement(){
+        
+        goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber )")
+        userProfileImage.roundedImage()
+        eventTitle.text = event?.title
+        eventDescriptionLabel.text = event?.eventDescription
+        
+        
+        let url = URL(string: event?.iamage ?? "")
+        self.eventImage.kf.setImage(with: url)
+        //        eventLocation
+        //        eventAdedDate
+        
+        //        userProfileImage
+        userName.text = event?.userFirstName
+    }
+    
+    
     @IBAction func goingBtnClicked(_ sender: UIButton) {
         //        print(currentUserId[0])
         let aa = CheckUserLoginStatus()
@@ -68,16 +173,20 @@ class EventDetailsViewController: UIViewController {
                 goingBtn.setImage(UIImage(named: "NotGoingBtn"), for: .normal)
                 goingBtn.tag = 1
                 
-                GoingCountStruct.goingCountNumber = GoingCountStruct.goingCountNumber + 1
+                GoingCountStruct.goingCountNumber =  GoingCountStruct.goingCountNumber  + 1
                 
-                goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
+                goingCountLabel.text = String ("Count " + "\( GoingCountStruct.goingCountNumber )")
                 
-                GoingCountStruct.goingUserList.append( UserStruct.currentUserId )
+                GoingCountStruct.goingUserList.append(currentUserId[0])
                 
                 GoingCountStruct.goingOrNot = true
                 
-                eventAtendingDB.eventAtendingDB()
-                //                lick()
+                
+                
+                
+                
+                //                eventAtendingDB.eventAtendingDB(eventIdentifire: eventIdentifire[0])
+                eventAtendingDB.eventAtendingDB(eventIdentifire: eventIdentifire[0])
                 print("going")
                 
             }else {
@@ -85,15 +194,18 @@ class EventDetailsViewController: UIViewController {
                 goingBtn.setImage(UIImage(named: "GoingBtn"), for: .normal)
                 goingBtn.tag = 0
                 
-                GoingCountStruct.goingCountNumber = GoingCountStruct.goingCountNumber - 1
-                goingCountLabel.text = String ("Count " + "\(GoingCountStruct.goingCountNumber)")
+                GoingCountStruct.goingCountNumber =  GoingCountStruct.goingCountNumber  - 1
                 
-                GoingCountStruct.goingUserList = GoingCountStruct.goingUserList.filter {$0 !=  UserStruct.currentUserId }
+                goingCountLabel.text = String ("Count " + "\( GoingCountStruct.goingCountNumber )")
+                
+                GoingCountStruct.goingUserList = GoingCountStruct.goingUserList.filter {$0 !=  currentUserId[0] }
                 
                 GoingCountStruct.goingOrNot = false
                 
-                eventAtendingDB.eventAtendingDB()
-                //                lick()
+                
+//                eventAtendingDB(eventIdentifire: eventIdentifire[0])
+                 eventAtendingDB.eventAtendingDB(eventIdentifire: eventIdentifire[0])
+                
                 print("not going")
             }
             
@@ -104,20 +216,10 @@ class EventDetailsViewController: UIViewController {
         }
     }
     
+   
     
-    func setElement(){
-        eventTitle.text = event?.title
-        //        eventImage
-        eventDescriptionLabel.text = event?.eventDescription
-        
-        let url = URL(string: event?.iamage ?? "")
-        self.eventImage.kf.setImage(with: url)
-        //        eventLocation
-        //        eventAdedDate
-        
-        //        userProfileImage
-        userName.text = event?.userFirstName
-    }
+    
+    
     
     @IBAction func closeButtonClick(_ sender: Any) {
         let trans = TransitionController()

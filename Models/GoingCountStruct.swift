@@ -29,6 +29,9 @@ struct GoingCountStruct {
    
     static var goingUserList = [String]()
     static var eventIdentifire:String = ""
+    static var eventID:String = ""
+    
+    
 
 }
 

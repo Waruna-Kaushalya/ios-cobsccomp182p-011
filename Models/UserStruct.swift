@@ -15,6 +15,7 @@ struct UserStruct {
     static var userContactNumber:String = ""
     static var userFBUrl:String = ""
     static var userProfileImageUrl:String = ""
+    static var eventAddedDate:String = ""
     
     
 }

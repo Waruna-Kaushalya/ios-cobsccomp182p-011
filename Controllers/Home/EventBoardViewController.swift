@@ -30,11 +30,12 @@ class EventBoardViewController: UIViewController, CellDelegator {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.reloadData()
         retrieveBooks()
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
+        self.tableView.reloadData()
+//        DispatchQueue.main.async {
+//            self.tableView.reloadData()
+//        }
         
     }
     
@@ -61,6 +62,7 @@ class EventBoardViewController: UIViewController, CellDelegator {
                 let goingCount = data["goingCount"] as? Int
                 let eventIdentifire = data["eventID"] as? String
                 let goingUsers = data["goingUsers"] as! [String]
+                let eventAddedDate = data["eventAddedDate"] as! String
                 
                 
                 let dataRef = Firestore.firestore().collection("users").whereField("uid", isEqualTo: userID ?? "")
@@ -76,7 +78,9 @@ class EventBoardViewController: UIViewController, CellDelegator {
                     let userProfileImage = dataDescription?["imageURL"] as? String
                     let currntUserID = dataDescription?["uid"] as? String
                     
-                    let event:Event = Event(image: imageURL!, title: title!, eventDescription: eventDescription!, userFirstName: userFName!, userLastName: userLName!, userProfileImage: userProfileImage!, goingCount: goingCount!, eventIdentifire: eventIdentifire!, goingUsers: goingUsers, userID: userID!, currntUserID: currntUserID!, contactNumber: phoneNumber!,userFBUrl:fbURL!)
+//                    let event:Event = Event(image: imageURL!, title: title!, eventDescription: eventDescription!, userFirstName: userFName!, userLastName: userLName!, userProfileImage: userProfileImage!, goingCount: goingCount!, eventIdentifire: eventIdentifire!, goingUsers: goingUsers, userID: userID!, currntUserID: currntUserID!, contactNumber: phoneNumber!,userFBUrl:fbURL!,eventAddedDate:eventAddedDate!)
+                    
+                    let event:Event = Event(image: imageURL!, title: title!, eventDescription: eventDescription!, userFirstName: userFName!, userLastName: userLName!, userProfileImage: userProfileImage!, goingCount: goingCount!, eventIdentifire: eventIdentifire!, goingUsers: goingUsers, userID: userID!, currntUserID: currntUserID!, contactNumber: phoneNumber!,userFBUrl:fbURL!, eventAddedDate: eventAddedDate)
                     
                     
                     
@@ -84,6 +88,9 @@ class EventBoardViewController: UIViewController, CellDelegator {
                     
                     DispatchQueue.main.async {
                         self.eventList.append(event)
+//                        data.insert("A", at: 0)
+//                        self.eventList.insert("A", at: 0)
+                        self.eventList.sort(by: {$0.eventAddedDate > $1.eventAddedDate})
                         self.tableView.reloadData()
                     }
                     

@@ -46,6 +46,12 @@ class SignUPViewController: UIViewController{
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var loginInButton: UIButton!
     
+    
+    var activityIndicator = UIActivityIndicatorView()
+    var strLabel = UILabel()
+    let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+    
+    
     let firbaseProfileimageUrl = "gs://ios-nibm.appspot.com"
     
     let alertMSG = AlertMessages()
@@ -132,6 +138,12 @@ class SignUPViewController: UIViewController{
         
         let error = validateFields()
         
+        //Profile image things
+        guard let imageSelected  = self.image else{
+            alertMSG.warningAlertMessage(_AlertMessage: "Please Select Profile Image", _viewCFrom: self)
+            return
+        }
+        
         if error != nil{
             alertMSG.warningAlertMessage(_AlertMessage: error!, _viewCFrom: self)
             
@@ -152,11 +164,7 @@ class SignUPViewController: UIViewController{
             let confirmPassword = confirmPasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
             
-            //Profile image things
-            guard let imageSelected  = self.image else{
-                alertMSG.warningAlertMessage(_AlertMessage: "Please Select Profile Image", _viewCFrom: self)
-                return
-            }
+           activityIndicator("Creating account")
             
             //compress image
             guard  let imageData = imageSelected.jpegData(compressionQuality: 0.0) else {
@@ -217,9 +225,35 @@ class SignUPViewController: UIViewController{
             }
         }
         
+        
     }
     
     @IBOutlet weak var profileImageTapped: UIImageView!
+    
+    
+    func activityIndicator(_ title: String) {
+        
+        strLabel.removeFromSuperview()
+        activityIndicator.removeFromSuperview()
+        effectView.removeFromSuperview()
+        
+        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 160, height: 46))
+        strLabel.text = title
+        strLabel.font = .systemFont(ofSize: 14, weight: .medium)
+        strLabel.textColor = UIColor(white: 0.9, alpha: 0.9)
+        
+        effectView.frame = CGRect(x: view.frame.midX - strLabel.frame.width/2, y: view.frame.midY - strLabel.frame.height/2 , width: 160, height: 46)
+        effectView.layer.cornerRadius = 15
+        effectView.layer.masksToBounds = true
+        
+        activityIndicator = UIActivityIndicatorView(style: .white)
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 46, height: 46)
+        activityIndicator.startAnimating()
+        
+        effectView.contentView.addSubview(activityIndicator)
+        effectView.contentView.addSubview(strLabel)
+        view.addSubview(effectView)
+    }
     
 }
 

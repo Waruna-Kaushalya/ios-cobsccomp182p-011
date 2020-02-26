@@ -14,11 +14,22 @@ import FirebaseStorage
 
 class AddEventViewController: UIViewController {
     
+    //    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
     @IBOutlet weak var eventImagePicker: UIImageView!
     @IBOutlet weak var eventImage: UIStackView!
     @IBOutlet weak var eventTitle: UITextField!
     @IBOutlet weak var eventDescription: UITextField!
     @IBOutlet weak var publishButton: UIButton!
+    
+    
+    var activityIndicator = UIActivityIndicatorView()
+    var strLabel = UILabel()
+    let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+    
+    
+    
+    
     
     let alertMSG = AlertMessages()
     let trancVc = TransitionController()
@@ -86,96 +97,128 @@ class AddEventViewController: UIViewController {
     
     @IBAction func publishedButtonTapped(_ sender: Any) {
         
-        
-        
-        CreateEventStruct.eventTitleTxt = eventTitle.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        CreateEventStruct.eventDescriptionTxt = eventDescription.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-        
-        
-                let userID : String = (Auth.auth().currentUser?.uid)!
-        CreateEventStruct.userID = userID
-        
-        print("Current user ID is " + CreateEventStruct.userID)
-        
         guard let imageSelected  = self.image else{
             alertMSG.warningAlertMessage(_AlertMessage: "Please Select Profile Image", _viewCFrom: self)
             return
         }
         
+        let error = validateFields()
         
-        
-        
-        //compress image size ****
-        guard  let imageData = imageSelected.jpegData(compressionQuality: 0.0) else {
-            return
-        }
-        
-        
-        let storageRef = Storage.storage().reference(forURL: self.firbaseProfileimageUrl)
-        let storageProfileRef = storageRef.child("eventImages").child(CreateEventStruct.userID)
-        
-        
-        
-        let metaData = StorageMetadata()
-        
-        
-        metaData.contentType = "image/jpg"
-        
-        
-        storageProfileRef.putData(imageData, metadata: metaData, completion: { (storageMetaData, error) in
-            if error != nil{
-                print("Errrror")
+        if error != nil{
+            alertMSG.warningAlertMessage(_AlertMessage: error!, _viewCFrom: self)
+        }else{
+            
+            activityIndicator("Saving data")
+            
+            CreateEventStruct.eventTitleTxt = eventTitle.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            CreateEventStruct.eventDescriptionTxt = eventDescription.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            //        var activityView = UIActivityIndicatorView(style: .gray)
+            //        activityView.center = self.view.center
+            //        self.view.addSubview(activityView)
+            //        activityView.startAnimating()
+            
+            
+            //        activityIndicator("Saving Data")
+            //waiting code add
+            //        activityIndicator.center = self.view.center
+            //        activityIndicator.hidesWhenStopped = true
+            ////
+            //        view.subviews(activityIndicator)
+            
+            
+            
+            
+            
+            let userID : String = (Auth.auth().currentUser?.uid)!
+            CreateEventStruct.userID = userID
+            
+            print("Current user ID is " + CreateEventStruct.userID)
+            
+            
+            
+           
+            
+            
+            
+            
+            //compress image size ****
+            guard  let imageData = imageSelected.jpegData(compressionQuality: 0.0) else {
                 return
             }
             
-            storageProfileRef.downloadURL(completion: { (url, error) in
-                if let metaImageUrl = url?.absoluteString{
-                    CreateEventStruct.metaImageUrl = metaImageUrl
-                    print(metaImageUrl)
-                    
-                    let uuid = UUID().uuidString
-                    CreateEventStruct.eventID = uuid
-                    print(uuid)
-                    
-//                    self.pushDataToFireBase()
-                    let pushData = PushDataToFireBase()
-                    pushData.pushDataToFireBase()
-                    
-                    if CreateEventStruct.flag == true{
-                        let trans = TransitionController()
-                        trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: self)
-                    }
-                    else{
-                        self.alertMSG.warningAlertMessage(_AlertMessage: ERROR_SAVING_DATA, _viewCFrom: self)
-                    }
-                    
+            
+            let storageRef = Storage.storage().reference(forURL: self.firbaseProfileimageUrl)
+            let storageProfileRef = storageRef.child("eventImages").child(CreateEventStruct.userID)
+            
+            
+            
+            let metaData = StorageMetadata()
+            
+            
+            metaData.contentType = "image/jpg"
+            
+            
+            storageProfileRef.putData(imageData, metadata: metaData, completion: { (storageMetaData, error) in
+                if error != nil{
+                    print("Errrror")
+                    return
                 }
+                
+                storageProfileRef.downloadURL(completion: { (url, error) in
+                    if let metaImageUrl = url?.absoluteString{
+                        CreateEventStruct.metaImageUrl = metaImageUrl
+                        print(metaImageUrl)
+                        
+                        let uuid = UUID().uuidString
+                        CreateEventStruct.eventID = uuid
+                        print(uuid)
+                        
+                        //                    self.pushDataToFireBase()
+                        let pushData = PushDataToFireBase()
+                        pushData.pushDataToFireBase()
+                        
+                        if CreateEventStruct.flag == true{
+                            
+                            
+                            let trans = TransitionController()
+                            trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: self)
+                        }
+                        else{
+                            self.alertMSG.warningAlertMessage(_AlertMessage: ERROR_SAVING_DATA, _viewCFrom: self)
+                        }
+                        
+                    }
+                })
             })
-        })
+        }
         
     }
-//    func pushDataToFireBase()  {
-//        
-//
-//        var goingCount:Int = 0
-//        var goingUsers = [String]()
-//        
-//        let db = Firestore.firestore()
-//        db.collection("event").addDocument(data: ["userID":CreateEventStruct.userID,"eventtitle":CreateEventStruct.eventTitleTxt,"eventdescription":CreateEventStruct.eventDescriptionTxt,"eventImageUrl":CreateEventStruct.metaImageUrl,"eventID":CreateEventStruct.eventID ,"goingCount":goingCount,"goingUsers":goingUsers ]) { (error) in
-//            if error != nil {
-//                
-//                
-//                
-//                self.alertMSG.warningAlertMessage(_AlertMessage: ERROR_SAVING_DATA, _viewCFrom: self)
-//                
-//            }else{
-//                
-//                let trans = TransitionController()
-//                trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: self)
-//                
-//            }
-//        }
-//    }
+    func activityIndicator(_ title: String) {
+        
+        strLabel.removeFromSuperview()
+        activityIndicator.removeFromSuperview()
+        effectView.removeFromSuperview()
+        
+        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 160, height: 46))
+        strLabel.text = title
+        strLabel.font = .systemFont(ofSize: 14, weight: .medium)
+        strLabel.textColor = UIColor(white: 0.9, alpha: 0.9)
+        
+        effectView.frame = CGRect(x: view.frame.midX - strLabel.frame.width/2, y: view.frame.midY - strLabel.frame.height/2 , width: 160, height: 46)
+        effectView.layer.cornerRadius = 15
+        effectView.layer.masksToBounds = true
+        
+        activityIndicator = UIActivityIndicatorView(style: .white)
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 46, height: 46)
+        activityIndicator.startAnimating()
+        
+        effectView.contentView.addSubview(activityIndicator)
+        effectView.contentView.addSubview(strLabel)
+        view.addSubview(effectView)
+    }
+    
+    
 }
 
 extension AddEventViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate{

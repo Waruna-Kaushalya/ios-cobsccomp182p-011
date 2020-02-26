@@ -18,10 +18,6 @@ protocol CellDelegator {
 }
 
 class EventBoardViewController: UIViewController, CellDelegator {
-   
-    
-    
-    
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -33,13 +29,12 @@ class EventBoardViewController: UIViewController, CellDelegator {
         self.tableView.reloadData()
         retrieveBooks()
         self.tableView.reloadData()
-//        DispatchQueue.main.async {
-//            self.tableView.reloadData()
-//        }
+        //        DispatchQueue.main.async {
+        //            self.tableView.reloadData()
+        //        }
         
     }
     
- 
     
     func retrieveBooks(){
         
@@ -78,18 +73,14 @@ class EventBoardViewController: UIViewController, CellDelegator {
                     let userProfileImage = dataDescription?["imageURL"] as? String
                     let currntUserID = dataDescription?["uid"] as? String
                     
-//                    let event:Event = Event(image: imageURL!, title: title!, eventDescription: eventDescription!, userFirstName: userFName!, userLastName: userLName!, userProfileImage: userProfileImage!, goingCount: goingCount!, eventIdentifire: eventIdentifire!, goingUsers: goingUsers, userID: userID!, currntUserID: currntUserID!, contactNumber: phoneNumber!,userFBUrl:fbURL!,eventAddedDate:eventAddedDate!)
-                    
                     let event:Event = Event(image: imageURL!, title: title!, eventDescription: eventDescription!, userFirstName: userFName!, userLastName: userLName!, userProfileImage: userProfileImage!, goingCount: goingCount!, eventIdentifire: eventIdentifire!, goingUsers: goingUsers, userID: userID!, currntUserID: currntUserID!, contactNumber: phoneNumber!,userFBUrl:fbURL!, eventAddedDate: eventAddedDate)
-                    
-                    
-                    
                     
                     
                     DispatchQueue.main.async {
                         self.eventList.append(event)
-//                        data.insert("A", at: 0)
-//                        self.eventList.insert("A", at: 0)
+                        
+                        //Sort using date
+                        
                         self.eventList.sort(by: {$0.eventAddedDate > $1.eventAddedDate})
                         self.tableView.reloadData()
                     }
@@ -116,10 +107,7 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         
         eventsController.event = event
         
-        
         self.present(eventsController, animated: true, completion: nil)
-        
-        
         
     }
     
@@ -136,17 +124,12 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell")  as! HomeTableViewCell
         
-                print(indexPath.row)
+        print(indexPath.row)
         let event:Event = self.eventList[indexPath.row]
         
-        
-        print("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
         print(event.eventIdentifire)
-         print("[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]")
-      
         
         cell.setEvent(event: event)
-//        cell.setPLike(event: event)
         
         cell.delegate = self
         
@@ -155,7 +138,7 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         
     }
     
-   
+    
     func callSegueFromCell(data dataobject: Event, cellForRowAt indexPath: IndexPath) {
         
         
@@ -164,7 +147,7 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         
         let viewName = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
         
-//        viewName. = dataobject
+        //        viewName. = dataobject
         
         viewName.setUser(event: event)
         
@@ -176,18 +159,18 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
     
     
     
-//    func callSegueFromCell(data dataobject: User, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        let viewName = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
-//
-//        viewName.user = dataobject
-//
-//        viewName.setUser(user: dataobject)
-//
-//
-//        self.present(viewName, animated: true, completion: nil)
-//
-//    }
+    //    func callSegueFromCell(data dataobject: User, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    //
+    //        let viewName = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
+    //
+    //        viewName.user = dataobject
+    //
+    //        viewName.setUser(user: dataobject)
+    //
+    //
+    //        self.present(viewName, animated: true, completion: nil)
+    //
+    //    }
     
     func transToProfile()  {
         let Trans = TransitionController()

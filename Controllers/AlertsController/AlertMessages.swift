@@ -32,6 +32,9 @@ class AlertMessages {
             }}))
         _viewCFrom.present(alert, animated: true, completion: nil)
     }
+    
+    
+    
     func ActionAlert(_title:String,_message:String,_viewCIdentifier:String, _viewControllerName:UIViewController)  {
         let alertController = UIAlertController(title: _title, message: _message, preferredStyle: .alert)
         

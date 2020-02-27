@@ -29,6 +29,7 @@ pod 'Firebase/Auth'
 pod 'Firebase/Firestore'
 pod 'Firebase/Core'
 pod 'Kingfisher', '~> 5.0'
+pod 'RxSwift', '~> 5'
 
 
 end

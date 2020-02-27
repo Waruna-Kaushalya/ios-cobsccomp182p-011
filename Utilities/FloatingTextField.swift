@@ -17,9 +17,7 @@ class FloatingLabelInput: UITextField {
     var floatingLabelHeight: CGFloat = 5
     var button = UIButton(type: .custom)
     var imageView = UIImageView(frame: CGRect.zero)
-    
-    
-    
+
     @IBInspectable
     var _placeholder: String?
     
@@ -83,10 +81,10 @@ class FloatingLabelInput: UITextField {
             self.addSubview(self.floatingLabel)
             self.layer.borderColor = self.activeBorderColor.cgColor
             
-            self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: +5).isActive = true // Place our label 10 pts above the text field
+            self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: +5).isActive = true //
             self.placeholder = ""
         }
-        // Floating label may be stuck behind text input. we bring it forward as it was the last item added to the view heirachy
+
         self.bringSubviewToFront(subviews.last!)
         self.setNeedsDisplay()
     }

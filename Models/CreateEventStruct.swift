@@ -15,9 +15,5 @@ struct CreateEventStruct {
     static var eventID:String = ""
     static var userID:String = ""
     static var flag:Bool = true
-    
-    
-    
-    
-    
+    static var userCurrentLocation:String = ""
 }

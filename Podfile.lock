@@ -333,6 +333,7 @@ PODS:
   - nanopb/encode (0.3.9011)
   - PromisesObjC (1.2.8)
   - Protobuf (3.11.3)
+  - RxSwift (5.0.1)
 
 DEPENDENCIES:
   - Firebase/ABTesting
@@ -347,6 +348,7 @@ DEPENDENCIES:
   - FirebaseCore
   - FirebaseFirestore
   - Kingfisher (~> 5.0)
+  - RxSwift (~> 5)
 
 SPEC REPOS:
   trunk:
@@ -381,6 +383,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - Protobuf
+    - RxSwift
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -414,7 +417,8 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
   Protobuf: 0e94afe3b47cb11876eb6aee296638711a24bf75
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
-PODFILE CHECKSUM: f2d8287bf01692cad3e9c74dd0f58dc28f00b224
+PODFILE CHECKSUM: 999d9410d0962a96329e8e414cdb22b1d59d13fa
 
 COCOAPODS: 1.8.4

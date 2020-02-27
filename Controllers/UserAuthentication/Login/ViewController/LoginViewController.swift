@@ -37,8 +37,6 @@ class LoginViewController: UIViewController {
     var strLabel = UILabel()
     let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
-    
-    
     var context = LAContext()
     
     enum AuthenticationState {
@@ -51,37 +49,11 @@ class LoginViewController: UIViewController {
         setupElements()
         context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil)
     }
-    func setupElements(){
-        
-        emailTextField.styleTextField()
-        passwordTextField.styleTextField()
-        
-        signInButton.styleButton()
-        signInButton.buttonRadiusAll()
-    }
     
-    
-    
-    func validateFields() -> String? {
-        
-        //check that all fields are field in
-        
-        if emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
-        {
-            
-            alertM.warningAlertMessage(_AlertMessage: EMPTY_FIELDS, _viewCFrom: self)
-            return EMPTY_FIELDS
-            
-        }
-
-        return nil
-    }
     
     @IBAction func loginButtonAction(_ sender: Any) {
         
-
         let error = validateFields()
-        
         
         if error != nil{
             
@@ -89,25 +61,22 @@ class LoginViewController: UIViewController {
             
         }else{
             
-           
-
-        let email = emailTextField.text!.trimmingCharacters(in: .whitespaces)
-        let pasword = passwordTextField.text!.trimmingCharacters(in: .whitespaces)
-        
-        if passwordTextField.text != "" || emailTextField.text != ""{
-            self.checkPW.checkPasswordAndEmail(_password: pasword, _email: email, _viewFrom: self)
-        }else{
+            let email = emailTextField.text!.trimmingCharacters(in: .whitespaces)
             
+            let pasword = passwordTextField.text!.trimmingCharacters(in: .whitespaces)
             
-            
-//            let alertM = AlertMessages()
-            alertM.warningAlertMessage(_AlertMessage: "Password and email Should fill", _viewCFrom: self)
-//            //Login faceid and touchId
-////            athentication.authenticateUser(_viewIdentifire: "HomeVC", _viewFrom: self)
+            if passwordTextField.text != "" || emailTextField.text != ""{
+                
+                self.checkPW.checkPasswordAndEmail(_password: pasword, _email: email, _viewFrom: self)
+            }else{
+                
+                athentication.authenticateUser(_viewIdentifire: "HomeVC", _viewFrom: self)
+                //            let alertM = AlertMessages()
+                alertM.warningAlertMessage(_AlertMessage: "Password and email Should fill", _viewCFrom: self)
+                //Login faceid and touchId
+                //            athentication.authenticateUser(_viewIdentifire: "HomeVC", _viewFrom: self)
+            }
         }
-        }
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,30 +88,4 @@ class LoginViewController: UIViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
-    func activityIndicator(_ title: String) {
-        
-        strLabel.removeFromSuperview()
-        activityIndicator.removeFromSuperview()
-        effectView.removeFromSuperview()
-        
-        strLabel = UILabel(frame: CGRect(x: 50, y: 0, width: 160, height: 46))
-        strLabel.text = title
-        strLabel.font = .systemFont(ofSize: 14, weight: .medium)
-        strLabel.textColor = UIColor(white: 0.9, alpha: 0.9)
-        
-        effectView.frame = CGRect(x: view.frame.midX - strLabel.frame.width/2, y: view.frame.midY - strLabel.frame.height/2 , width: 160, height: 46)
-        effectView.layer.cornerRadius = 15
-        effectView.layer.masksToBounds = true
-        
-        activityIndicator = UIActivityIndicatorView(style: .white)
-        activityIndicator.frame = CGRect(x: 0, y: 0, width: 46, height: 46)
-        activityIndicator.startAnimating()
-        
-        effectView.contentView.addSubview(activityIndicator)
-        effectView.contentView.addSubview(strLabel)
-        view.addSubview(effectView)
-    }
-    
-    
-    
 }

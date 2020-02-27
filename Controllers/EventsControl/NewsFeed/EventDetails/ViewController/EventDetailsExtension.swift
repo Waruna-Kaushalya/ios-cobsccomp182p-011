@@ -16,11 +16,22 @@ import FirebaseStorage
 
 extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
     
+    func currentUserDetaiilsRetriving(){
+        
+        if checkUserLoginStatus.checkUserLoginStatus() == true {
+            Comments.userID  = Auth.auth().currentUser!.uid as String
+            
+            retrieveComments()
+            
+            let currentUserDetails = RetrieveCurrentUserDetails()
+            currentUserDetails.retrieveGoingDataFromFirebase()
+        }
+    }
+    
     func buttonAccessControll(){
         
         if checkUserStatus.checkUserLoginStatus() != true || Auth.auth().currentUser!.uid != event!.userID  {
             eventEditBtn.isHidden = true
-//            postButton.isHidden = true
         }
     }
     
@@ -123,10 +134,8 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
         UpdateEventStruct.eventID = event!.eventIdentifire
         UpdateEventStruct.eventDescription = event!.eventDescription
         UpdateEventStruct.eventTitle = event!.title
-        
-        
         Comments.EventID = event!.eventIdentifire
-      
+        
         
     }
     

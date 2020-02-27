@@ -32,7 +32,7 @@ class PasswordForgetViewController: UIViewController {
         sendEmailButton.styleButton()
         
         emailTextField.styleTextField()
-
+        
     }
     
     @IBAction func restPasswordTapped(_ sender: Any) {

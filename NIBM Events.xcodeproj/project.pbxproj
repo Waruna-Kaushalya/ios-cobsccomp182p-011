@@ -26,6 +26,10 @@
 		C01443B22408198700C62AE8 /* CommentsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443B12408198700C62AE8 /* CommentsModel.swift */; };
 		C01443B4240832C900C62AE8 /* Currentdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443B3240832C900C62AE8 /* Currentdate.swift */; };
 		C01443B624083C3200C62AE8 /* RetrieveCurrentUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443B524083C3200C62AE8 /* RetrieveCurrentUserDetails.swift */; };
+		C01443B82408536600C62AE8 /* SignUPExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443B72408536600C62AE8 /* SignUPExtension.swift */; };
+		C01443BA2408549400C62AE8 /* LoginViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443B92408549400C62AE8 /* LoginViewControllerExtension.swift */; };
+		C01443BC2408571600C62AE8 /* PublisherExtrnsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443BB2408571600C62AE8 /* PublisherExtrnsion.swift */; };
+		C01443BE2408579900C62AE8 /* MyProfileExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443BD2408579900C62AE8 /* MyProfileExtension.swift */; };
 		C033B28A23E9601000726A03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B28923E9601000726A03 /* AppDelegate.swift */; };
 		C033B28C23E9601000726A03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B28B23E9601000726A03 /* ViewController.swift */; };
 		C033B28F23E9601000726A03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C033B28D23E9601000726A03 /* Main.storyboard */; };
@@ -110,6 +114,10 @@
 		C01443B12408198700C62AE8 /* CommentsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsModel.swift; sourceTree = "<group>"; };
 		C01443B3240832C900C62AE8 /* Currentdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currentdate.swift; sourceTree = "<group>"; };
 		C01443B524083C3200C62AE8 /* RetrieveCurrentUserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveCurrentUserDetails.swift; sourceTree = "<group>"; };
+		C01443B72408536600C62AE8 /* SignUPExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPExtension.swift; sourceTree = "<group>"; };
+		C01443B92408549400C62AE8 /* LoginViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerExtension.swift; sourceTree = "<group>"; };
+		C01443BB2408571600C62AE8 /* PublisherExtrnsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtrnsion.swift; sourceTree = "<group>"; };
+		C01443BD2408579900C62AE8 /* MyProfileExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileExtension.swift; sourceTree = "<group>"; };
 		C033B28623E9601000726A03 /* NIBM Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NIBM Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C033B28923E9601000726A03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C033B28B23E9601000726A03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -216,15 +224,9 @@
 			isa = PBXGroup;
 			children = (
 				C09E107823F66C7100B26D78 /* MyProfileViewController.swift */,
+				C01443BD2408579900C62AE8 /* MyProfileExtension.swift */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		C01443802406A7F800C62AE8 /* DataClients */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DataClients;
 			sourceTree = "<group>";
 		};
 		C014438724077F7E00C62AE8 /* AddEvents */ = {
@@ -301,7 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				C014439324078C1300C62AE8 /* ViewController */,
-				C014439424078C1D00C62AE8 /* Extension */,
 			);
 			path = UpdateEvent;
 			sourceTree = "<group>";
@@ -310,16 +311,9 @@
 			isa = PBXGroup;
 			children = (
 				C0144381240705AB00C62AE8 /* UpdateEventViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		C014439424078C1D00C62AE8 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
 				C01443A12407B8C800C62AE8 /* UpdateEventExtension.swift */,
 			);
-			path = Extension;
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		C014439524078C3A00C62AE8 /* FirebaseClients */ = {
@@ -339,7 +333,6 @@
 			isa = PBXGroup;
 			children = (
 				C014439724078CCD00C62AE8 /* ViewController */,
-				C014439824078CD900C62AE8 /* Extention */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -348,22 +341,15 @@
 			isa = PBXGroup;
 			children = (
 				C09DD52B23ED3B6D00EDA0CB /* SignUPViewController.swift */,
+				C01443B72408536600C62AE8 /* SignUPExtension.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		C014439824078CD900C62AE8 /* Extention */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extention;
 			sourceTree = "<group>";
 		};
 		C014439924078CEA00C62AE8 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				C014439A24078CF300C62AE8 /* ViewController */,
-				C014439B24078CFE00C62AE8 /* Extention */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -372,15 +358,9 @@
 			isa = PBXGroup;
 			children = (
 				C09DD52923ED3B3200EDA0CB /* LoginViewController.swift */,
+				C01443B92408549400C62AE8 /* LoginViewControllerExtension.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		C014439B24078CFE00C62AE8 /* Extention */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extention;
 			sourceTree = "<group>";
 		};
 		C014439C24078D3600C62AE8 /* UserLoginActions */ = {
@@ -420,7 +400,6 @@
 		C033B27D23E9601000726A03 = {
 			isa = PBXGroup;
 			children = (
-				C01443802406A7F800C62AE8 /* DataClients */,
 				C07F19A123EF2AEC004AD08D /* Controllers */,
 				C07F199F23EF2ADA004AD08D /* Models */,
 				C07F19A023EF2AE5004AD08D /* Views */,
@@ -577,6 +556,7 @@
 			isa = PBXGroup;
 			children = (
 				C09E10BC23FF866800B26D78 /* PublisherViewController.swift */,
+				C01443BB2408571600C62AE8 /* PublisherExtrnsion.swift */,
 			);
 			path = PublisherProfile;
 			sourceTree = "<group>";
@@ -834,15 +814,18 @@
 				C07F19B623F2918E004AD08D /* PasswordUtilities.swift in Sources */,
 				C07F199A23EF259B004AD08D /* AlertMessages.swift in Sources */,
 				C09E107B23F6798E00B26D78 /* LabelUtilities.swift in Sources */,
+				C01443B82408536600C62AE8 /* SignUPExtension.swift in Sources */,
 				C07F19B823F29226004AD08D /* EmailUtilities.swift in Sources */,
 				C01443A02407AD6F00C62AE8 /* ImageCompress.swift in Sources */,
 				C07F19B123F14EC9004AD08D /* TextFieldUtilities.swift in Sources */,
 				C07F19C623F55E7B004AD08D /* FloatingTextField.swift in Sources */,
 				C01443AB240810E200C62AE8 /* EventBoardExtension.swift in Sources */,
 				C07F19C223F3D332004AD08D /* CurrentUserDataRetrivel.swift in Sources */,
+				C01443BC2408571600C62AE8 /* PublisherExtrnsion.swift in Sources */,
 				C01443A7240805EB00C62AE8 /* Comments.swift in Sources */,
 				C01443A22407B8C800C62AE8 /* UpdateEventExtension.swift in Sources */,
 				C09E10BD23FF866800B26D78 /* PublisherViewController.swift in Sources */,
+				C01443BA2408549400C62AE8 /* LoginViewControllerExtension.swift in Sources */,
 				C061DD892405AFDF002E3E6E /* RetrieveGoingDataFromFirebase.swift in Sources */,
 				C01443A42407FAF700C62AE8 /* EventDetailsExtension.swift in Sources */,
 				C061DD812404FEED002E3E6E /* UserStruct.swift in Sources */,
@@ -852,6 +835,7 @@
 				C01443B22408198700C62AE8 /* CommentsModel.swift in Sources */,
 				C061DD85240518D7002E3E6E /* CreateEventStruct.swift in Sources */,
 				C0144384240706CB00C62AE8 /* UpdateEventDataToFirebase.swift in Sources */,
+				C01443BE2408579900C62AE8 /* MyProfileExtension.swift in Sources */,
 				C01443B624083C3200C62AE8 /* RetrieveCurrentUserDetails.swift in Sources */,
 				C09DD52A23ED3B3200EDA0CB /* LoginViewController.swift in Sources */,
 				C09E10AA23FBC9E000B26D78 /* EventBoardViewController.swift in Sources */,

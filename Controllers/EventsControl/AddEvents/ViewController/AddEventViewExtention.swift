@@ -21,8 +21,6 @@ extension AddEventViewController:UIImagePickerControllerDelegate, UINavigationCo
     
     func validateFields() -> String? {
         
-        //check that all fields are field in
-        
         if eventTitle.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || eventDescription.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
             
@@ -107,13 +105,7 @@ extension AddEventViewController:UIImagePickerControllerDelegate, UINavigationCo
         
         latitude = location.latitude
         longitude = location.longitude
-        
-        
-        
-        
-        //        latitude = 6.931970
-        //        longitude = 79.857750
-        
+
         LocationDetails.latitude = location.latitude
         LocationDetails.longitude = location.longitude
         

@@ -27,7 +27,6 @@ class TouchFaceIDAuthentication {
             LAPolicy.deviceOwnerAuthenticationWithBiometrics,
             error: &error) {
             
-            // Device can use biometric authentication
             context.evaluatePolicy(
                 LAPolicy.deviceOwnerAuthenticationWithBiometrics,
                 localizedReason: "Access requires authentication",
@@ -51,8 +50,6 @@ class TouchFaceIDAuthentication {
                                 
                             case LAError.Code.userFallback.rawValue:
                                 
-                                // Custom code to obtain password here
-                                
                                 print("Password option selected")
                             default:
                                 
@@ -60,16 +57,13 @@ class TouchFaceIDAuthentication {
                             }
                             
                         } else {
-//                            trans.trancVC(_viewCIdentifire: _viewIdentifire, _viewCFrom: _viewFrom)
+                            //                            trans.trancVC(_viewCIdentifire: _viewIdentifire, _viewCFrom: _viewFrom)
                             print("Authentication Successful")
                         }
                     }
             })
             
         } else {
-            // Device cannot use biometric authentication
-//
-//            alertM.warningAlertMessage(_AlertMessage: "Password and email Should fill", _viewCFrom: _viewFrom)
             
             if let err = error {
                 switch err.code {

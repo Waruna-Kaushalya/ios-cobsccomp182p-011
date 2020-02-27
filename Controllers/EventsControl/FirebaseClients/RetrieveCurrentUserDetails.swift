@@ -27,10 +27,10 @@ class RetrieveCurrentUserDetails{
             } else {
                 let document = querySnapshot!.documents.first
                 let dataDescription = document?.data()
-
+                
                 Comments.userName = dataDescription?["firstname"] as! String
                 Comments.userProfileImageURL = dataDescription?["imageURL"] as! String
-     
+                
                 
                 if GoingCountStruct.goingUserList.count != 0  {
                     

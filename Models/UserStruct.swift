@@ -17,8 +17,5 @@ struct UserStruct {
     static var userProfileImageUrl:String = ""
     static var eventAddedDate:String = ""
     static var userCurrentLocation:String = ""
-    
-    
-    
-    
+
 }

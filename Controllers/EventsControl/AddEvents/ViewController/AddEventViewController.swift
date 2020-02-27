@@ -52,7 +52,7 @@ class AddEventViewController: UIViewController {
     override func viewDidLoad() {
         
         self.locationSet()
-
+        
         if checkUserLoginStatus.checkUserLoginStatus() != true {
             let alert = AlertMessages()
             alert.ActionAlert(_title: "User not login", _message: "User must login to add event", _viewCIdentifier: "LoginNavIVC", _viewControllerName: self)
@@ -72,7 +72,7 @@ class AddEventViewController: UIViewController {
         self.present(picker, animated: true, completion: nil)
     }
     
-
+    
     @IBAction func publishedButtonTapped(_ sender: Any) {
         
         guard let imageSelected  = self.image else{
@@ -108,33 +108,28 @@ class AddEventViewController: UIViewController {
             
             storageProfileRef.putData(compressData!, metadata: metaData, completion: { (storageMetaData, error) in
                 if error != nil{
-                    //                    print("Errrror")
                     return
                 }
                 
                 storageProfileRef.downloadURL(completion: { (url, error) in
                     if let metaImageUrl = url?.absoluteString{
                         CreateEventStruct.metaImageUrl = metaImageUrl
-
+                        
                         let uuid = UUID().uuidString
                         CreateEventStruct.eventID = uuid
-  
                         
                         self.locationData.subscribe(onNext:{
                             [weak self] location in
                             
-                            
                             print(location)
                             CreateEventStruct.userCurrentLocation = location
-                           
+                            
                         })
                         
-                        //                    self.pushDataToFireBase()
                         let pushData = AddEventDataFireBase()
                         pushData.addEventDataToFirebase()
                         
                         if CreateEventStruct.flag == true{
-                            
                             
                             let trans = TransitionController()
                             trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: self)
@@ -147,7 +142,5 @@ class AddEventViewController: UIViewController {
                 })
             })
         }
-        
     }
-    
 }

@@ -799,7 +799,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dOG-vu-POQ">
-                                                <rect key="frame" x="37.666666666666657" y="490" width="300" height="30"/>
+                                                <rect key="frame" x="49.666666666666657" y="490" width="276" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcH-zB-cA3">
                                                         <rect key="frame" x="0.0" y="0.0" width="98" height="30"/>
@@ -822,7 +822,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9k-hQ-TGK">
-                                                        <rect key="frame" x="260" y="0.0" width="40" height="30"/>
+                                                        <rect key="frame" x="260" y="0.0" width="16" height="30"/>
                                                         <state key="normal" image="editButton"/>
                                                         <connections>
                                                             <action selector="eventEditAction:" destination="ZWP-jx-Sux" eventType="touchUpInside" id="l7e-fB-Y6E"/>

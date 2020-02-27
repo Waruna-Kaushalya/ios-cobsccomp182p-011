@@ -29,7 +29,6 @@ class AddGoingCountDataToFirebase{
                 
                 document!.reference.updateData(["goingCount":  GoingCountStruct.goingCountNumber])
                 
-                
                 document!.reference.updateData(["goingUsers":  GoingCountStruct.goingUserList])
         }
     }

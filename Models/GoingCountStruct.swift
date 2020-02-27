@@ -10,19 +10,6 @@
 import Foundation
 import UIKit
 
-//class GoingCount {
-//
-//    var goingCount:Int
-//    var goingUsers = [String]()
-//
-//    init(goingCount:Int,goingUsers:[String]) {
-//
-//        self.goingCount = goingCount
-//        self.goingUsers = goingUsers
-//
-//    }
-//}
-
 struct GoingCountStruct {
     static var goingOrNot = false
     static var goingCountNumber:Int = 0

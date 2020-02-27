@@ -16,9 +16,7 @@ import FirebaseAuth
 
 class AddCommentsToFireBase {
     
-    
-    
-     func addCommentsToFireBase()  {
+    func addCommentsToFireBase()  {
         
         let commentDate = Currentdate.getCurrentDate()
         

@@ -57,18 +57,6 @@ class EventDetailsViewController: UIViewController {
     }
     
     
-    func currentUserDetaiilsRetriving(){
-        
-        if checkUserLoginStatus.checkUserLoginStatus() == true {
-            Comments.userID  = Auth.auth().currentUser!.uid as String
-            
-            retrieveComments()
-            
-            let currentUserDetails = RetrieveCurrentUserDetails()
-            currentUserDetails.retrieveGoingDataFromFirebase()
-        }
-    }
-    
     @IBAction func goingBtnClicked(_ sender: UIButton) {
         
         if checkUserStatus.checkUserLoginStatus() == true {

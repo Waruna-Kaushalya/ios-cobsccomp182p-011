@@ -26,13 +26,9 @@ class getData {
             } else {
                 let document = querySnapshot!.documents.first
                 let dataDescription = document?.data()
-                // guard let fieldValue = dataDescription?[_fieldname]
-                // else {
-                //   return
-                // }
+ 
                 let fieldValue = dataDescription?[_fieldname] ?? ""
-                // var abc = fieldValue ?? ""
-                // print(abc)
+
                 completion(fieldValue as! String)
                 
             }

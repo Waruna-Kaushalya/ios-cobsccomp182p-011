@@ -41,30 +41,6 @@ class UpdateEventViewController: UIViewController {
         
     }
     
-    func setupElements() {
-        
-        updatedEventTitleTextField.styleTextField()
-        updatedEventDescriptionlabel.styleTextField()
-        updateBtn.styleButton()
-        updateBtn.buttonRadiusAll()
-        
-        currentEventTitle.text = UpdateEventStruct.eventTitle
-        currentEventDescription.text = UpdateEventStruct.eventDescription
-        
-    }
-    func validateFields() -> String? {
-        
-        //check that all fields are field in
-        
-        if updatedEventTitleTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || updatedEventDescriptionlabel.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
-        {
-            alertMSG.warningAlertMessage(_AlertMessage: EMPTY_FIELDS, _viewCFrom: self)
-            return EMPTY_FIELDS
-            
-        }
-        
-        return nil
-    }
     
     @IBAction func closeButtonAction(_ sender: Any) {
         

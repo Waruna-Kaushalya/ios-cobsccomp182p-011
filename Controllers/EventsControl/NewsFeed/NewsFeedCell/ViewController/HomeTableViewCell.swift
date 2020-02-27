@@ -94,35 +94,5 @@ class HomeTableViewCell: UITableViewCell {
         }else{
             UIAlertController(title: "Alert", message: "User must login", preferredStyle: .alert)
         }
-        
-    }
-    
-    
-    func tapedLabel(){
-        
-        userName.isUserInteractionEnabled = true
-        let labelTapGesture = UITapGestureRecognizer(target:self,action:#selector(self.doSomethingOnTap))
-        userName.addGestureRecognizer(labelTapGesture)
-    }
-    
-    @objc func doSomethingOnTap() {
-        
-        
-        //        print("tapped")
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        
-        //Get the indexpath of cell where label was tapped
-        let indexPath = (self.superview as! UITableView).indexPath(for: self)
-        
-        //        _ = storyboard.instantiateViewController(withIdentifier: "UserProfileVC") as! PublisherViewController
-        
-        let v = EventModel(image: "rrr", title: "rrr", eventDescription: "rrr", userFirstName: UserStruct.userFirstName, userLastName: UserStruct.userLastName, userProfileImage: UserStruct.userProfileImageUrl , goingCount: 333, eventIdentifire: "vvv", goingUsers: ["fff"], userID: UserStruct.currentUserId, currntUserID: UserStruct.currentUserId, contactNumber: UserStruct.userContactNumber, userFBUrl: UserStruct.userFBUrl,eventAddedDate:UserStruct.eventAddedDate, userCurrentLocation: UserStruct.userCurrentLocation )
-        
-        if (self.delegate != nil) {
-            self.delegate.callSegueFromCell(data: v, cellForRowAt: indexPath!)
-        }
     }
 }
-
-
-

@@ -12,13 +12,13 @@ import UIKit
 
 
 class UserModel {
-   
+    
     var userFirstName:String
     var userLastName:String
     var userContactNumber:String
     var userFBUrl:String
     var userProfileImageUrl:String
-   
+    
     var userID :String
     
     
@@ -30,7 +30,7 @@ class UserModel {
         self.userFBUrl = userFBUrl
         self.userProfileImageUrl = userProfileImageUrl
         self.userID = userID
-   
+        
         
         
     }

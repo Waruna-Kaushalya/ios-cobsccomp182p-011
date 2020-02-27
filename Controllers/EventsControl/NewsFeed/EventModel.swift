@@ -46,7 +46,7 @@ class EventModel {
         self.eventAddedDate = eventAddedDate
         self.userCurrentLocation = userCurrentLocation
         
-
+        
     }
 }
 

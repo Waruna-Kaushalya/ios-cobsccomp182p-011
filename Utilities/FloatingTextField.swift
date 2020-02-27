@@ -17,7 +17,7 @@ class FloatingLabelInput: UITextField {
     var floatingLabelHeight: CGFloat = 5
     var button = UIButton(type: .custom)
     var imageView = UIImageView(frame: CGRect.zero)
-
+    
     @IBInspectable
     var _placeholder: String?
     
@@ -69,7 +69,7 @@ class FloatingLabelInput: UITextField {
     // Add a floating label to the view on becoming first responder
     @objc func addFloatingLabel() {
         if self.text == "" {
-
+            
             self.floatingLabel.textColor = lightBlue
             self.floatingLabel.font = floatingLabelFont
             self.floatingLabel.text = self._placeholder
@@ -84,7 +84,7 @@ class FloatingLabelInput: UITextField {
             self.floatingLabel.bottomAnchor.constraint(equalTo: self.topAnchor, constant: +5).isActive = true //
             self.placeholder = ""
         }
-
+        
         self.bringSubviewToFront(subviews.last!)
         self.setNeedsDisplay()
     }

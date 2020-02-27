@@ -11,20 +11,16 @@ import FirebaseAuth
 
 class CheckUserLoginStatus {
     
-    
     func checkUserLoginStatus() -> Bool {
         var test = true
         
         if Auth.auth().currentUser != nil {
             test = true
-            //print("true")
             
         }else{
             //print("user not log iN")
             
             test = false
-            //print("false")
-            
         }
         return test
     }

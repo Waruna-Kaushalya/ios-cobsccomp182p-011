@@ -32,14 +32,14 @@ extension UIButton {
         
     }
     
-     func buttonRadius_MinX_MinY_MaxX_MinY(){
+    func buttonRadius_MinX_MinY_MaxX_MinY(){
         //button corner radius
         self.layer.cornerRadius = 5
         self.clipsToBounds = true
         self.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner]
         
     }
-     func buttonRadius_MaxX_MinY_MaxX_MaxY(){
+    func buttonRadius_MaxX_MinY_MaxX_MaxY(){
         //button corner radius
         self.layer.cornerRadius = 5
         self.clipsToBounds = true

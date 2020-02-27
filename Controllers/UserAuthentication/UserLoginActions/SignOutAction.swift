@@ -13,9 +13,8 @@ import FirebaseAuth
 
 class SignOutAction {
     
-    
     func signOutAction(_viewIdentifier: String, _viewC: UIViewController)  {
-//        let firebaseAuth = Auth.auth()
+        //        let method
         do {
             try! Auth.auth().signOut()
             if let storyboard = _viewC.storyboard {
@@ -26,8 +25,7 @@ class SignOutAction {
             print ("Error signing out: %@", signOutError)
         }
         
-        
-        //2nd
+        //2nd method
         //        try! Auth.auth().signOut()
         //        if let storyboard = _viewC.storyboard {
         //            let vc = storyboard.instantiateViewController(withIdentifier: _viewIdentifier) as! UIViewController

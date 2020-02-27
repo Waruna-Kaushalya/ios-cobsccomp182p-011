@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Event {
+class EventModel {
     var iamage: String
     var title: String
     var eventDescription: String

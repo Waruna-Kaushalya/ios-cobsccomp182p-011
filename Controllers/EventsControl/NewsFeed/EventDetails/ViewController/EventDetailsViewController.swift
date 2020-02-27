@@ -14,8 +14,11 @@ import FirebaseFirestore
 import FirebaseStorage
 
 class EventDetailsViewController: UIViewController {
-
-    var event:Event?
+    
+    @IBOutlet weak var commentTableView: UITableView!
+    var event:EventModel?
+    
+    var commentsList:[CommentsModel] = []
     
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var eventTitle: UILabel!
@@ -28,8 +31,12 @@ class EventDetailsViewController: UIViewController {
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var goingCountLabel: UILabel!
     @IBOutlet weak var eventEditBtn: UIButton!
+    @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var postButton: UIButton!
     
     let eventAtendingDB = AddGoingCountDataToFirebase()
+    let alertMSG = AlertMessages()
+    let checkUserLoginStatus = CheckUserLoginStatus()
     
     var eventIdentifire:[String] = [""]
     
@@ -45,119 +52,22 @@ class EventDetailsViewController: UIViewController {
         getGoingDataFirebase()
         
         buttonAccessControll()
-        
+
+        currentUserDetaiilsRetriving()
     }
     
-    func buttonAccessControll(){
+    
+    func currentUserDetaiilsRetriving(){
         
-        if checkUserStatus.checkUserLoginStatus() != true || Auth.auth().currentUser!.uid != event!.userID  {
-            eventEditBtn.isHidden = true
+        if checkUserLoginStatus.checkUserLoginStatus() == true {
+            Comments.userID  = Auth.auth().currentUser!.uid as String
+            
+            retrieveComments()
+            
+            let currentUserDetails = RetrieveCurrentUserDetails()
+            currentUserDetails.retrieveGoingDataFromFirebase()
         }
     }
-    
-    func getGoingDataFirebase(){
-        
-        let docRef = Firestore.firestore().collection("event").whereField("eventID", isEqualTo: self.event!.eventIdentifire)
-        
-        print(self.event!.eventIdentifire)
-        
-        docRef.getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print(err.localizedDescription)
-                return
-            } else if querySnapshot!.documents.count != 1 {
-                print("More than one documents or none")
-            } else {
-                let document = querySnapshot!.documents.first
-                let dataDescription = document?.data()
-                
-                GoingCountStruct.goingCountNumber = dataDescription?["goingCount"] as! Int
-                
-                GoingCountStruct.goingUserList = dataDescription?["goingUsers"]  as! [String]
-                
-                print("AAAAAA")
-                
-                if GoingCountStruct.goingUserList.count == 0  {
-                    print("going count nil")
-                    GoingCountStruct.goingCountNumber = 0
-                }
-            }
-            
-            DispatchQueue.main.async {
-                self.setElement()
-                self.setPLike()
-                
-                print("BBB")
-            }
-        }
-    }
-    
-    func setPLike(){
-        
-        if checkUserStatus.checkUserLoginStatus() == true {
-            currentUserId[0] = Auth.auth().currentUser!.uid
-            
-            var flagC:[Bool] = [false]
-            
-            if GoingCountStruct.goingUserList.count != 0 && GoingCountStruct.goingCountNumber  != 0{
-                for i in 0..<GoingCountStruct.goingUserList.count {
-                    
-                    if GoingCountStruct.goingUserList[i] ==  currentUserId[0]  {
-                        flagC[0] = true
-                    }else{
-                        flagC[0] = false
-                    }
-                }
-                
-                if flagC[0] == true{
-                    goingBtn.setImage(UIImage(named: "GoingToEventBtn"), for: .normal)
-                    goingBtn.tag = 1
-                    
-                    GoingCountStruct.goingOrNot = true
-                    
-                }else{
-                    goingBtn.setImage(UIImage(named: "NotGoingToEventBtn"), for: .normal)
-                    goingBtn.tag = 0
-                    GoingCountStruct.goingOrNot = false
-                }
-            }
-            else{
-                
-                goingBtn.setImage(UIImage(named: "NotGoingToEventBtn"), for: .normal)
-                goingBtn.tag = 0
-                GoingCountStruct.goingOrNot = false
-            }
-        }else{
-            goingBtn.isHidden = false
-            
-        }
-    }
-    
-    func setElement(){
-        
-        goingCountLabel.text = String ("\(GoingCountStruct.goingCountNumber )")
-        userProfileImage.roundedImage()
-        
-        eventTitle.text = event?.title
-        eventDescriptionLabel.text = event?.eventDescription
-        
-        let url = URL(string: event?.iamage ?? "")
-        self.eventImage.kf.setImage(with: url)
-        
-        eventLocation.text = event?.userCurrentLocation
-        
-        eventAdedDate.text = event?.eventAddedDate
-        
-        let urll = URL(string: event?.userProfileImage ?? "")
-        self.userProfileImage.kf.setImage(with: urll)
-        
-        userName.text = event?.userFirstName
-        
-        UpdateEventStruct.eventID = event!.eventIdentifire
-        UpdateEventStruct.eventDescription = event!.eventDescription
-        UpdateEventStruct.eventTitle = event!.title
-    }
-    
     
     @IBAction func goingBtnClicked(_ sender: UIButton) {
         
@@ -211,5 +121,28 @@ class EventDetailsViewController: UIViewController {
         let transition = TransitionController()
         transition.trancVC(_viewCIdentifire: "EventEditVC", _viewCFrom: self)
     }
-}
+    
 
+    @IBAction func postButtonAction(_ sender: Any) {
+        
+        let error = validateFields()
+        
+        if error != nil{
+            alertMSG.warningAlertMessage(_AlertMessage: error!, _viewCFrom: self)
+        }else{
+            
+            let uuid = UUID().uuidString
+            Comments.commentID = uuid
+            
+            Comments.comment = commentTextField.text!
+            
+            let commentAdd = AddCommentsToFireBase()
+            
+            commentAdd.addCommentsToFireBase()
+            
+            retrieveComments()
+            
+            self.commentTableView.reloadData()
+        }
+    }
+}

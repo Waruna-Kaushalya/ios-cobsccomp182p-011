@@ -11,7 +11,7 @@ import UIKit
 
 
 
-class User {
+class UserModel {
    
     var userFirstName:String
     var userLastName:String

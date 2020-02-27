@@ -43,7 +43,7 @@ class PublisherViewController: UIViewController, UITableViewDelegate {
         
     }
     
-    func setUser(event: Event)  {
+    func setUser(event: EventModel)  {
         
         
         print(event.userFirstName)

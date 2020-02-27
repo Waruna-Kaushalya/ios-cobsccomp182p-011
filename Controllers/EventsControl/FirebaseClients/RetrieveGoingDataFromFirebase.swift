@@ -14,9 +14,9 @@ import FirebaseFirestore
 import FirebaseStorage
 
 
-class GetGoingDataFromFirebase{
+class RetrieveGoingDataFromFirebase{
     
-    func getGoingDataFromFirebase(eventIdentifire:String){
+    func retrieveGoingDataFromFirebase(eventIdentifire:String){
         let docRef = Firestore.firestore().collection("event").whereField("eventID", isEqualTo: eventIdentifire)
         
         docRef.getDocuments { (querySnapshot, err) in

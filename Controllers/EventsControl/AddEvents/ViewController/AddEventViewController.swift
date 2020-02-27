@@ -52,10 +52,7 @@ class AddEventViewController: UIViewController {
     override func viewDidLoad() {
         
         self.locationSet()
-        
-        
-        
-        
+
         if checkUserLoginStatus.checkUserLoginStatus() != true {
             let alert = AlertMessages()
             alert.ActionAlert(_title: "User not login", _message: "User must login to add event", _viewCIdentifier: "LoginNavIVC", _viewControllerName: self)
@@ -67,21 +64,6 @@ class AddEventViewController: UIViewController {
         
     }
     
-    func setElement() {
-        eventTitle.styleTextField()
-        eventDescription.styleTextField()
-        publishButton.styleButton()
-    }
-    func setupProfileImage(){
-        
-        eventImage.layer.cornerRadius = 20
-        eventImage.clipsToBounds = true
-        //        testImagePicker.isUserInteractionEnabled = true
-        eventImage.isUserInteractionEnabled = true
-        let tapGester = UITapGestureRecognizer(target: self, action: #selector(presentPicker))
-        eventImage.addGestureRecognizer(tapGester)
-        
-    }
     @objc func presentPicker(){
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
@@ -89,22 +71,8 @@ class AddEventViewController: UIViewController {
         picker.delegate = self
         self.present(picker, animated: true, completion: nil)
     }
-    func validateFields() -> String? {
-        
-        //check that all fields are field in
-        
-        if eventTitle.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || eventDescription.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
-        {
-            
-            alertMSG.warningAlertMessage(_AlertMessage: EMPTY_FIELDS, _viewCFrom: self)
-            return EMPTY_FIELDS
-            
-        }
-        
-        return nil
-    }
     
-    
+
     @IBAction func publishedButtonTapped(_ sender: Any) {
         
         guard let imageSelected  = self.image else{
@@ -125,8 +93,6 @@ class AddEventViewController: UIViewController {
             
             let userID : String = (Auth.auth().currentUser?.uid)!
             CreateEventStruct.userID = userID
-            
-            
             
             //Image compreess extension
             let myImage = imageSelected.resizeWithWidth(width: 700)!
@@ -149,13 +115,10 @@ class AddEventViewController: UIViewController {
                 storageProfileRef.downloadURL(completion: { (url, error) in
                     if let metaImageUrl = url?.absoluteString{
                         CreateEventStruct.metaImageUrl = metaImageUrl
-                        //                        print(metaImageUrl)
-                        
+
                         let uuid = UUID().uuidString
                         CreateEventStruct.eventID = uuid
-                        //                        print(uuid)
-                        
-                        
+  
                         
                         self.locationData.subscribe(onNext:{
                             [weak self] location in
@@ -168,7 +131,7 @@ class AddEventViewController: UIViewController {
                         
                         //                    self.pushDataToFireBase()
                         let pushData = AddEventDataFireBase()
-                        pushData.aushEventDataFireBase()
+                        pushData.addEventDataToFirebase()
                         
                         if CreateEventStruct.flag == true{
                             

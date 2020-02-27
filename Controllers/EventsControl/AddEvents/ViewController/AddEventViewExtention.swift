@@ -18,6 +18,38 @@ import RxSwift
 
 extension AddEventViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLLocationManagerDelegate{
     
+    
+    func validateFields() -> String? {
+        
+        //check that all fields are field in
+        
+        if eventTitle.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || eventDescription.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+        {
+            
+            alertMSG.warningAlertMessage(_AlertMessage: EMPTY_FIELDS, _viewCFrom: self)
+            return EMPTY_FIELDS
+            
+        }
+        
+        return nil
+    }
+    
+    func setElement() {
+        eventTitle.styleTextField()
+        eventDescription.styleTextField()
+        publishButton.styleButton()
+    }
+    func setupProfileImage(){
+        
+        eventImage.layer.cornerRadius = 20
+        eventImage.clipsToBounds = true
+        //        testImagePicker.isUserInteractionEnabled = true
+        eventImage.isUserInteractionEnabled = true
+        let tapGester = UITapGestureRecognizer(target: self, action: #selector(presentPicker))
+        eventImage.addGestureRecognizer(tapGester)
+        
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let imageSelected = info[UIImagePickerController.InfoKey.editedImage] as?
             UIImage{

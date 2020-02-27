@@ -14,37 +14,32 @@ import Kingfisher
 
 
 protocol CellDelegator {
-    func callSegueFromCell(data dataobject: Event,  cellForRowAt indexPath: IndexPath)
+    func callSegueFromCell(data dataobject: EventModel,  cellForRowAt indexPath: IndexPath)
 }
 
 class EventBoardViewController: UIViewController, CellDelegator {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var eventList:[Event] = []
+    var eventList:[EventModel] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        retrieveEvents()
         self.tableView.reloadData()
-        retrieveBooks()
-        self.tableView.reloadData()
-        //        DispatchQueue.main.async {
-        //            self.tableView.reloadData()
-        //        }
         
     }
     
     
-    func retrieveBooks(){
+    func retrieveEvents(){
         
         let docRef = Firestore.firestore().collection("event")
         //        print(Auth.auth().currentUser?.uid ?? "")
         docRef.getDocuments() { (querySnapshot, err) in
             
-            
             self.eventList.removeAll()
-            //            self.userDataList.removeAll()
             
             for document in querySnapshot!.documents {
                 
@@ -74,11 +69,7 @@ class EventBoardViewController: UIViewController, CellDelegator {
                     let userProfileImage = dataDescription?["imageURL"] as? String
                     let currntUserID = dataDescription?["uid"] as? String
                     
-                    let event:Event = Event(image: imageURL!, title: title!, eventDescription: eventDescription!, userFirstName: userFName!, userLastName: userLName!, userProfileImage: userProfileImage!, goingCount: goingCount!, eventIdentifire: eventIdentifire!, goingUsers: goingUsers, userID: userID!, currntUserID: currntUserID!, contactNumber: phoneNumber!,userFBUrl:fbURL!, eventAddedDate: eventAddedDate,userCurrentLocation: userCurrentLocation)
-                    
-                   
-                    
-                    
+                    let event:EventModel = EventModel(image: imageURL!, title: title!, eventDescription: eventDescription!, userFirstName: userFName!, userLastName: userLName!, userProfileImage: userProfileImage!, goingCount: goingCount!, eventIdentifire: eventIdentifire!, goingUsers: goingUsers, userID: userID!, currntUserID: currntUserID!, contactNumber: phoneNumber!,userFBUrl:fbURL!, eventAddedDate: eventAddedDate,userCurrentLocation: userCurrentLocation)
                     
                     DispatchQueue.main.async {
                         self.eventList.append(event)
@@ -88,102 +79,11 @@ class EventBoardViewController: UIViewController, CellDelegator {
                         self.eventList.sort(by: {$0.eventAddedDate > $1.eventAddedDate})
                         self.tableView.reloadData()
                     }
-                    
                 }
             }
         }
     }
-    
-    
 }
 
-extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
-        let eventsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "eventDetailsVC") as! EventDetailsViewController
-        
-        let event:Event = self.eventList[indexPath.row]
-        
-        print(event.eventIdentifire)
-        
-        eventsController.event = event
-        
-        self.present(eventsController, animated: true, completion: nil)
-        
-    }
-    
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.eventList.count
-        
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell")  as! HomeTableViewCell
-        
-        print(indexPath.row)
-        let event:Event = self.eventList[indexPath.row]
-        
-        print(event.eventIdentifire)
-        
-        cell.setEvent(event: event)
-        
-        cell.delegate = self
-        
-        
-        return cell
-        
-    }
-    
-    
-    func callSegueFromCell(data dataobject: Event, cellForRowAt indexPath: IndexPath) {
-        
-        
-        
-        let event:Event = self.eventList[indexPath.row]
-        
-        let viewName = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileVC") as! PublisherViewController
-        
-        //        viewName. = dataobject
-        
-        viewName.setUser(event: event)
-        
-        
-        self.present(viewName, animated: true, completion: nil)
-    }
-    
-    
-    
-    
-    
-    //    func callSegueFromCell(data dataobject: User, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    //
-    //        let viewName = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileVC") as! UserProfileViewController
-    //
-    //        viewName.user = dataobject
-    //
-    //        viewName.setUser(user: dataobject)
-    //
-    //
-    //        self.present(viewName, animated: true, completion: nil)
-    //
-    //    }
-    
-    func transToProfile()  {
-        let Trans = TransitionController()
-        Trans.trancVC(_viewCIdentifire: "UserProfileVC", _viewCFrom: self)
-        
-    }
-    
-    
-    
-    
-}
+
 

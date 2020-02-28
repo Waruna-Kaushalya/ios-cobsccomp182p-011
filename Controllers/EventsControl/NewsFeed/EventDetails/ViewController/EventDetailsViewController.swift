@@ -13,7 +13,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 
-class EventDetailsViewController: UIViewController {
+class EventDetailsViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var commentTableView: UITableView!
     var event:EventModel?

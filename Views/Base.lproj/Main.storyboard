@@ -112,6 +112,9 @@
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="ULc-8H-28X" id="NnY-9b-Nk2"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -137,6 +140,9 @@
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="ULc-8H-28X" id="Q0M-b9-HTg"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -842,6 +848,9 @@
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="ZWP-jx-Sux" id="tVc-80-ZS1"/>
+                                                        </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ahx-kv-DL9">
                                                         <rect key="frame" x="255" y="0.0" width="40" height="30"/>
@@ -856,19 +865,19 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ejX-u0-NqD">
-                                                <rect key="frame" x="40" y="555" width="295" height="250"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ejX-u0-NqD">
+                                                <rect key="frame" x="40" y="588" width="298" height="217"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="Ql6-Fl-bXP"/>
-                                                    <constraint firstAttribute="width" constant="295" id="X2l-Tr-PLU"/>
+                                                    <constraint firstAttribute="height" constant="217" id="Ql6-Fl-bXP"/>
+                                                    <constraint firstAttribute="width" constant="298" id="X2l-Tr-PLU"/>
                                                 </constraints>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCellIdentifier" id="x5V-aR-nhg" customClass="CommentCell" customModule="NIBM_Events" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="295" height="100"/>
+                                                        <rect key="frame" x="0.0" y="28" width="298" height="100"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x5V-aR-nhg" id="2AQ-OT-mB1">
-                                                            <rect key="frame" x="0.0" y="0.0" width="295" height="99.666666666666671"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="298" height="99.666666666666671"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="uCS-oB-A3f">
@@ -948,9 +957,9 @@
                                             <constraint firstItem="zFW-Zg-Aql" firstAttribute="centerX" secondItem="zLz-Gu-nP3" secondAttribute="centerX" id="LOh-zH-mw1"/>
                                             <constraint firstItem="rgm-CD-uR1" firstAttribute="top" secondItem="dOG-vu-POQ" secondAttribute="bottom" constant="30" id="Pg8-fi-TBn"/>
                                             <constraint firstItem="1Ai-pv-e8a" firstAttribute="centerX" secondItem="zLz-Gu-nP3" secondAttribute="centerX" id="Tao-lk-UJi"/>
-                                            <constraint firstItem="ejX-u0-NqD" firstAttribute="centerX" secondItem="zLz-Gu-nP3" secondAttribute="centerX" id="UjQ-OO-Mbr"/>
+                                            <constraint firstItem="ejX-u0-NqD" firstAttribute="centerX" secondItem="zLz-Gu-nP3" secondAttribute="centerX" constant="1.5" id="UjQ-OO-Mbr"/>
                                             <constraint firstItem="y6c-vu-emB" firstAttribute="top" secondItem="zLz-Gu-nP3" secondAttribute="top" constant="10" id="W1s-7S-zNI"/>
-                                            <constraint firstItem="ejX-u0-NqD" firstAttribute="top" secondItem="rgm-CD-uR1" secondAttribute="bottom" constant="5" id="bt3-D8-wCh"/>
+                                            <constraint firstItem="ejX-u0-NqD" firstAttribute="top" secondItem="rgm-CD-uR1" secondAttribute="bottom" constant="8" id="bt3-D8-wCh"/>
                                             <constraint firstAttribute="height" constant="800" id="d6M-4y-m76"/>
                                             <constraint firstItem="1Ai-pv-e8a" firstAttribute="top" secondItem="zLz-Gu-nP3" secondAttribute="top" constant="100" id="hqS-4g-bRM"/>
                                             <constraint firstItem="dOG-vu-POQ" firstAttribute="centerX" secondItem="zLz-Gu-nP3" secondAttribute="centerX" id="oM9-bG-0SY"/>

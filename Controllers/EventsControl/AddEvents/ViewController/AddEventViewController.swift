@@ -14,7 +14,7 @@ import FirebaseStorage
 import CoreLocation
 import RxSwift
 
-class AddEventViewController: UIViewController {
+class AddEventViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var eventImagePicker: UIImageView!
     @IBOutlet weak var eventImage: UIStackView!

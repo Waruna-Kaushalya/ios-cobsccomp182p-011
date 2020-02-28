@@ -15,7 +15,7 @@ import LocalAuthentication
 
 
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController,UITextFieldDelegate {
     
     var EMPTY_FIELDS = "Password and email Should fill"
     let PASSWRD_DOSENT_MATCH = "Password doesn't match"
@@ -32,6 +32,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var skipLogin: UIButton!
     
     var activityIndicator = UIActivityIndicatorView()
     var strLabel = UILabel()
@@ -79,13 +80,9 @@ class LoginViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+    @IBAction func skipLogin(_ sender: Any) {
+        
+        trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: self)
+        
     }
 }

@@ -73,6 +73,9 @@
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                         <attributedString key="attributedText"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="se8-yU-0Fu"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mrb-ng-jsz" customClass="FloatingLabelInput" customModule="NIBM_Events" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="40" width="300" height="30"/>
@@ -82,7 +85,10 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="hea-dz-Q1j"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -90,19 +96,26 @@
                                     <constraint firstItem="aDM-Uu-Vuq" firstAttribute="width" secondItem="mrb-ng-jsz" secondAttribute="width" id="yl7-QX-Mff"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="t21-HA-Dnn">
-                                <rect key="frame" x="57" y="98" width="300" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t21-HA-Dnn">
+                                <rect key="frame" x="52" y="98" width="310" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login for NIBM Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSk-xi-uEI">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login to NIBM Event" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nSk-xi-uEI">
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="30"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="TWc-Ve-g7T"/>
+                                            <constraint firstAttribute="width" constant="280" id="TWc-Ve-g7T"/>
                                             <constraint firstAttribute="height" constant="30" id="lBn-kr-c69"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NJS-3m-CLS">
+                                        <rect key="frame" x="280" y="0.0" width="30" height="30"/>
+                                        <state key="normal" title="Skip"/>
+                                        <connections>
+                                            <action selector="skipLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tMY-VV-jbj"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -124,6 +137,7 @@
                         <outlet property="emailTextField" destination="aDM-Uu-Vuq" id="pQe-i0-IXb"/>
                         <outlet property="passwordTextField" destination="mrb-ng-jsz" id="7l8-1n-Rmn"/>
                         <outlet property="signInButton" destination="nRB-c1-0xr" id="SSh-Y5-Fam"/>
+                        <outlet property="skipLogin" destination="NJS-3m-CLS" id="hMX-jB-hzw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -139,7 +153,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yfz-YP-Rki">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1DE-nP-OtZ">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="730"/>
@@ -224,12 +238,18 @@
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="j0J-Ix-Bj9" id="nMI-Am-k9H"/>
+                                                                </connections>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Facebook URL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ari-cd-CgV" customClass="FloatingLabelInput" customModule="NIBM_Events" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="120" width="300" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="j0J-Ix-Bj9" id="OaJ-H2-GsR"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
@@ -255,12 +275,18 @@
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="j0J-Ix-Bj9" id="9TX-kw-gHW"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirem Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="be7-I5-wQv" customClass="FloatingLabelInput" customModule="NIBM_Events" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="40" width="300" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="j0J-Ix-Bj9" id="nZy-xR-dHa"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
@@ -453,6 +479,6 @@
         <image name="AddProfileImage" width="170.5" height="164.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pgn-T0-fSQ"/>
+        <segue reference="nD3-wU-g3y"/>
     </inferredMetricsTieBreakers>
 </document>

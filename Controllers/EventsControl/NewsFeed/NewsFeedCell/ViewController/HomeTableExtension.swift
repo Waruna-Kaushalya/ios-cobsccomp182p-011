@@ -47,6 +47,12 @@ extension HomeTableViewCell {
         goingCountNumber[0] = event.goingCount
         goingUserList =  event.goingUsers
         
+        postButton.styleButton()
+        postButton.buttonRadiusAll()
+        
+        userPorofileImage[0] = event.userProfileImage
+        userFName[0] = event.userFirstName
+        
         tapedLabel()
         setPLike(event:event)
     }
@@ -100,6 +106,31 @@ extension HomeTableViewCell {
         }else{
             goingButton.isHidden = false
         }
+        
+        
+        
+        
+    }
+    
+    func currentUserDetaiilsRetriving(){
+        
+        if checkUserLoginStatus.checkUserLoginStatus() == true {
+            Comments.userID  = Auth.auth().currentUser!.uid as String
+            
+            
+        }else{
+            postButton.isHidden = true
+            
+        }
+    }
+    
+    func validateCommentTextField() -> String? {
+        
+        if commentTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
+        {
+            print("trxtFieldEmpty")
+        }
+        return nil
     }
     
     func tapedLabel(){

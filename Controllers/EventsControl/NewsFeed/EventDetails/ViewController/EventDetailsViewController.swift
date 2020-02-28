@@ -53,6 +53,8 @@ class EventDetailsViewController: UIViewController,UITextFieldDelegate {
         buttonAccessControll()
         
         currentUserDetaiilsRetriving()
+        
+        commentTableView.reloadData()
     }
     
     

@@ -28,12 +28,19 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var goingButton: UIButton!
     @IBOutlet weak var eventAddedDate: UILabel!
     
+    @IBOutlet weak var commentTextField: UITextField!
+    @IBOutlet weak var postButton: UIButton!
     
     var delegate:CellDelegator!
     
     var eventIdentifire:[String] = [""]
     var goingCountNumber:[Int] = [0]
     var goingUserList:[String] = [""]
+    var userPorofileImage:[String] = [""]
+    var userFName:[String] = [""]
+    
+    let alertMSG = AlertMessages()
+    let checkUserLoginStatus = CheckUserLoginStatus()
     
     let eventAtendingDB = AddGoingCountDataToFirebase()
     
@@ -88,6 +95,32 @@ class HomeTableViewCell: UITableViewCell {
             
         }else{
             UIAlertController(title: "Alert", message: "User must login", preferredStyle: .alert)
+        }
+    }
+    
+    @IBAction func postButtonAction(_ sender: Any) {
+        
+        let error = validateCommentTextField()
+        
+        if error != nil{
+           print("textFildEmpty")
+        }else{
+            
+            Comments.EventID =  eventIdentifire[0]
+            
+            Comments.userProfileImageURL = userPorofileImage[0]
+            
+            Comments.userName = userFName[0]
+            
+            let uuid = UUID().uuidString
+            Comments.commentID = uuid
+            
+            Comments.comment = commentTextField.text!
+            
+            let commentAdd = AddCommentsToFireBase()
+            
+            commentAdd.addCommentsToFireBase()
+            
         }
     }
 }

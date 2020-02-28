@@ -26,7 +26,6 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var userProfileImage: UIImageView!
     
     @IBOutlet weak var goingButton: UIButton!
-    @IBOutlet weak var goingCountLabel: UILabel!
     @IBOutlet weak var eventAddedDate: UILabel!
     
     
@@ -37,7 +36,7 @@ class HomeTableViewCell: UITableViewCell {
     var goingUserList:[String] = [""]
     
     let eventAtendingDB = AddGoingCountDataToFirebase()
-
+    
     
     @IBAction func btnGoing_Clicked(_ sender: UIButton) {
         
@@ -47,13 +46,11 @@ class HomeTableViewCell: UITableViewCell {
                 
                 GoingCountStruct.goingOrNot = true
                 
-                goingButton.setImage(UIImage(named: "GoingToEventBtn"), for: .normal)
-                
                 goingButton.tag = 1
                 
                 goingCountNumber[0] = goingCountNumber[0] + 1
                 
-                goingCountLabel.text = String (goingCountNumber[0])
+                goingButton.goingButton(count: "\(goingCountNumber[0])")
                 
                 GoingCountStruct.goingCountNumber =  goingCountNumber[0]
                 
@@ -70,13 +67,11 @@ class HomeTableViewCell: UITableViewCell {
                 
                 GoingCountStruct.goingOrNot = false
                 
-                goingButton.setImage(UIImage(named: "NotGoingToEventBtn"), for: .normal)
-                
                 goingButton.tag = 0
                 
                 goingCountNumber[0] = goingCountNumber[0] - 1
                 
-                goingCountLabel.text = String (goingCountNumber[0])
+                goingButton.notGoing(count: "\(goingCountNumber[0])")
                 
                 GoingCountStruct.goingCountNumber =  goingCountNumber[0]
                 

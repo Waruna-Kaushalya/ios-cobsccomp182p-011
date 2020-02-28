@@ -292,7 +292,7 @@
                                                     </constraints>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="K1x-JZ-tO5">
-                                                    <rect key="frame" x="21" y="378" width="333" height="30"/>
+                                                    <rect key="frame" x="138.66666666666666" y="378" width="98" height="30"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5Q-b6-3Qb">
                                                             <rect key="frame" x="0.0" y="0.0" width="98" height="30"/>
@@ -300,21 +300,13 @@
                                                                 <constraint firstAttribute="width" constant="98" id="3Xv-xU-8Vh"/>
                                                                 <constraint firstAttribute="height" constant="30" id="T89-3x-HME"/>
                                                             </constraints>
-                                                            <state key="normal" image="NotGoingToEventBtn"/>
+                                                            <state key="normal" title="Going">
+                                                                <color key="titleColor" red="0.30366617439999999" green="0.63334965710000002" blue="0.4862569571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </state>
                                                             <connections>
                                                                 <action selector="btnGoing_Clicked:" destination="9ir-cJ-tUO" eventType="touchUpInside" id="y5e-44-lpr"/>
                                                             </connections>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3f-TT-RJA">
-                                                            <rect key="frame" x="103" y="0.0" width="230" height="30"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="a99-82-wci"/>
-                                                                <constraint firstAttribute="width" constant="230" id="txH-ts-JzE"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" red="0.30366617439999999" green="0.63334965710000002" blue="0.4862569571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -335,7 +327,6 @@
                                             <outlet property="eventAddedDate" destination="BKk-bd-TS5" id="2WP-ny-ysd"/>
                                             <outlet property="eventDescription" destination="VXh-Th-pmh" id="rvg-B6-oge"/>
                                             <outlet property="goingButton" destination="Q5Q-b6-3Qb" id="x9z-kW-rJH"/>
-                                            <outlet property="goingCountLabel" destination="s3f-TT-RJA" id="I8H-qc-IZk"/>
                                             <outlet property="postImageView" destination="DdL-Bu-Xyr" id="c6o-Oy-Fn4"/>
                                             <outlet property="postTitle" destination="K7t-dd-O7e" id="3Lw-3Z-SMh"/>
                                             <outlet property="userName" destination="7CE-F3-RWK" id="oc6-sT-3v1"/>
@@ -805,7 +796,7 @@
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="dOG-vu-POQ">
-                                                <rect key="frame" x="49.666666666666657" y="490" width="276" height="30"/>
+                                                <rect key="frame" x="110.66666666666669" y="490" width="154" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PcH-zB-cA3">
                                                         <rect key="frame" x="0.0" y="0.0" width="98" height="30"/>
@@ -813,22 +804,15 @@
                                                             <constraint firstAttribute="height" constant="30" id="jSc-bw-oCT"/>
                                                             <constraint firstAttribute="width" constant="98" id="mF7-ia-tU4"/>
                                                         </constraints>
-                                                        <state key="normal" title="GoingButton" image="NotGoingToEventBtn"/>
+                                                        <state key="normal" title="Going">
+                                                            <color key="titleColor" red="0.30366617439999999" green="0.63334965710000002" blue="0.4862569571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="goingBtnClicked:" destination="ZWP-jx-Sux" eventType="touchUpInside" id="GQS-fN-QFf"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XXX-Kl-Jab">
-                                                        <rect key="frame" x="114" y="0.0" width="130" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="130" id="tBo-fS-DR2"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <color key="textColor" red="0.30366617439999999" green="0.63334965710000002" blue="0.4862569571" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9k-hQ-TGK">
-                                                        <rect key="frame" x="260" y="0.0" width="16" height="30"/>
+                                                        <rect key="frame" x="114" y="0.0" width="40" height="30"/>
                                                         <state key="normal" image="editButton"/>
                                                         <connections>
                                                             <action selector="eventEditAction:" destination="ZWP-jx-Sux" eventType="touchUpInside" id="l7e-fB-Y6E"/>
@@ -1023,7 +1007,6 @@
                         <outlet property="eventLocation" destination="TMQ-g8-DpA" id="jug-Wy-b7f"/>
                         <outlet property="eventTitle" destination="lMl-OC-l4J" id="aFl-cP-V4B"/>
                         <outlet property="goingBtn" destination="PcH-zB-cA3" id="CJG-yn-WCd"/>
-                        <outlet property="goingCountLabel" destination="XXX-Kl-Jab" id="LsR-jj-man"/>
                         <outlet property="postButton" destination="Ahx-kv-DL9" id="Swj-O4-aRm"/>
                         <outlet property="userName" destination="x9W-Ga-D6L" id="1QO-CW-GF7"/>
                         <outlet property="userProfileImage" destination="gKI-dX-NWG" id="o9Z-Qh-olW"/>
@@ -1202,7 +1185,6 @@
         <image name="CloseButtonIcone" width="50" height="50"/>
         <image name="HomeIcone" width="30" height="30"/>
         <image name="MyProfile" width="30" height="30"/>
-        <image name="NotGoingToEventBtn" width="501" height="138"/>
         <image name="addImage" width="341.33334350585938" height="341.33334350585938"/>
         <image name="editButton" width="40" height="40"/>
         <image name="peofileimage" width="341.33334350585938" height="341.33334350585938"/>

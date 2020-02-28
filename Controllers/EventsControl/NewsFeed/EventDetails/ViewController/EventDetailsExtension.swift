@@ -26,8 +26,8 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
             let currentUserDetails = RetrieveCurrentUserDetails()
             currentUserDetails.retrieveGoingDataFromFirebase()
         }else{
-             postButton.isHidden = true
-//            commentTextField.isHidden = true
+            postButton.isHidden = true
+            //            commentTextField.isHidden = true
         }
     }
     
@@ -91,20 +91,22 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
                 }
                 
                 if flagC[0] == true{
-                    goingBtn.setImage(UIImage(named: "GoingToEventBtn"), for: .normal)
+                    
+                    goingBtn.goingButton(count: "\(GoingCountStruct.goingCountNumber)")
                     goingBtn.tag = 1
                     
                     GoingCountStruct.goingOrNot = true
                     
                 }else{
-                    goingBtn.setImage(UIImage(named: "NotGoingToEventBtn"), for: .normal)
+                    
+                    goingBtn.notGoing(count: "\(GoingCountStruct.goingCountNumber)")
                     goingBtn.tag = 0
                     GoingCountStruct.goingOrNot = false
                 }
             }
             else{
                 
-                goingBtn.setImage(UIImage(named: "NotGoingToEventBtn"), for: .normal)
+                goingBtn.notGoing(count: "\(GoingCountStruct.goingCountNumber)")
                 goingBtn.tag = 0
                 GoingCountStruct.goingOrNot = false
             }
@@ -116,7 +118,9 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
     
     func setElement(){
         
-        goingCountLabel.text = String ("\(GoingCountStruct.goingCountNumber )")
+        postButton.styleButton()
+        postButton.buttonRadiusAll()
+        
         userProfileImage.roundedImage()
         
         eventTitle.text = event?.title
@@ -196,7 +200,7 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
         return nil
     }
     
- 
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         moveTextField(textField, moveDistance: -200, up: true)
     }
@@ -205,12 +209,12 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
         moveTextField(textField, moveDistance: -200, up: false)
     }
     
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
-
+    
     func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
         let moveDuration = 0.3
         let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)

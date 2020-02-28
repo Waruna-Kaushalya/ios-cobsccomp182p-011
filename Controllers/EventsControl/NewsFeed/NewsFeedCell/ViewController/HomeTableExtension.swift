@@ -27,7 +27,7 @@ extension HomeTableViewCell {
         postTitle.text = event.title
         eventDescription.text = event.eventDescription
         userName.text = event.userFirstName
-        goingCountLabel.text = String (event.goingCount)
+        
         eventAddedDate.text = event.eventAddedDate
         
         let url = URL(string: event.iamage ?? "")
@@ -75,20 +75,24 @@ extension HomeTableViewCell {
                 }
                 
                 if flagC[0] == true{
-                    goingButton.setImage(UIImage(named: "GoingToEventBtn"), for: .normal)
+                    
+                    goingButton.goingButton(count: "\(goingCountNumber[0])")
+                    
                     goingButton.tag = 1
                     
                     GoingCountStruct.goingOrNot = true
                     
                 }else{
-                    goingButton.setImage(UIImage(named: "NotGoingToEventBtn"), for: .normal)
+                    
+                    goingButton.notGoing(count: "\(goingCountNumber[0])")
+                    
                     goingButton.tag = 0
                     GoingCountStruct.goingOrNot = false
                 }
             }
             else{
                 
-                goingButton.setImage(UIImage(named: "NotGoingToEventBtn"), for: .normal)
+                goingButton.notGoing(count: "\(goingCountNumber[0])")
                 goingButton.tag = 0
                 GoingCountStruct.goingOrNot = false
                 

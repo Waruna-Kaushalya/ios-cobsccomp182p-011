@@ -29,7 +29,6 @@ class EventDetailsViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var goingBtn: UIButton!
     @IBOutlet weak var userProfileImage: UIImageView!
     @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var goingCountLabel: UILabel!
     @IBOutlet weak var eventEditBtn: UIButton!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var postButton: UIButton!
@@ -52,7 +51,7 @@ class EventDetailsViewController: UIViewController,UITextFieldDelegate {
         getGoingDataFirebase()
         
         buttonAccessControll()
-
+        
         currentUserDetaiilsRetriving()
     }
     
@@ -61,16 +60,12 @@ class EventDetailsViewController: UIViewController,UITextFieldDelegate {
         
         if checkUserStatus.checkUserLoginStatus() == true {
             if goingBtn.tag == 0 {
-                
-                //                going
-                
-                goingBtn.setImage(UIImage(named: "GoingToEventBtn"), for: .normal)
-                
+                //Going
                 goingBtn.tag = 1
                 
                 GoingCountStruct.goingCountNumber =  GoingCountStruct.goingCountNumber  + 1
                 
-                goingCountLabel.text = String ("\( GoingCountStruct.goingCountNumber )")
+                goingBtn.goingButton(count: "\(GoingCountStruct.goingCountNumber)")
                 
                 GoingCountStruct.goingUserList.append(currentUserId[0])
                 
@@ -80,13 +75,13 @@ class EventDetailsViewController: UIViewController,UITextFieldDelegate {
                 
             }else {
                 
-                //                not going
-                goingBtn.setImage(UIImage(named: "NotGoingToEventBtn"), for: .normal)
+                //not going
+                
                 goingBtn.tag = 0
                 
                 GoingCountStruct.goingCountNumber =  GoingCountStruct.goingCountNumber  - 1
                 
-                goingCountLabel.text = String ("\(GoingCountStruct.goingCountNumber)")
+                goingBtn.notGoing(count: "\(GoingCountStruct.goingCountNumber)")
                 
                 GoingCountStruct.goingUserList = GoingCountStruct.goingUserList.filter {$0 !=  currentUserId[0] }
                 
@@ -110,7 +105,7 @@ class EventDetailsViewController: UIViewController,UITextFieldDelegate {
         transition.trancVC(_viewCIdentifire: "EventEditVC", _viewCFrom: self)
     }
     
-
+    
     @IBAction func postButtonAction(_ sender: Any) {
         
         let error = validateFields()

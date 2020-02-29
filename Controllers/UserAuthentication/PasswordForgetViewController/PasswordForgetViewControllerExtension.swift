@@ -1,30 +1,14 @@
 //
-//  PasswordForgetViewController.swift
+//  PasswordForgetViewControllerExtension.swift
 //  NIBM Events
 //
-//  Created by Waruna Kaushalya on 2/8/20.
+//  Created by Waruna Kaushalya on 2/29/20.
 //  Copyright © 2020 Waruna Kaushalya. All rights reserved.
 //
-
 import UIKit
 import FirebaseAuth
 
-
-let ERROR_EMPTY_EMAIL_REST = "Please enter an email address for reset password"
-
-class PasswordForgetViewController: UIViewController {
-    
-    let trans  = TransitionController()
-    let alert = AlertMessages()
-    
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var sendEmailButton: UIButton!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupElements()
-        
-    }
-    
+extension PasswordForgetViewController{
     func setupElements(){
         
         
@@ -34,18 +18,6 @@ class PasswordForgetViewController: UIViewController {
         emailTextField.styleTextField()
         
     }
-    
-    @IBAction func restPasswordTapped(_ sender: Any) {
-        
-        guard let email = emailTextField.text, email != "" else{
-            alert.warningAlertMessage(_AlertMessage: ERROR_EMPTY_EMAIL_REST, _viewCFrom: self)
-            return
-        }
-        resetPassword(email: email)
-        
-        trans.trancVC(_viewCIdentifire: "LoginVC", _viewCFrom: self)
-    }
-    
     func resetPassword(email:String){
         Auth.auth().sendPasswordReset(withEmail: email) { error in
             if error == nil {
@@ -68,5 +40,28 @@ class PasswordForgetViewController: UIViewController {
         self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)
         
         
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -100, up: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -100, up: false)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
     }
 }

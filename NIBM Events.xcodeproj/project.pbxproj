@@ -30,8 +30,8 @@
 		C01443BA2408549400C62AE8 /* LoginViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443B92408549400C62AE8 /* LoginViewControllerExtension.swift */; };
 		C01443BC2408571600C62AE8 /* PublisherExtrnsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443BB2408571600C62AE8 /* PublisherExtrnsion.swift */; };
 		C01443BE2408579900C62AE8 /* MyProfileExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443BD2408579900C62AE8 /* MyProfileExtension.swift */; };
+		C01CA941240A5DBC003BA099 /* PasswordForgetViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA940240A5DBC003BA099 /* PasswordForgetViewControllerExtension.swift */; };
 		C033B28A23E9601000726A03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B28923E9601000726A03 /* AppDelegate.swift */; };
-		C033B28C23E9601000726A03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B28B23E9601000726A03 /* ViewController.swift */; };
 		C033B28F23E9601000726A03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C033B28D23E9601000726A03 /* Main.storyboard */; };
 		C033B29223E9601000726A03 /* NIBM_Events.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C033B29023E9601000726A03 /* NIBM_Events.xcdatamodeld */; };
 		C033B29423E9601100726A03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C033B29323E9601100726A03 /* Assets.xcassets */; };
@@ -118,9 +118,9 @@
 		C01443B92408549400C62AE8 /* LoginViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerExtension.swift; sourceTree = "<group>"; };
 		C01443BB2408571600C62AE8 /* PublisherExtrnsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtrnsion.swift; sourceTree = "<group>"; };
 		C01443BD2408579900C62AE8 /* MyProfileExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileExtension.swift; sourceTree = "<group>"; };
+		C01CA940240A5DBC003BA099 /* PasswordForgetViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordForgetViewControllerExtension.swift; sourceTree = "<group>"; };
 		C033B28623E9601000726A03 /* NIBM Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NIBM Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C033B28923E9601000726A03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C033B28B23E9601000726A03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C033B28E23E9601000726A03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C033B29123E9601000726A03 /* NIBM_Events.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NIBM_Events.xcdatamodel; sourceTree = "<group>"; };
 		C033B29323E9601100726A03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Models/Assets.xcassets; sourceTree = "<group>"; };
@@ -138,7 +138,7 @@
 		C061DD84240518D7002E3E6E /* CreateEventStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventStruct.swift; sourceTree = "<group>"; };
 		C061DD8624051D65002E3E6E /* AddEventDataFireBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventDataFireBase.swift; sourceTree = "<group>"; };
 		C061DD882405AFDF002E3E6E /* RetrieveGoingDataFromFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveGoingDataFromFirebase.swift; sourceTree = "<group>"; };
-		C07F199623EF2564004AD08D /* TransitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransitionVC.swift; path = ../TransitionController/TransitionVC.swift; sourceTree = "<group>"; };
+		C07F199623EF2564004AD08D /* TransitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionVC.swift; sourceTree = "<group>"; };
 		C07F199923EF259B004AD08D /* AlertMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessages.swift; sourceTree = "<group>"; };
 		C07F199B23EF25E0004AD08D /* CheckPasswordAndEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPasswordAndEmail.swift; sourceTree = "<group>"; };
 		C07F199D23EF265A004AD08D /* TouchFaceIDAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchFaceIDAuthentication.swift; sourceTree = "<group>"; };
@@ -220,100 +220,59 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		C014437D240693D300C62AE8 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				C09E107823F66C7100B26D78 /* MyProfileViewController.swift */,
-				C01443BD2408579900C62AE8 /* MyProfileExtension.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
 		C014438724077F7E00C62AE8 /* AddEvents */ = {
-			isa = PBXGroup;
-			children = (
-				C0144388240780AE00C62AE8 /* ViewController */,
-			);
-			path = AddEvents;
-			sourceTree = "<group>";
-		};
-		C0144388240780AE00C62AE8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				C09E107C23F6B50500B26D78 /* AddEventViewController.swift */,
 				C01443792406919400C62AE8 /* AddEventViewExtention.swift */,
 			);
-			path = ViewController;
+			path = AddEvents;
 			sourceTree = "<group>";
 		};
-		C014438924078B1A00C62AE8 /* NewsFeedTable */ = {
-			isa = PBXGroup;
-			children = (
-				C014438A24078B3B00C62AE8 /* ViewController */,
-			);
-			path = NewsFeedTable;
-			sourceTree = "<group>";
-		};
-		C014438A24078B3B00C62AE8 /* ViewController */ = {
+		C014438924078B1A00C62AE8 /* NewsFeedTableViewController */ = {
 			isa = PBXGroup;
 			children = (
 				C09E10A923FBC9E000B26D78 /* EventBoardViewController.swift */,
 				C01443AA240810E200C62AE8 /* EventBoardExtension.swift */,
 			);
-			path = ViewController;
+			path = NewsFeedTableViewController;
 			sourceTree = "<group>";
 		};
 		C014438C24078B8F00C62AE8 /* NewsFeedCell */ = {
 			isa = PBXGroup;
 			children = (
-				C014438D24078B9F00C62AE8 /* ViewController */,
-			);
-			path = NewsFeedCell;
-			sourceTree = "<group>";
-		};
-		C014438D24078B9F00C62AE8 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
 				C09E10B323FCF33E00B26D78 /* HomeTableViewCell.swift */,
 				C01443AC240811B200C62AE8 /* HomeTableExtension.swift */,
 			);
-			path = ViewController;
+			path = NewsFeedCell;
 			sourceTree = "<group>";
 		};
 		C014438F24078BCA00C62AE8 /* EventDetails */ = {
 			isa = PBXGroup;
 			children = (
-				C014439024078BDC00C62AE8 /* ViewController */,
+				C014439024078BDC00C62AE8 /* EventDetailsViewController */,
 				C01443B02408179400C62AE8 /* CommentCell */,
 			);
 			name = EventDetails;
 			path = NewsFeed/EventDetails;
 			sourceTree = "<group>";
 		};
-		C014439024078BDC00C62AE8 /* ViewController */ = {
+		C014439024078BDC00C62AE8 /* EventDetailsViewController */ = {
 			isa = PBXGroup;
 			children = (
 				C09E10C123FFBC5000B26D78 /* EventDetailsViewController.swift */,
 				C01443A32407FAF700C62AE8 /* EventDetailsExtension.swift */,
 			);
-			path = ViewController;
+			path = EventDetailsViewController;
 			sourceTree = "<group>";
 		};
 		C014439224078C0100C62AE8 /* UpdateEvent */ = {
 			isa = PBXGroup;
 			children = (
-				C014439324078C1300C62AE8 /* ViewController */,
-			);
-			path = UpdateEvent;
-			sourceTree = "<group>";
-		};
-		C014439324078C1300C62AE8 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
 				C0144381240705AB00C62AE8 /* UpdateEventViewController.swift */,
 				C01443A12407B8C800C62AE8 /* UpdateEventExtension.swift */,
 			);
-			path = ViewController;
+			path = UpdateEvent;
 			sourceTree = "<group>";
 		};
 		C014439524078C3A00C62AE8 /* FirebaseClients */ = {
@@ -329,44 +288,28 @@
 			path = FirebaseClients;
 			sourceTree = "<group>";
 		};
-		C014439624078CB700C62AE8 /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				C014439724078CCD00C62AE8 /* ViewController */,
-			);
-			path = SignUp;
-			sourceTree = "<group>";
-		};
-		C014439724078CCD00C62AE8 /* ViewController */ = {
+		C014439624078CB700C62AE8 /* SignUpViewController */ = {
 			isa = PBXGroup;
 			children = (
 				C09DD52B23ED3B6D00EDA0CB /* SignUPViewController.swift */,
 				C01443B72408536600C62AE8 /* SignUPExtension.swift */,
 			);
-			path = ViewController;
+			path = SignUpViewController;
 			sourceTree = "<group>";
 		};
-		C014439924078CEA00C62AE8 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				C014439A24078CF300C62AE8 /* ViewController */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		C014439A24078CF300C62AE8 /* ViewController */ = {
+		C014439924078CEA00C62AE8 /* LoginViewController */ = {
 			isa = PBXGroup;
 			children = (
 				C09DD52923ED3B3200EDA0CB /* LoginViewController.swift */,
 				C01443B92408549400C62AE8 /* LoginViewControllerExtension.swift */,
 			);
-			path = ViewController;
+			path = LoginViewController;
 			sourceTree = "<group>";
 		};
 		C014439C24078D3600C62AE8 /* UserLoginActions */ = {
 			isa = PBXGroup;
 			children = (
-				C09DD53023EEFA7300EDA0CB /* PasswordForgetViewController.swift */,
+				C07F19BF23F39027004AD08D /* CheckUserLoginStatus.swift */,
 				C07F199B23EF25E0004AD08D /* CheckPasswordAndEmail.swift */,
 				C07F199D23EF265A004AD08D /* TouchFaceIDAuthentication.swift */,
 				C07F19A723EF2EF5004AD08D /* SignOutAction.swift */,
@@ -384,7 +327,6 @@
 				C014439224078C0100C62AE8 /* UpdateEvent */,
 				C09E10BE23FF86E200B26D78 /* PublisherProfile */,
 				C07F19B223F155C0004AD08D /* MyProfile */,
-				C014439524078C3A00C62AE8 /* FirebaseClients */,
 			);
 			path = EventsControl;
 			sourceTree = "<group>";
@@ -410,12 +352,37 @@
 			path = GlobalVariables;
 			sourceTree = "<group>";
 		};
+		C01CA93E240A558B003BA099 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C07F199623EF2564004AD08D /* TransitionVC.swift */,
+				C014439F2407AD6F00C62AE8 /* ImageCompress.swift */,
+				C01443B3240832C900C62AE8 /* Currentdate.swift */,
+				C07F199823EF2584004AD08D /* AlertsController */,
+				C01CA939240A3A57003BA099 /* GlobalVariables */,
+				C014439C24078D3600C62AE8 /* UserLoginActions */,
+				C09DD52D23ED464C00EDA0CB /* Utilities */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C01CA93F240A5BBE003BA099 /* PasswordForgetViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C09DD53023EEFA7300EDA0CB /* PasswordForgetViewController.swift */,
+				C01CA940240A5DBC003BA099 /* PasswordForgetViewControllerExtension.swift */,
+			);
+			path = PasswordForgetViewController;
+			sourceTree = "<group>";
+		};
 		C033B27D23E9601000726A03 = {
 			isa = PBXGroup;
 			children = (
 				C07F19A123EF2AEC004AD08D /* Controllers */,
 				C07F199F23EF2ADA004AD08D /* Models */,
 				C07F19A023EF2AE5004AD08D /* Views */,
+				C014439524078C3A00C62AE8 /* FirebaseClients */,
+				C01CA93E240A558B003BA099 /* Helpers */,
 				C033B29323E9601100726A03 /* Assets.xcassets */,
 				C033B28823E9601000726A03 /* NIBM Events */,
 				C033B2A023E9601100726A03 /* NIBM EventsTests */,
@@ -441,7 +408,6 @@
 			isa = PBXGroup;
 			children = (
 				C033B28923E9601000726A03 /* AppDelegate.swift */,
-				C033B28B23E9601000726A03 /* ViewController.swift */,
 				C033B29823E9601100726A03 /* Info.plist */,
 				C033B29023E9601000726A03 /* NIBM_Events.xcdatamodeld */,
 			);
@@ -499,10 +465,6 @@
 			children = (
 				C07F19A423EF2BD5004AD08D /* UserAuthentication */,
 				C014439D24078D6500C62AE8 /* EventsControl */,
-				C09DD52D23ED464C00EDA0CB /* Utilities */,
-				C07F19A923F03AE2004AD08D /* Helpers */,
-				C07F199823EF2584004AD08D /* AlertsController */,
-				C01CA939240A3A57003BA099 /* GlobalVariables */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -510,28 +472,18 @@
 		C07F19A423EF2BD5004AD08D /* UserAuthentication */ = {
 			isa = PBXGroup;
 			children = (
-				C014439624078CB700C62AE8 /* SignUp */,
-				C014439924078CEA00C62AE8 /* Login */,
-				C014439C24078D3600C62AE8 /* UserLoginActions */,
+				C014439624078CB700C62AE8 /* SignUpViewController */,
+				C014439924078CEA00C62AE8 /* LoginViewController */,
+				C01CA93F240A5BBE003BA099 /* PasswordForgetViewController */,
 			);
 			path = UserAuthentication;
-			sourceTree = "<group>";
-		};
-		C07F19A923F03AE2004AD08D /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				C07F19BF23F39027004AD08D /* CheckUserLoginStatus.swift */,
-				C07F199623EF2564004AD08D /* TransitionVC.swift */,
-				C014439F2407AD6F00C62AE8 /* ImageCompress.swift */,
-				C01443B3240832C900C62AE8 /* Currentdate.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		C07F19B223F155C0004AD08D /* MyProfile */ = {
 			isa = PBXGroup;
 			children = (
-				C014437D240693D300C62AE8 /* ViewControllers */,
+				C09E107823F66C7100B26D78 /* MyProfileViewController.swift */,
+				C01443BD2408579900C62AE8 /* MyProfileExtension.swift */,
 			);
 			path = MyProfile;
 			sourceTree = "<group>";
@@ -547,14 +499,13 @@
 				C07F19C523F55E7A004AD08D /* FloatingTextField.swift */,
 				C09E107A23F6798E00B26D78 /* LabelUtilities.swift */,
 			);
-			name = Utilities;
-			path = ../Utilities;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		C09E10B523FCF53200B26D78 /* NewsFeed */ = {
 			isa = PBXGroup;
 			children = (
-				C014438924078B1A00C62AE8 /* NewsFeedTable */,
+				C014438924078B1A00C62AE8 /* NewsFeedTableViewController */,
 				C014438C24078B8F00C62AE8 /* NewsFeedCell */,
 			);
 			path = NewsFeed;
@@ -832,6 +783,7 @@
 				C01443BC2408571600C62AE8 /* PublisherExtrnsion.swift in Sources */,
 				C01443A7240805EB00C62AE8 /* Comments.swift in Sources */,
 				C01443A22407B8C800C62AE8 /* UpdateEventExtension.swift in Sources */,
+				C01CA941240A5DBC003BA099 /* PasswordForgetViewControllerExtension.swift in Sources */,
 				C09E10BD23FF866800B26D78 /* PublisherViewController.swift in Sources */,
 				C01443BA2408549400C62AE8 /* LoginViewControllerExtension.swift in Sources */,
 				C061DD892405AFDF002E3E6E /* RetrieveGoingDataFromFirebase.swift in Sources */,
@@ -853,7 +805,6 @@
 				C0144386240709D000C62AE8 /* UpdateEventStruct.swift in Sources */,
 				C061DD7F240454EE002E3E6E /* GoingCountStruct.swift in Sources */,
 				C07F19C023F39027004AD08D /* CheckUserLoginStatus.swift in Sources */,
-				C033B28C23E9601000726A03 /* ViewController.swift in Sources */,
 				C033B28A23E9601000726A03 /* AppDelegate.swift in Sources */,
 				C09DD53123EEFA7300EDA0CB /* PasswordForgetViewController.swift in Sources */,
 				C09E107923F66C7100B26D78 /* MyProfileViewController.swift in Sources */,

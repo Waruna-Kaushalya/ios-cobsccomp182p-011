@@ -48,4 +48,17 @@ extension UITextField{
         self.layer.maskedCorners = [.layerMinXMaxYCorner,.layerMaxXMaxYCorner]
         
     }
+    
+    func commentTextFieldUtilities(){
+        
+         let lightBlue = UIColor(red: 0/255, green: 148/255, blue: 253/255, alpha: 1)
+        //Border
+        self.layer.borderWidth = 1
+        self.layer.borderColor = lightBlue.cgColor
+        
+        self.layer.cornerRadius = 9
+        self.clipsToBounds = true
+        self.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner,.layerMaxXMaxYCorner]
+        
+    }
 }

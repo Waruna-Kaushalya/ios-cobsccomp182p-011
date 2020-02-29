@@ -30,8 +30,7 @@ class PublisherViewController: UIViewController, UITableViewDelegate {
     }
 
     @IBAction func closeButtonAction(_ sender: Any) {
-        
-        
+
         self.dismiss(animated: true, completion: nil)
     }
 }

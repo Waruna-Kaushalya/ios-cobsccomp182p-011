@@ -36,6 +36,7 @@ extension AddEventViewController:UIImagePickerControllerDelegate, UINavigationCo
         eventTitle.styleTextField()
         eventDescription.styleTextField()
         publishButton.styleButton()
+        publishButton.buttonRadiusAll()
     }
     func setupProfileImage(){
         

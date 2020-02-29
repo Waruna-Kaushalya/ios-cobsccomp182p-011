@@ -15,7 +15,7 @@ import CoreLocation
 import RxSwift
 
 
-class UpdateEventViewController: UIViewController {
+class UpdateEventViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var currentEventTitle: UILabel!
     @IBOutlet weak var currentEventDescription: UILabel!

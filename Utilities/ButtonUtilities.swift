@@ -50,7 +50,7 @@ extension UIButton {
         self.layer.borderWidth = 1
         self.layer.borderColor = green.cgColor
         
-        self.layer.cornerRadius = 15
+        self.layer.cornerRadius = 10
         self.clipsToBounds = true
         self.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner,.layerMaxXMaxYCorner]
         
@@ -74,7 +74,7 @@ extension UIButton {
         self.layer.borderWidth = 1
         self.layer.borderColor = green.cgColor
         
-        self.layer.cornerRadius = 15
+        self.layer.cornerRadius = 10
         self.clipsToBounds = true
         self.layer.maskedCorners = [.layerMinXMinYCorner,.layerMaxXMinYCorner, .layerMinXMaxYCorner,.layerMaxXMaxYCorner]
         

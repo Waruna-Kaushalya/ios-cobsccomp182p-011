@@ -28,6 +28,8 @@ extension HomeTableViewCell {
         eventDescription.text = event.eventDescription
         userName.text = event.userFirstName
         
+        commentTextField.commentTextFieldUtilities()
+        
         eventAddedDate.text = event.eventAddedDate
         
         let url = URL(string: event.iamage ?? "")
@@ -153,4 +155,6 @@ extension HomeTableViewCell {
             self.delegate.callSegueFromCell(data: v, cellForRowAt: indexPath!)
         }
     }
+    
+    
 }

@@ -397,6 +397,19 @@
 			path = CommentCell;
 			sourceTree = "<group>";
 		};
+		C01CA939240A3A57003BA099 /* GlobalVariables */ = {
+			isa = PBXGroup;
+			children = (
+				C061DD7E240454EE002E3E6E /* GoingCountStruct.swift */,
+				C061DD84240518D7002E3E6E /* CreateEventStruct.swift */,
+				C061DD802404FEED002E3E6E /* UserStruct.swift */,
+				C014437E24069A2D00C62AE8 /* LocationDetails.swift */,
+				C0144385240709D000C62AE8 /* UpdateEventStruct.swift */,
+				C01443A6240805EB00C62AE8 /* Comments.swift */,
+			);
+			path = GlobalVariables;
+			sourceTree = "<group>";
+		};
 		C033B27D23E9601000726A03 = {
 			isa = PBXGroup;
 			children = (
@@ -467,12 +480,6 @@
 				C09E10B623FCF58200B26D78 /* EventModel.swift */,
 				C09E10BF23FF875A00B26D78 /* UserModel.swift */,
 				C01443B12408198700C62AE8 /* CommentsModel.swift */,
-				C061DD7E240454EE002E3E6E /* GoingCountStruct.swift */,
-				C061DD84240518D7002E3E6E /* CreateEventStruct.swift */,
-				C061DD802404FEED002E3E6E /* UserStruct.swift */,
-				C014437E24069A2D00C62AE8 /* LocationDetails.swift */,
-				C0144385240709D000C62AE8 /* UpdateEventStruct.swift */,
-				C01443A6240805EB00C62AE8 /* Comments.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -495,6 +502,7 @@
 				C09DD52D23ED464C00EDA0CB /* Utilities */,
 				C07F19A923F03AE2004AD08D /* Helpers */,
 				C07F199823EF2584004AD08D /* AlertsController */,
+				C01CA939240A3A57003BA099 /* GlobalVariables */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

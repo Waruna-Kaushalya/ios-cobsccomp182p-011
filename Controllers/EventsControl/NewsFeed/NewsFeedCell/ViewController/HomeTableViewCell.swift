@@ -33,6 +33,10 @@ class HomeTableViewCell: UITableViewCell {
     
     var delegate:CellDelegator!
     
+    var getCurrentCellDetails:EventModel?
+    
+    var currentCell:[EventModel] = []
+    
     var eventIdentifire:[String] = [""]
     var goingCountNumber:[Int] = [0]
     var goingUserList:[String] = [""]
@@ -103,14 +107,26 @@ class HomeTableViewCell: UITableViewCell {
         let error = validateCommentTextField()
         
         if error != nil{
-           print("textFildEmpty")
+            print("textFildEmpty")
         }else{
             
-            Comments.EventID =  eventIdentifire[0]
+            currentUserDetaiilsRetriving()
             
-            Comments.userProfileImageURL = userPorofileImage[0]
+            let indexPath = (self.superview as! UITableView).indexPath(for: self)
+
+            let currentDataFromCell:EventModel = currentCell[indexPath!.row]
             
-            Comments.userName = userFName[0]
+            let currentData = RetrieveCurrentUserDetails()
+            
+            currentData.retrieveGoingDataFromFirebase()
+            
+            Comments.EventID =  currentDataFromCell.eventIdentifire
+            
+//            Comments.userProfileImageURL = userPorofileImage[0]
+//
+//            Comments.userName = userFName[0]
+            
+            print(Comments.userName)
             
             let uuid = UUID().uuidString
             Comments.commentID = uuid
@@ -121,6 +137,9 @@ class HomeTableViewCell: UITableViewCell {
             
             commentAdd.addCommentsToFireBase()
             
+            commentTextField.text = ""
+            
         }
     }
+
 }

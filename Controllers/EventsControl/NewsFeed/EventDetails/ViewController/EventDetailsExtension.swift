@@ -143,6 +143,8 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
         UpdateEventStruct.eventTitle = event!.title
         Comments.EventID = event!.eventIdentifire
         
+        commentTextField.commentTextFieldUtilities()
+        
         
     }
     

@@ -51,6 +51,10 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.setEvent(event: event)
         
+//        cell.getCurrentCellDetails = event
+        
+        cell.currentCell = self.eventList
+        
         cell.delegate = self
         
         return cell
@@ -73,5 +77,30 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         let Trans = TransitionController()
         Trans.trancVC(_viewCIdentifire: "UserProfileVC", _viewCFrom: self)
         
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -250, up: true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        moveTextField(textField, moveDistance: -250, up: false)
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
+        let moveDuration = 0.3
+        let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)
+        
+        UIView.beginAnimations("animateTextField", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(moveDuration)
+        self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
+        UIView.commitAnimations()
     }
 }

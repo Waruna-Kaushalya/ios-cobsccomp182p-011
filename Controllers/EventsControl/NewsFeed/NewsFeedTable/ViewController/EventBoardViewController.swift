@@ -17,7 +17,7 @@ protocol CellDelegator {
     func callSegueFromCell(data dataobject: EventModel,  cellForRowAt indexPath: IndexPath)
 }
 
-class EventBoardViewController: UIViewController, CellDelegator {
+class EventBoardViewController: UIViewController, CellDelegator,UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     

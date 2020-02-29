@@ -128,6 +128,8 @@ class EventDetailsViewController: UIViewController,UITextFieldDelegate {
             retrieveComments()
             
             self.commentTableView.reloadData()
+            
+            commentTextField.text = ""
         }
     }
 }

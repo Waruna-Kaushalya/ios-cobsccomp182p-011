@@ -50,31 +50,38 @@ extension MyProfileViewController:UITableViewDataSource,UITableViewDelegate{
     func retrievemyEventDetails(){
         
         self.eventList.removeAll()
-        let currentUserID  = Auth.auth().currentUser!.uid as String
+        let checkUserLoginStatus = CheckUserLoginStatus()
         
-        let dataRef = Firestore.firestore().collection("event").whereField("userID", isEqualTo: currentUserID)
-        dataRef.getDocuments { (querySnapshot, err) in
+        if checkUserLoginStatus.checkUserLoginStatus() == true{
+            let currentUserID  = Auth.auth().currentUser!.uid as String
             
-            for document in querySnapshot!.documents {
+            let dataRef = Firestore.firestore().collection("event").whereField("userID", isEqualTo: currentUserID)
+            dataRef.getDocuments { (querySnapshot, err) in
                 
-                let dataDescription = document.data()
-
-                let userIDV = dataDescription["userID"] as? String
-                 let eventImageUrl = dataDescription["eventImageUrl"] as? String
-                 let eventTitle = dataDescription["eventtitle"] as? String
-                
-                let commentDate = dataDescription["eventAddedDate"] as? String
-                let goingCount = dataDescription["goingCount"] as? Int
-                
-                let myEvent:MyEventModel = MyEventModel(image: eventImageUrl!, title: eventTitle!, goingCount: goingCount!, eventDate: commentDate!)
-                
-                DispatchQueue.main.async {
-                    self.eventList.append(myEvent)
-                    self.eventList.sort(by: {$0.eventDate > $1.eventDate})
-                    self.myEventTable.reloadData()
+                for document in querySnapshot!.documents {
+                    
+                    let dataDescription = document.data()
+                    
+                    let userIDV = dataDescription["userID"] as? String
+                    let eventImageUrl = dataDescription["eventImageUrl"] as? String
+                    let eventTitle = dataDescription["eventtitle"] as? String
+                    
+                    let commentDate = dataDescription["eventAddedDate"] as? String
+                    let goingCount = dataDescription["goingCount"] as? Int
+                    
+                    let myEvent:MyEventModel = MyEventModel(image: eventImageUrl!, title: eventTitle!, goingCount: goingCount!, eventDate: commentDate!)
+                    
+                    DispatchQueue.main.async {
+                        self.eventList.append(myEvent)
+                        self.eventList.sort(by: {$0.eventDate > $1.eventDate})
+                        self.myEventTable.reloadData()
+                    }
                 }
             }
         }
+        
+        
+        
     }
     
     

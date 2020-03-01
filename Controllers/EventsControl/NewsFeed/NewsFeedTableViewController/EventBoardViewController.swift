@@ -30,6 +30,7 @@ class EventBoardViewController: UIViewController, CellDelegator,UITextFieldDeleg
         retrieveEvents()
         self.tableView.reloadData()
         
+        
     }
 }
 

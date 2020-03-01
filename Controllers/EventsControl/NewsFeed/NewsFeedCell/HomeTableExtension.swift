@@ -82,7 +82,7 @@ extension HomeTableViewCell {
                     goingButton.goingButton(count: "\(goingCountNumber[0])")
                     
                     goingButton.tag = 1
-                    
+              
                     GoingCountStruct.goingOrNot = true
                     
                 }else{
@@ -154,6 +154,12 @@ extension HomeTableViewCell {
         }
     }
     
-    
+    override func prepareForReuse() {
+//        super.prepareForReuse()
+
+//         self.cellDelegate = nil
+       
+    }
+   
 }
 

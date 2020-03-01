@@ -91,15 +91,11 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+                
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell")  as! HomeTableViewCell
-        
-//        print(indexPath.row)
+
         let event:EventModel = self.eventList[indexPath.row]
-        
-//        print(event.eventIdentifire)
-        
-        
+
         cell.setEvent(event: event)
         
         cell.currentCell = self.eventList

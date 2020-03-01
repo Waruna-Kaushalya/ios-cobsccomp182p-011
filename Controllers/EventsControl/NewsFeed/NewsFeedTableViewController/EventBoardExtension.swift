@@ -73,7 +73,7 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         
         let event:EventModel = self.eventList[indexPath.row]
         
-        print(event.eventIdentifire)
+//        print(event.eventIdentifire)
         
         eventsController.event = event
         
@@ -94,10 +94,11 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell")  as! HomeTableViewCell
         
-        print(indexPath.row)
+//        print(indexPath.row)
         let event:EventModel = self.eventList[indexPath.row]
         
-        print(event.eventIdentifire)
+//        print(event.eventIdentifire)
+        
         
         cell.setEvent(event: event)
         

@@ -36,7 +36,6 @@ class RetrieveCurrentUserDetails{
                     
                 }
                 else{
-                    print("going count nil")
                     GoingCountStruct.goingCountNumber = 0
                 }
             }

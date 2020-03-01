@@ -18,9 +18,7 @@ class AddGoingCountDataToFirebase{
         let db = Firestore.firestore()
         db.collection("event").whereField("eventID", isEqualTo:  eventIdentifire)
             .addSnapshotListener { querySnapshot, error in
-                
-                
-                print(eventIdentifire)
+ 
                 guard (querySnapshot?.documents) != nil else {
                     print("Error fetching documents: \(error!)")
                     return

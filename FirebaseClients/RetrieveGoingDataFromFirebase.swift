@@ -36,7 +36,6 @@ class RetrieveUserGoingDataFromFirebase{
                     
                 }
                 else{
-                    print("going count nil")
                     GoingCountStruct.goingCountNumber = 0
                 }
             }

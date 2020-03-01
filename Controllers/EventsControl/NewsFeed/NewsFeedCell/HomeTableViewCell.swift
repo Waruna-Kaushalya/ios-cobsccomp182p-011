@@ -120,7 +120,7 @@ class HomeTableViewCell: UITableViewCell {
             
             CommentsStruct.EventID =  currentDataFromCell.eventIdentifire
             
-            print(CommentsStruct.userName)
+//            print(CommentsStruct.userName)
             
             let uuid = UUID().uuidString
             CommentsStruct.commentID = uuid

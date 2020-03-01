@@ -199,9 +199,7 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
     func getGoingDataFirebase(){
         
         let docRef = Firestore.firestore().collection("event").whereField("eventID", isEqualTo: self.event!.eventIdentifire)
-        
-        print(self.event!.eventIdentifire)
-        
+  
         docRef.getDocuments { (querySnapshot, err) in
             if let err = err {
                 print(err.localizedDescription)
@@ -217,7 +215,6 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
                 GoingCountStruct.goingUserList = dataDescription?["goingUsers"]  as! [String]
                 
                 if GoingCountStruct.goingUserList.count == 0  {
-                    print("going count nil")
                     GoingCountStruct.goingCountNumber = 0
                 }
             }
@@ -225,8 +222,6 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
             DispatchQueue.main.async {
                 self.setElement()
                 self.setPLike()
-                
-                print("BBB")
             }
         }
     }

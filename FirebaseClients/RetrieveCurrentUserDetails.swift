@@ -16,7 +16,7 @@ class RetrieveCurrentUserDetails{
     
     func retrieveGoingDataFromFirebase(){
         
-        let docRef = Firestore.firestore().collection("users").whereField("uid", isEqualTo: Comments.userID )
+        let docRef = Firestore.firestore().collection("users").whereField("uid", isEqualTo: CommentsStruct.userID )
         
         docRef.getDocuments { (querySnapshot, err) in
             if let err = err {
@@ -28,8 +28,8 @@ class RetrieveCurrentUserDetails{
                 let document = querySnapshot!.documents.first
                 let dataDescription = document?.data()
                 
-                Comments.userName = dataDescription?["firstname"] as! String
-                Comments.userProfileImageURL = dataDescription?["imageURL"] as! String
+                CommentsStruct.userName = dataDescription?["firstname"] as! String
+                CommentsStruct.userProfileImageURL = dataDescription?["imageURL"] as! String
                 
                 
                 if GoingCountStruct.goingUserList.count != 0  {

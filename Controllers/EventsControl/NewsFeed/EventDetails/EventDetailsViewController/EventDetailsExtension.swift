@@ -19,24 +19,26 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
     func currentUserDetaiilsRetriving(){
         
         if checkUserLoginStatus.checkUserLoginStatus() == true {
-            Comments.userID  = Auth.auth().currentUser!.uid as String
+            CommentsStruct.userID  = Auth.auth().currentUser!.uid as String
             
             retrieveComments()
             
             let currentUserDetails = RetrieveCurrentUserDetails()
             currentUserDetails.retrieveGoingDataFromFirebase()
+            
+            if eventAddedUserID[0] != CommentsStruct.userID {
+                eventEditBtn.isHidden = true
+            }
+            
         }else{
-            postButton.isHidden = true
-            //            commentTextField.isHidden = true
-        }
-    }
-    
-    func buttonAccessControll(){
-        
-        if checkUserStatus.checkUserLoginStatus() != true || Auth.auth().currentUser!.uid != event!.userID  {
+            goingBtn.notGoing(count: "\(GoingCountStruct.goingCountNumber)")
+            postButton.isEnabled = false
+            commentTextField.isEnabled = false
             eventEditBtn.isHidden = true
         }
     }
+    
+    
     
     func getGoingDataFirebase(){
         
@@ -111,7 +113,8 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
                 GoingCountStruct.goingOrNot = false
             }
         }else{
-            goingBtn.isHidden = false
+            goingBtn.notGoing(count: "\(GoingCountStruct.goingCountNumber)")
+            goingBtn.isEnabled = false
             
         }
     }
@@ -141,7 +144,7 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
         UpdateEventStruct.eventID = event!.eventIdentifire
         UpdateEventStruct.eventDescription = event!.eventDescription
         UpdateEventStruct.eventTitle = event!.title
-        Comments.EventID = event!.eventIdentifire
+        CommentsStruct.EventID = event!.eventIdentifire
         
         commentTextField.commentTextFieldUtilities()
         
@@ -159,8 +162,11 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
         
         cell.setComments(comment: comment)
         
+        cell.currentCell = self.commentsList
+        
         return cell
     }
+    
     
     func retrieveComments(){
         
@@ -227,4 +233,7 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
         self.view.frame = self.view.frame.offsetBy(dx: 0, dy: movement)
         UIView.commitAnimations()
     }
+    
+    
+    
 }

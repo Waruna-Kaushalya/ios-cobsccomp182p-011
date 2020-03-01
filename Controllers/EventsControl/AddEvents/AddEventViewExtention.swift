@@ -91,56 +91,21 @@ extension AddEventViewController:UIImagePickerControllerDelegate, UINavigationCo
     }
     
     
-    func locationSet(){
-        self.locationManager.requestAlwaysAuthorization()
-        self.locationManager.requestWhenInUseAuthorization()
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager.delegate = self
-            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
-            locationManager.startUpdatingLocation()
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location: CLLocationCoordinate2D = manager.location?.coordinate else { return }
-        
-        latitude = location.latitude
-        longitude = location.longitude
-
-        LocationDetails.latitude = location.latitude
-        LocationDetails.longitude = location.longitude
-        
-        let geoCoder = CLGeocoder()
-        let locationn = CLLocation(latitude: latitude!, longitude:  longitude!)
-        
-        geoCoder.reverseGeocodeLocation(locationn, completionHandler: { (placemarks, _) -> Void in
-            
-            placemarks?.forEach { (placemark) in
-                
-                if let CityName = placemark.locality {
-                    
-                    self.location.value = CityName as! String
-                    
-                }
-            }
-        })
-    }
-
     func textFieldDidBeginEditing(_ textField: UITextField) {
         moveTextField(textField, moveDistance: -50, up: true)
     }
-
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
         moveTextField(textField, moveDistance: -50, up: false)
     }
     
-
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-
+    
     func moveTextField(_ textField: UITextField, moveDistance: Int, up: Bool) {
         let moveDuration = 0.3
         let movement: CGFloat = CGFloat(up ? moveDistance : -moveDistance)

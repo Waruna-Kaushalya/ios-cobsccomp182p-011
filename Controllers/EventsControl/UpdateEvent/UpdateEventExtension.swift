@@ -29,6 +29,7 @@ extension UpdateEventViewController:CLLocationManagerDelegate{
         currentEventTitle.text = UpdateEventStruct.eventTitle
         currentEventDescription.text = UpdateEventStruct.eventDescription
         
+        
     }
     func validateFields() -> String? {
         

@@ -7,22 +7,37 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CommentCell: UITableViewCell {
+  
     
     @IBOutlet weak var commenterProfileImage: UIImageView!
     
     @IBOutlet weak var commentLabel: UILabel!
     
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var commentDeleteBtn: UIButton!
     
-    func setComments(comment:CommentsModel){
+    var currentCell:[CommentsModel] = []
+    
+
+    @IBAction func deleteComment(_ sender: Any) {
         
-        commentLabel.text = comment.comment
-        userName.text = comment.userName
         
-        let url = URL(string: comment.userProfileImageURL ?? "")
-        self.commenterProfileImage.kf.setImage(with: url)
+        let indexPath = (self.superview as! UITableView).indexPath(for: self)
+        
+        let currentDataFromCell:CommentsModel = currentCell[indexPath!.row]
+        
+        DeleteCommentFromFirebase.DeleteComment(commentIdentifier: currentDataFromCell.commentID)
+        
+       
+        if CommentDeleteStruct.flag == true{
+         
+        }
+        else{
+            
+        }
     }
     
 }

@@ -12,7 +12,7 @@ import UIKit
 
 class FloatingLabelInput: UITextField {
     
-    let lightBlue = UIColor(red: 0/255, green: 148/255, blue: 253/255, alpha: 1)
+    let lightBlue = UIColor(red: 20/255, green: 168/255, blue: 255/255, alpha: 1.0) /* #14a8ff */
     var floatingLabel: UILabel!// = UILabel(frame: CGRect.zero)
     var floatingLabelHeight: CGFloat = 5
     var button = UIButton(type: .custom)

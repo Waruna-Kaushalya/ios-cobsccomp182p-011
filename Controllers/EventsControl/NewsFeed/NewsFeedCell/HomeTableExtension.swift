@@ -57,6 +57,8 @@ extension HomeTableViewCell {
         
         tapedLabel()
         setPLike(event:event)
+        
+        currentUserDetaiilsRetriving()
     }
     
     
@@ -106,7 +108,8 @@ extension HomeTableViewCell {
                 
             }
         }else{
-            goingButton.isHidden = false
+            goingButton.notGoing(count: "\(goingCountNumber[0])")
+            goingButton.isEnabled = false
         }
         
         
@@ -117,11 +120,13 @@ extension HomeTableViewCell {
     func currentUserDetaiilsRetriving(){
         
         if checkUserLoginStatus.checkUserLoginStatus() == true {
-            Comments.userID  = Auth.auth().currentUser!.uid as String
+            CommentsStruct.userID  = Auth.auth().currentUser!.uid as String
             
             
         }else{
-            postButton.isHidden = true
+            postButton.isEnabled = false
+            commentTextField.isEnabled = false
+            //             goingButton.isEnabled = false
             
         }
     }
@@ -130,7 +135,7 @@ extension HomeTableViewCell {
         
         if commentTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
         {
-            print("trxtFieldEmpty")
+            
         }
         return nil
     }
@@ -158,3 +163,4 @@ extension HomeTableViewCell {
     
     
 }
+

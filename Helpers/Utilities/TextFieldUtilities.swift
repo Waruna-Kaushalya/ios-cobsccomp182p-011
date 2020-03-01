@@ -12,12 +12,13 @@ import UIKit
 extension UITextField{
     func styleTextField() {
         
+        let blue =  UIColor(red: 20/255, green: 168/255, blue: 255/255, alpha: 1.0)
         // Create the bottom line
         let bottomLine = CALayer()
         
         bottomLine.frame = CGRect(x: 0, y: self.frame.height - 2, width: self.frame.width, height: 2)
         
-        bottomLine.backgroundColor = UIColor.init(red: 0/255, green: 148/255, blue: 253/255, alpha: 1).cgColor
+        bottomLine.backgroundColor =  blue.cgColor
         
         // Remove border on text field
         self.borderStyle = .none
@@ -51,10 +52,10 @@ extension UITextField{
     
     func commentTextFieldUtilities(){
         
-         let lightBlue = UIColor(red: 0/255, green: 148/255, blue: 253/255, alpha: 1)
+        let blue =  UIColor(red: 20/255, green: 168/255, blue: 255/255, alpha: 1.0)
         //Border
         self.layer.borderWidth = 1
-        self.layer.borderColor = lightBlue.cgColor
+        self.layer.borderColor = blue.cgColor
         
         self.layer.cornerRadius = 9
         self.clipsToBounds = true

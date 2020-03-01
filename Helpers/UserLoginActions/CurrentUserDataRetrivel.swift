@@ -26,9 +26,9 @@ class getData {
             } else {
                 let document = querySnapshot!.documents.first
                 let dataDescription = document?.data()
- 
+                
                 let fieldValue = dataDescription?[_fieldname] ?? ""
-
+                
                 completion(fieldValue as! String)
                 
             }

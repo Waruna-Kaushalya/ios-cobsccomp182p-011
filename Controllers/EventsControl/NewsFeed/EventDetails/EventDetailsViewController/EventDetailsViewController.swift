@@ -13,6 +13,7 @@ import Firebase
 import FirebaseFirestore
 import FirebaseStorage
 
+
 class EventDetailsViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var commentTableView: UITableView!
@@ -41,6 +42,8 @@ class EventDetailsViewController: UIViewController,UITextFieldDelegate {
     
     var currentUserId:[String] = [""]
     
+    var eventAddedUserID:[String] = [""]
+    
     let checkUserStatus = CheckUserLoginStatus()
     
     override func viewDidLoad() {
@@ -48,12 +51,12 @@ class EventDetailsViewController: UIViewController,UITextFieldDelegate {
         
         eventIdentifire[0] = event!.eventIdentifire
         
-        getGoingDataFirebase()
-        
-        buttonAccessControll()
+        eventAddedUserID[0] = event!.userID
         
         currentUserDetaiilsRetriving()
-        
+
+        getGoingDataFirebase()
+
         commentTableView.reloadData()
     }
     
@@ -117,9 +120,9 @@ class EventDetailsViewController: UIViewController,UITextFieldDelegate {
         }else{
             
             let uuid = UUID().uuidString
-            Comments.commentID = uuid
+            CommentsStruct.commentID = uuid
             
-            Comments.comment = commentTextField.text!
+            CommentsStruct.comment = commentTextField.text!
             
             let commentAdd = AddCommentsToFireBase()
             

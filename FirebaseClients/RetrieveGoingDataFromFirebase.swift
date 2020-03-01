@@ -31,9 +31,9 @@ class RetrieveGoingDataFromFirebase{
                 
                 GoingCountStruct.goingCountNumber = dataDescription?["goingCount"] as! Int
                 GoingCountStruct.goingUserList = dataDescription?["goingUsers"]  as! [String]
-
+                
                 if GoingCountStruct.goingUserList.count != 0  {
-
+                    
                 }
                 else{
                     print("going count nil")

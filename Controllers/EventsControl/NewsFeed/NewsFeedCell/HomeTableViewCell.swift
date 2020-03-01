@@ -120,18 +120,14 @@ class HomeTableViewCell: UITableViewCell {
             
             currentData.retrieveGoingDataFromFirebase()
             
-            Comments.EventID =  currentDataFromCell.eventIdentifire
+            CommentsStruct.EventID =  currentDataFromCell.eventIdentifire
             
-//            Comments.userProfileImageURL = userPorofileImage[0]
-//
-//            Comments.userName = userFName[0]
-            
-            print(Comments.userName)
+            print(CommentsStruct.userName)
             
             let uuid = UUID().uuidString
-            Comments.commentID = uuid
+            CommentsStruct.commentID = uuid
             
-            Comments.comment = commentTextField.text!
+            CommentsStruct.comment = commentTextField.text!
             
             let commentAdd = AddCommentsToFireBase()
             

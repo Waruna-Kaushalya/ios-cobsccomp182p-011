@@ -8,7 +8,7 @@
 
 
 import Foundation
-struct LocationDetails {
+struct LocationDetailsStruct {
     
     static var latitude:Double = 0
     static var longitude:Double = 0

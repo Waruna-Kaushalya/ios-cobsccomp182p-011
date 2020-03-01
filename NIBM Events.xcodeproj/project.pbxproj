@@ -11,14 +11,14 @@
 		2C33111A57EDBFC67C7C4537 /* Pods_NIBM_EventsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DDB9828C619F3F42C71AD4 /* Pods_NIBM_EventsTests.framework */; };
 		590758E5CC2176AB44B35FFD /* Pods_NIBM_Events_NIBM_EventsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB449CFBEC948D72CC57102B /* Pods_NIBM_Events_NIBM_EventsUITests.framework */; };
 		C014437A2406919400C62AE8 /* AddEventViewExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443792406919400C62AE8 /* AddEventViewExtention.swift */; };
-		C014437F24069A2D00C62AE8 /* LocationDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C014437E24069A2D00C62AE8 /* LocationDetails.swift */; };
+		C014437F24069A2D00C62AE8 /* LocationDetailsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C014437E24069A2D00C62AE8 /* LocationDetailsStruct.swift */; };
 		C0144382240705AB00C62AE8 /* UpdateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0144381240705AB00C62AE8 /* UpdateEventViewController.swift */; };
 		C0144384240706CB00C62AE8 /* UpdateEventDataToFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0144383240706CB00C62AE8 /* UpdateEventDataToFirebase.swift */; };
 		C0144386240709D000C62AE8 /* UpdateEventStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0144385240709D000C62AE8 /* UpdateEventStruct.swift */; };
 		C01443A02407AD6F00C62AE8 /* ImageCompress.swift in Sources */ = {isa = PBXBuildFile; fileRef = C014439F2407AD6F00C62AE8 /* ImageCompress.swift */; };
 		C01443A22407B8C800C62AE8 /* UpdateEventExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443A12407B8C800C62AE8 /* UpdateEventExtension.swift */; };
 		C01443A42407FAF700C62AE8 /* EventDetailsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443A32407FAF700C62AE8 /* EventDetailsExtension.swift */; };
-		C01443A7240805EB00C62AE8 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443A6240805EB00C62AE8 /* Comments.swift */; };
+		C01443A7240805EB00C62AE8 /* CommentsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443A6240805EB00C62AE8 /* CommentsStruct.swift */; };
 		C01443A9240806EB00C62AE8 /* AddCommentsToFireBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443A8240806EB00C62AE8 /* AddCommentsToFireBase.swift */; };
 		C01443AB240810E200C62AE8 /* EventBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443AA240810E200C62AE8 /* EventBoardExtension.swift */; };
 		C01443AD240811B200C62AE8 /* HomeTableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443AC240811B200C62AE8 /* HomeTableExtension.swift */; };
@@ -31,6 +31,14 @@
 		C01443BC2408571600C62AE8 /* PublisherExtrnsion.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443BB2408571600C62AE8 /* PublisherExtrnsion.swift */; };
 		C01443BE2408579900C62AE8 /* MyProfileExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01443BD2408579900C62AE8 /* MyProfileExtension.swift */; };
 		C01CA941240A5DBC003BA099 /* PasswordForgetViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA940240A5DBC003BA099 /* PasswordForgetViewControllerExtension.swift */; };
+		C01CA944240AA293003BA099 /* ErrorMessagesStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA943240AA293003BA099 /* ErrorMessagesStruct.swift */; };
+		C01CA946240AA467003BA099 /* UserCurrentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA945240AA467003BA099 /* UserCurrentLocation.swift */; };
+		C01CA948240AB9D1003BA099 /* SignUPDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA947240AB9D1003BA099 /* SignUPDataStruct.swift */; };
+		C01CA94A240AC098003BA099 /* AddSignUpDataToFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA949240AC098003BA099 /* AddSignUpDataToFirebase.swift */; };
+		C01CA94C240AD516003BA099 /* DeleteEventFromFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA94B240AD516003BA099 /* DeleteEventFromFirebase.swift */; };
+		C01CA94E240AFC68003BA099 /* CommentDeleteStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA94D240AFC68003BA099 /* CommentDeleteStruct.swift */; };
+		C01CA950240AFD24003BA099 /* DeleteCommentFromFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA94F240AFD24003BA099 /* DeleteCommentFromFirebase.swift */; };
+		C01CA952240B85A8003BA099 /* CommentcellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA951240B85A8003BA099 /* CommentcellExtension.swift */; };
 		C033B28A23E9601000726A03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B28923E9601000726A03 /* AppDelegate.swift */; };
 		C033B28F23E9601000726A03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C033B28D23E9601000726A03 /* Main.storyboard */; };
 		C033B29223E9601000726A03 /* NIBM_Events.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C033B29023E9601000726A03 /* NIBM_Events.xcdatamodeld */; };
@@ -44,7 +52,7 @@
 		C061DD85240518D7002E3E6E /* CreateEventStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061DD84240518D7002E3E6E /* CreateEventStruct.swift */; };
 		C061DD8724051D65002E3E6E /* AddEventDataFireBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061DD8624051D65002E3E6E /* AddEventDataFireBase.swift */; };
 		C061DD892405AFDF002E3E6E /* RetrieveGoingDataFromFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C061DD882405AFDF002E3E6E /* RetrieveGoingDataFromFirebase.swift */; };
-		C07F199723EF2564004AD08D /* TransitionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199623EF2564004AD08D /* TransitionVC.swift */; };
+		C07F199723EF2564004AD08D /* TransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199623EF2564004AD08D /* TransitionController.swift */; };
 		C07F199A23EF259B004AD08D /* AlertMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199923EF259B004AD08D /* AlertMessages.swift */; };
 		C07F199C23EF25E0004AD08D /* CheckPasswordAndEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199B23EF25E0004AD08D /* CheckPasswordAndEmail.swift */; };
 		C07F199E23EF265A004AD08D /* TouchFaceIDAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07F199D23EF265A004AD08D /* TouchFaceIDAuthentication.swift */; };
@@ -99,14 +107,14 @@
 		91D6E572E173F75270BC5A7F /* Pods_NIBM_Events.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NIBM_Events.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCDD54C6B36B0D637AB703AA /* Pods-NIBM Events.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NIBM Events.release.xcconfig"; path = "Target Support Files/Pods-NIBM Events/Pods-NIBM Events.release.xcconfig"; sourceTree = "<group>"; };
 		C01443792406919400C62AE8 /* AddEventViewExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewExtention.swift; sourceTree = "<group>"; };
-		C014437E24069A2D00C62AE8 /* LocationDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetails.swift; sourceTree = "<group>"; };
+		C014437E24069A2D00C62AE8 /* LocationDetailsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsStruct.swift; sourceTree = "<group>"; };
 		C0144381240705AB00C62AE8 /* UpdateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEventViewController.swift; sourceTree = "<group>"; };
 		C0144383240706CB00C62AE8 /* UpdateEventDataToFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEventDataToFirebase.swift; sourceTree = "<group>"; };
 		C0144385240709D000C62AE8 /* UpdateEventStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEventStruct.swift; sourceTree = "<group>"; };
 		C014439F2407AD6F00C62AE8 /* ImageCompress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCompress.swift; sourceTree = "<group>"; };
 		C01443A12407B8C800C62AE8 /* UpdateEventExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEventExtension.swift; sourceTree = "<group>"; };
 		C01443A32407FAF700C62AE8 /* EventDetailsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsExtension.swift; sourceTree = "<group>"; };
-		C01443A6240805EB00C62AE8 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
+		C01443A6240805EB00C62AE8 /* CommentsStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsStruct.swift; sourceTree = "<group>"; };
 		C01443A8240806EB00C62AE8 /* AddCommentsToFireBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentsToFireBase.swift; sourceTree = "<group>"; };
 		C01443AA240810E200C62AE8 /* EventBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBoardExtension.swift; sourceTree = "<group>"; };
 		C01443AC240811B200C62AE8 /* HomeTableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableExtension.swift; sourceTree = "<group>"; };
@@ -119,6 +127,14 @@
 		C01443BB2408571600C62AE8 /* PublisherExtrnsion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherExtrnsion.swift; sourceTree = "<group>"; };
 		C01443BD2408579900C62AE8 /* MyProfileExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileExtension.swift; sourceTree = "<group>"; };
 		C01CA940240A5DBC003BA099 /* PasswordForgetViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordForgetViewControllerExtension.swift; sourceTree = "<group>"; };
+		C01CA943240AA293003BA099 /* ErrorMessagesStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessagesStruct.swift; sourceTree = "<group>"; };
+		C01CA945240AA467003BA099 /* UserCurrentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCurrentLocation.swift; sourceTree = "<group>"; };
+		C01CA947240AB9D1003BA099 /* SignUPDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUPDataStruct.swift; sourceTree = "<group>"; };
+		C01CA949240AC098003BA099 /* AddSignUpDataToFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSignUpDataToFirebase.swift; sourceTree = "<group>"; };
+		C01CA94B240AD516003BA099 /* DeleteEventFromFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteEventFromFirebase.swift; sourceTree = "<group>"; };
+		C01CA94D240AFC68003BA099 /* CommentDeleteStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDeleteStruct.swift; sourceTree = "<group>"; };
+		C01CA94F240AFD24003BA099 /* DeleteCommentFromFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCommentFromFirebase.swift; sourceTree = "<group>"; };
+		C01CA951240B85A8003BA099 /* CommentcellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentcellExtension.swift; sourceTree = "<group>"; };
 		C033B28623E9601000726A03 /* NIBM Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NIBM Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C033B28923E9601000726A03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C033B28E23E9601000726A03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,7 +154,7 @@
 		C061DD84240518D7002E3E6E /* CreateEventStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventStruct.swift; sourceTree = "<group>"; };
 		C061DD8624051D65002E3E6E /* AddEventDataFireBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventDataFireBase.swift; sourceTree = "<group>"; };
 		C061DD882405AFDF002E3E6E /* RetrieveGoingDataFromFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetrieveGoingDataFromFirebase.swift; sourceTree = "<group>"; };
-		C07F199623EF2564004AD08D /* TransitionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionVC.swift; sourceTree = "<group>"; };
+		C07F199623EF2564004AD08D /* TransitionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionController.swift; sourceTree = "<group>"; };
 		C07F199923EF259B004AD08D /* AlertMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessages.swift; sourceTree = "<group>"; };
 		C07F199B23EF25E0004AD08D /* CheckPasswordAndEmail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPasswordAndEmail.swift; sourceTree = "<group>"; };
 		C07F199D23EF265A004AD08D /* TouchFaceIDAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchFaceIDAuthentication.swift; sourceTree = "<group>"; };
@@ -284,6 +300,9 @@
 				C0144383240706CB00C62AE8 /* UpdateEventDataToFirebase.swift */,
 				C01443A8240806EB00C62AE8 /* AddCommentsToFireBase.swift */,
 				C01443B524083C3200C62AE8 /* RetrieveCurrentUserDetails.swift */,
+				C01CA949240AC098003BA099 /* AddSignUpDataToFirebase.swift */,
+				C01CA94B240AD516003BA099 /* DeleteEventFromFirebase.swift */,
+				C01CA94F240AFD24003BA099 /* DeleteCommentFromFirebase.swift */,
 			);
 			path = FirebaseClients;
 			sourceTree = "<group>";
@@ -335,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				C01443AE2408178700C62AE8 /* CommentCell.swift */,
+				C01CA951240B85A8003BA099 /* CommentcellExtension.swift */,
 			);
 			path = CommentCell;
 			sourceTree = "<group>";
@@ -345,9 +365,12 @@
 				C061DD7E240454EE002E3E6E /* GoingCountStruct.swift */,
 				C061DD84240518D7002E3E6E /* CreateEventStruct.swift */,
 				C061DD802404FEED002E3E6E /* UserStruct.swift */,
-				C014437E24069A2D00C62AE8 /* LocationDetails.swift */,
+				C014437E24069A2D00C62AE8 /* LocationDetailsStruct.swift */,
 				C0144385240709D000C62AE8 /* UpdateEventStruct.swift */,
-				C01443A6240805EB00C62AE8 /* Comments.swift */,
+				C01443A6240805EB00C62AE8 /* CommentsStruct.swift */,
+				C01CA943240AA293003BA099 /* ErrorMessagesStruct.swift */,
+				C01CA947240AB9D1003BA099 /* SignUPDataStruct.swift */,
+				C01CA94D240AFC68003BA099 /* CommentDeleteStruct.swift */,
 			);
 			path = GlobalVariables;
 			sourceTree = "<group>";
@@ -355,9 +378,7 @@
 		C01CA93E240A558B003BA099 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C07F199623EF2564004AD08D /* TransitionVC.swift */,
-				C014439F2407AD6F00C62AE8 /* ImageCompress.swift */,
-				C01443B3240832C900C62AE8 /* Currentdate.swift */,
+				C01CA942240AA1E6003BA099 /* Services */,
 				C07F199823EF2584004AD08D /* AlertsController */,
 				C01CA939240A3A57003BA099 /* GlobalVariables */,
 				C014439C24078D3600C62AE8 /* UserLoginActions */,
@@ -373,6 +394,17 @@
 				C01CA940240A5DBC003BA099 /* PasswordForgetViewControllerExtension.swift */,
 			);
 			path = PasswordForgetViewController;
+			sourceTree = "<group>";
+		};
+		C01CA942240AA1E6003BA099 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C07F199623EF2564004AD08D /* TransitionController.swift */,
+				C014439F2407AD6F00C62AE8 /* ImageCompress.swift */,
+				C01443B3240832C900C62AE8 /* Currentdate.swift */,
+				C01CA945240AA467003BA099 /* UserCurrentLocation.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		C033B27D23E9601000726A03 = {
@@ -762,18 +794,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				C09E10B723FCF58200B26D78 /* EventModel.swift in Sources */,
+				C01CA950240AFD24003BA099 /* DeleteCommentFromFirebase.swift in Sources */,
 				C0144382240705AB00C62AE8 /* UpdateEventViewController.swift in Sources */,
 				C014437A2406919400C62AE8 /* AddEventViewExtention.swift in Sources */,
 				C09DD52F23ED46A300EDA0CB /* ButtonUtilities.swift in Sources */,
-				C014437F24069A2D00C62AE8 /* LocationDetails.swift in Sources */,
+				C014437F24069A2D00C62AE8 /* LocationDetailsStruct.swift in Sources */,
 				C061DD8724051D65002E3E6E /* AddEventDataFireBase.swift in Sources */,
 				C01443A9240806EB00C62AE8 /* AddCommentsToFireBase.swift in Sources */,
 				C01443B4240832C900C62AE8 /* Currentdate.swift in Sources */,
 				C09E107D23F6B50500B26D78 /* AddEventViewController.swift in Sources */,
 				C07F19B623F2918E004AD08D /* PasswordUtilities.swift in Sources */,
 				C07F199A23EF259B004AD08D /* AlertMessages.swift in Sources */,
+				C01CA94E240AFC68003BA099 /* CommentDeleteStruct.swift in Sources */,
 				C09E107B23F6798E00B26D78 /* LabelUtilities.swift in Sources */,
 				C01443B82408536600C62AE8 /* SignUPExtension.swift in Sources */,
+				C01CA94A240AC098003BA099 /* AddSignUpDataToFirebase.swift in Sources */,
 				C07F19B823F29226004AD08D /* EmailUtilities.swift in Sources */,
 				C01443A02407AD6F00C62AE8 /* ImageCompress.swift in Sources */,
 				C07F19B123F14EC9004AD08D /* TextFieldUtilities.swift in Sources */,
@@ -781,19 +816,23 @@
 				C01443AB240810E200C62AE8 /* EventBoardExtension.swift in Sources */,
 				C07F19C223F3D332004AD08D /* CurrentUserDataRetrivel.swift in Sources */,
 				C01443BC2408571600C62AE8 /* PublisherExtrnsion.swift in Sources */,
-				C01443A7240805EB00C62AE8 /* Comments.swift in Sources */,
+				C01CA952240B85A8003BA099 /* CommentcellExtension.swift in Sources */,
+				C01443A7240805EB00C62AE8 /* CommentsStruct.swift in Sources */,
 				C01443A22407B8C800C62AE8 /* UpdateEventExtension.swift in Sources */,
 				C01CA941240A5DBC003BA099 /* PasswordForgetViewControllerExtension.swift in Sources */,
 				C09E10BD23FF866800B26D78 /* PublisherViewController.swift in Sources */,
 				C01443BA2408549400C62AE8 /* LoginViewControllerExtension.swift in Sources */,
 				C061DD892405AFDF002E3E6E /* RetrieveGoingDataFromFirebase.swift in Sources */,
 				C01443A42407FAF700C62AE8 /* EventDetailsExtension.swift in Sources */,
+				C01CA948240AB9D1003BA099 /* SignUPDataStruct.swift in Sources */,
 				C061DD812404FEED002E3E6E /* UserStruct.swift in Sources */,
-				C07F199723EF2564004AD08D /* TransitionVC.swift in Sources */,
+				C01CA944240AA293003BA099 /* ErrorMessagesStruct.swift in Sources */,
+				C07F199723EF2564004AD08D /* TransitionController.swift in Sources */,
 				C061DD83240512F0002E3E6E /* AddGoingCountDataToFirebase.swift in Sources */,
 				C09DD52C23ED3B6D00EDA0CB /* SignUPViewController.swift in Sources */,
 				C01443B22408198700C62AE8 /* CommentsModel.swift in Sources */,
 				C061DD85240518D7002E3E6E /* CreateEventStruct.swift in Sources */,
+				C01CA94C240AD516003BA099 /* DeleteEventFromFirebase.swift in Sources */,
 				C0144384240706CB00C62AE8 /* UpdateEventDataToFirebase.swift in Sources */,
 				C01443BE2408579900C62AE8 /* MyProfileExtension.swift in Sources */,
 				C01443B624083C3200C62AE8 /* RetrieveCurrentUserDetails.swift in Sources */,
@@ -812,6 +851,7 @@
 				C01443AD240811B200C62AE8 /* HomeTableExtension.swift in Sources */,
 				C07F19C423F54562004AD08D /* UIImageUtilities.swift in Sources */,
 				C01443AF2408178700C62AE8 /* CommentCell.swift in Sources */,
+				C01CA946240AA467003BA099 /* UserCurrentLocation.swift in Sources */,
 				C07F199E23EF265A004AD08D /* TouchFaceIDAuthentication.swift in Sources */,
 				C07F199C23EF25E0004AD08D /* CheckPasswordAndEmail.swift in Sources */,
 				C033B29223E9601000726A03 /* NIBM_Events.xcdatamodeld in Sources */,

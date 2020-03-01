@@ -9,7 +9,7 @@
 import Foundation
 
 import Foundation
-struct Comments {
+struct CommentsStruct {
     
     static var commentID:String = ""
     static var EventID:String = ""

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+
 struct CreateEventStruct {
     
     static var eventTitleTxt:String = ""

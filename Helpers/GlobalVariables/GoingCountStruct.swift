@@ -13,12 +13,9 @@ import UIKit
 struct GoingCountStruct {
     static var goingOrNot = false
     static var goingCountNumber:Int = 0
-   
     static var goingUserList = [String]()
     static var eventIdentifire:String = ""
     static var eventID:String = ""
-    
-    
 
 }
 

@@ -12,11 +12,15 @@ import UIKit
 extension UIButton {
     
     func styleButton() {
-        let lightBlue = UIColor(red: 0/255, green: 148/255, blue: 253/255, alpha: 1)
+        
+        
+        let blue =  UIColor(red: 20/255, green: 168/255, blue: 255/255, alpha: 1.0) /* #14a8ff */
+        
+        //        let lightBlue = UIColor(red: 0/255, green: 148/255, blue: 253/255, alpha: 1)
         let red = UIColor(red: 255/255, green: 51/255, blue: 51/255, alpha: 1)
         
         //Button backdround color
-        self.backgroundColor = lightBlue
+        self.backgroundColor = blue
         //Button title color
         self.setTitleColor(UIColor.white, for: .normal)
         
@@ -36,19 +40,20 @@ extension UIButton {
     
     func goingButton(count:String) {
         
-        let green = UIColor(red: 0/255, green: 204/255, blue: 0/255, alpha: 1)
+        //Green
+        let setClor = UIColor(red: 23/255, green: 196/255, blue: 104/255, alpha: 1.0) /* #17c468 */
         
         self.setTitle("Going" + " " + "\(count)", for: .normal)
         
         //Button backdround color
-        self.backgroundColor = green
+        self.backgroundColor = setClor
         //Button title color
         self.setTitleColor(UIColor.white, for: .normal)
         self.titleLabel?.font =  UIFont(name: "HelveticaNeue-Bold", size: 18)
         
         //Button Border
         self.layer.borderWidth = 1
-        self.layer.borderColor = green.cgColor
+        self.layer.borderColor = setClor.cgColor
         
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
@@ -58,8 +63,8 @@ extension UIButton {
     
     func notGoing(count:String) {
         
-        let green = UIColor(red: 0/255, green: 204/255, blue: 0/255, alpha: 1)
-        let red = UIColor(red: 255/255, green: 51/255, blue: 51/255, alpha: 1)
+        //Green
+        let setClor = UIColor(red: 23/255, green: 196/255, blue: 104/255, alpha: 1.0) /* #17c468 */
         
         self.setTitle("Going" + " " + "\(count)", for: .normal)
         
@@ -67,12 +72,12 @@ extension UIButton {
         //Button backdround color
         self.backgroundColor = white
         //Button title color
-        self.setTitleColor(green, for: .normal)
+        self.setTitleColor(setClor, for: .normal)
         self.titleLabel?.font =  UIFont(name: "HelveticaNeue-Bold", size: 18)
         
         //Button Border
         self.layer.borderWidth = 1
-        self.layer.borderColor = green.cgColor
+        self.layer.borderColor = setClor.cgColor
         
         self.layer.cornerRadius = 10
         self.clipsToBounds = true

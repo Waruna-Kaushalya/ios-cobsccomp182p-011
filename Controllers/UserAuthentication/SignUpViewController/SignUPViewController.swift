@@ -42,9 +42,6 @@ class SignUPViewController: UIViewController,UITextFieldDelegate{
     var strLabel = UILabel()
     let effectView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
     
-    
-    let firbaseProfileimageUrl = "gs://ios-nibm.appspot.com"
-    
     let alertMSG = AlertMessages()
     let trancVc = TransitionController()
     
@@ -75,21 +72,15 @@ class SignUPViewController: UIViewController,UITextFieldDelegate{
             alertMSG.warningAlertMessage(_AlertMessage: error!, _viewCFrom: self)
             
         }else{
-            //create cleand version of user
-            let firstName = firstNameTestField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             
-            let lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            let phoneNumber = contactNumberTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            let facebookURL = facebookURLTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-            let confirmPassword = confirmPasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
-            
+            SignUPDataStruct.firstName  = firstNameTestField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            SignUPDataStruct.lastName = lastNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            SignUPDataStruct.phoneNumber = contactNumberTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            SignUPDataStruct.email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            SignUPDataStruct.facebookURL = facebookURLTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            SignUPDataStruct.password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            SignUPDataStruct.confirmPassword = confirmPasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            SignUPDataStruct.viewController = self
             
             activityIndicator("SignIN")
             
@@ -99,41 +90,14 @@ class SignUPViewController: UIViewController,UITextFieldDelegate{
             
             let imageData = myImage.jpegData(compressionQuality: 0.1)
             
+            SignUPDataStruct.imagedata = imageData
             
-            Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
-                
-                if err != nil {
-                    //there was error creating the user
-                    self.alertMSG.warningAlertMessage(_AlertMessage: USER_ERROR, _viewCFrom: self)
-                    
-                }else{
-                    
-                    let storageRef = Storage.storage().reference(forURL: self.firbaseProfileimageUrl)
-                    let storageProfileRef = storageRef.child("profile").child(result!.user.uid)
-                    
-                    let metaData = StorageMetadata()
-                    
-                    metaData.contentType = "image/jpg"
-                    storageProfileRef.putData(imageData!, metadata: metaData, completion: { (storageMetaData, error) in
-                        if error != nil{
-                            print("Errrror")
-                            return
-                        }
-                        
-                        //Read image url
-                        storageProfileRef.downloadURL(completion: { (url, error) in
-                            if let metaImageUrl = url?.absoluteString{
-                                
-                                self.pushDataToFireBase(_UID: result!.user.uid, _firstName: firstName, _lastName: lastName, _email: email, _phoneNumber: phoneNumber, _facebookUrl: facebookURL, _imageURL:metaImageUrl)
-                                
-                            }
-                        })
-                    })
-                }
-            }
+            let signUp = AddSignUpDataToFirebase()
+            
+            signUp.AddSignUpDataToFirebase(_viewController: self)
+            
         }
     }
-    
     
     @IBOutlet weak var profileImageTapped: UIImageView!
     

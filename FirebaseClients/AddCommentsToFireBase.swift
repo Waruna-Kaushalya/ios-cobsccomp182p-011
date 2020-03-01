@@ -20,10 +20,8 @@ class AddCommentsToFireBase {
         
         let commentDate = Currentdate.getCurrentDate()
         
-//        let userID : String = (Auth.auth().currentUser?.uid)!
-        
         let db = Firestore.firestore()
-        db.collection("comments").addDocument(data: ["commentID":Comments.commentID,"EventID":Comments.EventID,"userID":Comments.userID,"userName":Comments.userName,"userProfileImageURL":Comments.userProfileImageURL,"comment":Comments.comment,"commentDate":commentDate]) { (error) in
+        db.collection("comments").addDocument(data: ["commentID":CommentsStruct.commentID,"EventID":CommentsStruct.EventID,"userID":CommentsStruct.userID,"userName":CommentsStruct.userName,"userProfileImageURL":CommentsStruct.userProfileImageURL,"comment":CommentsStruct.comment,"commentDate":commentDate]) { (error) in
             if error != nil {
                 
                 print("err saving data")

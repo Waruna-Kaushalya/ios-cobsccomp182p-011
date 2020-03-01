@@ -25,7 +25,6 @@ class PasswordForgetViewController: UIViewController,UITextFieldDelegate {
         
     }
     
-   
     
     @IBAction func restPasswordTapped(_ sender: Any) {
         

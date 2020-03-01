@@ -51,8 +51,6 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
         
         cell.setEvent(event: event)
         
-//        cell.getCurrentCellDetails = event
-        
         cell.currentCell = self.eventList
         
         cell.delegate = self
@@ -62,7 +60,7 @@ extension EventBoardViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func callSegueFromCell(data dataobject: EventModel, cellForRowAt indexPath: IndexPath) {
-
+        
         let event:EventModel = self.eventList[indexPath.row]
         
         let viewName = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "UserProfileVC") as! PublisherViewController

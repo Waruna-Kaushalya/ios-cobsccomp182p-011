@@ -22,12 +22,7 @@ class AddEventViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var eventDescription: UITextField!
     @IBOutlet weak var publishButton: UIButton!
     
-    let locationManager = CLLocationManager()
     let checkUserLoginStatus = CheckUserLoginStatus()
-    
-    var latitude : Double?
-    var longitude : Double?
-    
     
     var activityIndicator = UIActivityIndicatorView()
     var strLabel = UILabel()
@@ -40,18 +35,17 @@ class AddEventViewController: UIViewController,UITextFieldDelegate {
     
     
     var image: UIImage? = nil
-    
+    let cLocation = UserCurrentLocation()
     
     var disposebag = DisposeBag()
-    public let location = Variable("")
     var locationData : Observable<String>{
-        return location.asObservable()
+        return cLocation.location.asObservable()
     }
     
     
     override func viewDidLoad() {
         
-        self.locationSet()
+        cLocation.locationSet()
         
         if checkUserLoginStatus.checkUserLoginStatus() != true {
             let alert = AlertMessages()
@@ -105,7 +99,7 @@ class AddEventViewController: UIViewController,UITextFieldDelegate {
             let metaData = StorageMetadata()
             
             metaData.contentType = "image/jpg"
-            
+
             storageProfileRef.putData(compressData!, metadata: metaData, completion: { (storageMetaData, error) in
                 if error != nil{
                     return

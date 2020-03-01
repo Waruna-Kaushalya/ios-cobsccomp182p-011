@@ -26,6 +26,8 @@ class UpdateEventViewController: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var closeBtn: UIButton!
     
+    @IBOutlet weak var deleteEventAction: UIView!
+    
     
     var activityIndicator = UIActivityIndicatorView()
     var strLabel = UILabel()
@@ -45,6 +47,18 @@ class UpdateEventViewController: UIViewController,UITextFieldDelegate {
     @IBAction func closeButtonAction(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)
+        
+    }
+    @IBAction func deleteEventAction(_ sender: Any) {
+        DeleteEventFromFirebase.DeleteEvent(eventIdentifire: UpdateEventStruct.eventID)
+        if UpdateEventStruct.flag == true{
+            
+            let trans = TransitionController()
+            trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: self)
+        }
+        else{
+            self.alertMSG.warningAlertMessage(_AlertMessage: "Cannot delete eventr", _viewCFrom: self)
+        }
         
     }
     
@@ -73,4 +87,6 @@ class UpdateEventViewController: UIViewController,UITextFieldDelegate {
             }
         }
     }
+
+    
 }

@@ -54,6 +54,7 @@ class EventDetailsViewController: UIViewController,UITextFieldDelegate {
         eventAddedUserID[0] = event!.userID
         
         currentUserDetaiilsRetriving()
+    
 
         getGoingDataFirebase()
 

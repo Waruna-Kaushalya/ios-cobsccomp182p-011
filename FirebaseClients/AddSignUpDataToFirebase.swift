@@ -10,6 +10,7 @@ import Foundation
 import FirebaseStorage
 import Firebase
 import FirebaseAuth
+import FirebaseFirestore
 
 class AddSignUpDataToFirebase{
     

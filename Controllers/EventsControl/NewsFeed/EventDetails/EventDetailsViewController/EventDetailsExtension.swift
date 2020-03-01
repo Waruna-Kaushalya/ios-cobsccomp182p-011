@@ -23,8 +23,8 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
             
             retrieveComments()
             
-            let currentUserDetails = RetrieveCurrentUserDetails()
-            currentUserDetails.retrieveGoingDataFromFirebase()
+            
+            RetrieveCurrentUserDetails.retrieveCurrentUserDetailsFromFirebase()
             
             if eventAddedUserID[0] != CommentsStruct.userID {
                 eventEditBtn.isHidden = true
@@ -35,43 +35,6 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
             postButton.isEnabled = false
             commentTextField.isEnabled = false
             eventEditBtn.isHidden = true
-        }
-    }
-    
-    
-    
-    func getGoingDataFirebase(){
-        
-        let docRef = Firestore.firestore().collection("event").whereField("eventID", isEqualTo: self.event!.eventIdentifire)
-        
-        print(self.event!.eventIdentifire)
-        
-        docRef.getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print(err.localizedDescription)
-                return
-            } else if querySnapshot!.documents.count != 1 {
-                print("More than one documents or none")
-            } else {
-                let document = querySnapshot!.documents.first
-                let dataDescription = document?.data()
-                
-                GoingCountStruct.goingCountNumber = dataDescription?["goingCount"] as! Int
-                
-                GoingCountStruct.goingUserList = dataDescription?["goingUsers"]  as! [String]
-                
-                if GoingCountStruct.goingUserList.count == 0  {
-                    print("going count nil")
-                    GoingCountStruct.goingCountNumber = 0
-                }
-            }
-            
-            DispatchQueue.main.async {
-                self.setElement()
-                self.setPLike()
-                
-                print("BBB")
-            }
         }
     }
     
@@ -167,37 +130,6 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
         return cell
     }
     
-    
-    func retrieveComments(){
-        
-        self.commentsList.removeAll()
-        
-        let dataRef = Firestore.firestore().collection("comments").whereField("EventID", isEqualTo: event?.eventIdentifire)
-        dataRef.getDocuments { (querySnapshot, err) in
-            
-            for document in querySnapshot!.documents {
-                
-                let dataDescription = document.data()
-                
-                let commentIDV = dataDescription["commentID"] as? String
-                let EventIDV = dataDescription["EventID"] as? String
-                let userIDV = dataDescription["userID"] as? String
-                let userNameV = dataDescription["userName"] as? String
-                let userProfileImageURLV = dataDescription["userProfileImageURL"] as? String
-                let commentV = dataDescription["comment"] as? String
-                let commentDate = dataDescription["commentDate"] as? String
-                
-                let comment:CommentsModel = CommentsModel(commentID: commentIDV!, EventID: EventIDV!, userName: userNameV!, userID: userIDV!, userProfileImageURL: userProfileImageURLV!, comment: commentV!, commentDate:commentDate! )
-                
-                DispatchQueue.main.async {
-                    self.commentsList.append(comment)
-                    self.commentsList.sort(by: {$0.commentDate > $1.commentDate})
-                    self.commentTableView.reloadData()
-                }
-            }
-        }
-    }
-    
     func validateFields() -> String? {
         
         if commentTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""
@@ -234,6 +166,70 @@ extension EventDetailsViewController:UITableViewDataSource, UITableViewDelegate{
         UIView.commitAnimations()
     }
     
+    func retrieveComments(){
+        
+        self.commentsList.removeAll()
+        
+        let dataRef = Firestore.firestore().collection("comments").whereField("EventID", isEqualTo: event?.eventIdentifire)
+        dataRef.getDocuments { (querySnapshot, err) in
+            
+            for document in querySnapshot!.documents {
+                
+                let dataDescription = document.data()
+                
+                let commentIDV = dataDescription["commentID"] as? String
+                let EventIDV = dataDescription["EventID"] as? String
+                let userIDV = dataDescription["userID"] as? String
+                let userNameV = dataDescription["userName"] as? String
+                let userProfileImageURLV = dataDescription["userProfileImageURL"] as? String
+                let commentV = dataDescription["comment"] as? String
+                let commentDate = dataDescription["commentDate"] as? String
+                
+                let comment:CommentsModel = CommentsModel(commentID: commentIDV!, EventID: EventIDV!, userName: userNameV!, userID: userIDV!, userProfileImageURL: userProfileImageURLV!, comment: commentV!, commentDate:commentDate! )
+                
+                DispatchQueue.main.async {
+                    self.commentsList.append(comment)
+                    self.commentsList.sort(by: {$0.commentDate > $1.commentDate})
+                    self.commentTableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func getGoingDataFirebase(){
+        
+        let docRef = Firestore.firestore().collection("event").whereField("eventID", isEqualTo: self.event!.eventIdentifire)
+        
+        print(self.event!.eventIdentifire)
+        
+        docRef.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print(err.localizedDescription)
+                return
+            } else if querySnapshot!.documents.count != 1 {
+                print("More than one documents or none")
+            } else {
+                let document = querySnapshot!.documents.first
+                let dataDescription = document?.data()
+                
+                GoingCountStruct.goingCountNumber = dataDescription?["goingCount"] as! Int
+                
+                GoingCountStruct.goingUserList = dataDescription?["goingUsers"]  as! [String]
+                
+                if GoingCountStruct.goingUserList.count == 0  {
+                    print("going count nil")
+                    GoingCountStruct.goingCountNumber = 0
+                }
+            }
+            
+            DispatchQueue.main.async {
+                self.setElement()
+                self.setPLike()
+                
+                print("BBB")
+            }
+        }
+    }
     
     
 }

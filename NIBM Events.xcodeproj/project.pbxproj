@@ -39,6 +39,9 @@
 		C01CA94E240AFC68003BA099 /* CommentDeleteStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA94D240AFC68003BA099 /* CommentDeleteStruct.swift */; };
 		C01CA950240AFD24003BA099 /* DeleteCommentFromFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA94F240AFD24003BA099 /* DeleteCommentFromFirebase.swift */; };
 		C01CA952240B85A8003BA099 /* CommentcellExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA951240B85A8003BA099 /* CommentcellExtension.swift */; };
+		C01CA957240BBF0E003BA099 /* MyProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA956240BBF0E003BA099 /* MyProfileTableViewCell.swift */; };
+		C01CA959240BC11E003BA099 /* MyEventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA958240BC11E003BA099 /* MyEventModel.swift */; };
+		C01CA95B240BD03B003BA099 /* MyProfileTableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C01CA95A240BD03B003BA099 /* MyProfileTableExtension.swift */; };
 		C033B28A23E9601000726A03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C033B28923E9601000726A03 /* AppDelegate.swift */; };
 		C033B28F23E9601000726A03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C033B28D23E9601000726A03 /* Main.storyboard */; };
 		C033B29223E9601000726A03 /* NIBM_Events.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C033B29023E9601000726A03 /* NIBM_Events.xcdatamodeld */; };
@@ -135,6 +138,9 @@
 		C01CA94D240AFC68003BA099 /* CommentDeleteStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentDeleteStruct.swift; sourceTree = "<group>"; };
 		C01CA94F240AFD24003BA099 /* DeleteCommentFromFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCommentFromFirebase.swift; sourceTree = "<group>"; };
 		C01CA951240B85A8003BA099 /* CommentcellExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentcellExtension.swift; sourceTree = "<group>"; };
+		C01CA956240BBF0E003BA099 /* MyProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileTableViewCell.swift; sourceTree = "<group>"; };
+		C01CA958240BC11E003BA099 /* MyEventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEventModel.swift; sourceTree = "<group>"; };
+		C01CA95A240BD03B003BA099 /* MyProfileTableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileTableExtension.swift; sourceTree = "<group>"; };
 		C033B28623E9601000726A03 /* NIBM Events.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NIBM Events.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C033B28923E9601000726A03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C033B28E23E9601000726A03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -407,6 +413,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		C01CA955240BBED4003BA099 /* MyProfileEventCell */ = {
+			isa = PBXGroup;
+			children = (
+				C01CA956240BBF0E003BA099 /* MyProfileTableViewCell.swift */,
+				C01CA95A240BD03B003BA099 /* MyProfileTableExtension.swift */,
+			);
+			path = MyProfileEventCell;
+			sourceTree = "<group>";
+		};
 		C033B27D23E9601000726A03 = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +493,7 @@
 				C09E10B623FCF58200B26D78 /* EventModel.swift */,
 				C09E10BF23FF875A00B26D78 /* UserModel.swift */,
 				C01443B12408198700C62AE8 /* CommentsModel.swift */,
+				C01CA958240BC11E003BA099 /* MyEventModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -516,6 +532,7 @@
 			children = (
 				C09E107823F66C7100B26D78 /* MyProfileViewController.swift */,
 				C01443BD2408579900C62AE8 /* MyProfileExtension.swift */,
+				C01CA955240BBED4003BA099 /* MyProfileEventCell */,
 			);
 			path = MyProfile;
 			sourceTree = "<group>";
@@ -831,6 +848,7 @@
 				C061DD83240512F0002E3E6E /* AddGoingCountDataToFirebase.swift in Sources */,
 				C09DD52C23ED3B6D00EDA0CB /* SignUPViewController.swift in Sources */,
 				C01443B22408198700C62AE8 /* CommentsModel.swift in Sources */,
+				C01CA95B240BD03B003BA099 /* MyProfileTableExtension.swift in Sources */,
 				C061DD85240518D7002E3E6E /* CreateEventStruct.swift in Sources */,
 				C01CA94C240AD516003BA099 /* DeleteEventFromFirebase.swift in Sources */,
 				C0144384240706CB00C62AE8 /* UpdateEventDataToFirebase.swift in Sources */,
@@ -839,6 +857,7 @@
 				C09DD52A23ED3B3200EDA0CB /* LoginViewController.swift in Sources */,
 				C09E10AA23FBC9E000B26D78 /* EventBoardViewController.swift in Sources */,
 				C09E10B423FCF33E00B26D78 /* HomeTableViewCell.swift in Sources */,
+				C01CA957240BBF0E003BA099 /* MyProfileTableViewCell.swift in Sources */,
 				C09E10C023FF875A00B26D78 /* UserModel.swift in Sources */,
 				C07F19A823EF2EF5004AD08D /* SignOutAction.swift in Sources */,
 				C0144386240709D000C62AE8 /* UpdateEventStruct.swift in Sources */,
@@ -854,6 +873,7 @@
 				C01CA946240AA467003BA099 /* UserCurrentLocation.swift in Sources */,
 				C07F199E23EF265A004AD08D /* TouchFaceIDAuthentication.swift in Sources */,
 				C07F199C23EF25E0004AD08D /* CheckPasswordAndEmail.swift in Sources */,
+				C01CA959240BC11E003BA099 /* MyEventModel.swift in Sources */,
 				C033B29223E9601000726A03 /* NIBM_Events.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,25 +8,14 @@
 
 import Foundation
 import Kingfisher
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
 
-extension MyProfileViewController{
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        if checkUserLoginStatus.checkUserLoginStatus() != true {
-            let alert = AlertMessages()
-            alert.ActionAlert(_title: "User not login", _message: "User must login to view profile", _viewCIdentifier: "LoginNavIVC", _viewControllerName: self)
-        }else{
-            let athentication = TouchFaceIDAuthentication()
-            
-            athentication.authenticateUser(_viewIdentifire: "HomeVC", _viewFrom: self)
-        }
-        
-        setElements()
-        setData()
-        
-    }
+extension MyProfileViewController:UITableViewDataSource,UITableViewDelegate{
+   
+    
+    
     func setData(){
         let abcd = getData()
         
@@ -56,6 +45,51 @@ extension MyProfileViewController{
     
     func setElements(){
         profileImage.roundedImage()
+    }
+    
+    func retrievemyEventDetails(){
+        
+        self.eventList.removeAll()
+        let currentUserID  = Auth.auth().currentUser!.uid as String
+        
+        let dataRef = Firestore.firestore().collection("event").whereField("userID", isEqualTo: currentUserID)
+        dataRef.getDocuments { (querySnapshot, err) in
+            
+            for document in querySnapshot!.documents {
+                
+                let dataDescription = document.data()
+
+                let userIDV = dataDescription["userID"] as? String
+                 let eventImageUrl = dataDescription["eventImageUrl"] as? String
+                 let eventTitle = dataDescription["eventtitle"] as? String
+                
+                let commentDate = dataDescription["eventAddedDate"] as? String
+                let goingCount = dataDescription["goingCount"] as? Int
+                
+                let myEvent:MyEventModel = MyEventModel(image: eventImageUrl!, title: eventTitle!, goingCount: goingCount!, eventDate: commentDate!)
+                
+                DispatchQueue.main.async {
+                    self.eventList.append(myEvent)
+                    self.eventList.sort(by: {$0.eventDate > $1.eventDate})
+                    self.myEventTable.reloadData()
+                }
+            }
+        }
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return eventList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let myEvent = eventList[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MyProfileTableViewCellID") as! MyProfileTableViewCell
+        
+        cell.setMyEvent(myEvent:  myEvent )
+        
+        return cell
         
     }
 }

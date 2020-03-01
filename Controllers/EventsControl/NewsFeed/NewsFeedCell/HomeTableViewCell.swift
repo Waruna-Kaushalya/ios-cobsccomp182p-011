@@ -116,9 +116,7 @@ class HomeTableViewCell: UITableViewCell {
 
             let currentDataFromCell:EventModel = currentCell[indexPath!.row]
             
-            let currentData = RetrieveCurrentUserDetails()
-            
-            currentData.retrieveGoingDataFromFirebase()
+            RetrieveCurrentUserDetails.retrieveCurrentUserDetailsFromFirebase()
             
             CommentsStruct.EventID =  currentDataFromCell.eventIdentifire
             

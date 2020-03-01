@@ -14,7 +14,7 @@ import FirebaseFirestore
 
 class RetrieveCurrentUserDetails{
     
-    func retrieveGoingDataFromFirebase(){
+   static func retrieveCurrentUserDetailsFromFirebase(){
         
         let docRef = Firestore.firestore().collection("users").whereField("uid", isEqualTo: CommentsStruct.userID )
         

@@ -53,6 +53,11 @@ class UpdateEventViewController: UIViewController,UITextFieldDelegate {
         DeleteEventFromFirebase.DeleteEvent(eventIdentifire: UpdateEventStruct.eventID)
         if UpdateEventStruct.flag == true{
             
+            //Add after the dedline--
+            GoingCountStruct.deleteEvent = true
+            //--
+            
+            
             let trans = TransitionController()
             trans.trancVC(_viewCIdentifire: "HomeVC", _viewCFrom: self)
         }

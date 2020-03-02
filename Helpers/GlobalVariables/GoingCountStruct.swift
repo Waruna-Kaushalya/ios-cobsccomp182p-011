@@ -18,6 +18,10 @@ struct GoingCountStruct {
     static var eventID:String = ""
     
     static var falg:Bool = false
+    
+    //Add after the dedline--
+    static var deleteEvent:Bool = false
+    //--
 
 }
 

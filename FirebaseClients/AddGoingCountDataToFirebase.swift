@@ -25,9 +25,16 @@ class AddGoingCountDataToFirebase{
                 }
                 let document = querySnapshot!.documents.first
                 
-                document!.reference.updateData(["goingCount":  GoingCountStruct.goingCountNumber])
+                //Add after the dedline--
+                if GoingCountStruct.deleteEvent != true {
+                    //--
+                    
+                    document!.reference.updateData(["goingCount":  GoingCountStruct.goingCountNumber])
+                    
+                    document!.reference.updateData(["goingUsers":  GoingCountStruct.goingUserList])
+                }
                 
-                document!.reference.updateData(["goingUsers":  GoingCountStruct.goingUserList])
+               
         }
     }
 }

@@ -153,7 +153,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yfz-YP-Rki">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1DE-nP-OtZ">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="730"/>
@@ -274,7 +274,7 @@
                                                         </constraints>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="j0J-Ix-Bj9" id="9TX-kw-gHW"/>
                                                         </connections>
@@ -283,7 +283,7 @@
                                                         <rect key="frame" x="0.0" y="40" width="300" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                         <connections>
                                                             <outlet property="delegate" destination="j0J-Ix-Bj9" id="nZy-xR-dHa"/>
                                                         </connections>
@@ -482,6 +482,6 @@
         <image name="AddProfileImage" width="170.5" height="164.5"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nD3-wU-g3y"/>
+        <segue reference="pgn-T0-fSQ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -17,7 +17,7 @@ import FirebaseStorage
 extension HomeTableViewCell {
     
     func setEvent(event: EventModel)  {
-
+        
         //Set elements
         userProfileImage.roundedImage()
         postTitle.text = event.title
@@ -66,7 +66,7 @@ extension HomeTableViewCell {
             UserStruct.currentUserId = Auth.auth().currentUser!.uid
             
             var flagC:[Bool] = [false]
-
+            
             if event.goingUsers.count != 0 && event.goingCount != 0{
                 for i in 0..<event.goingUsers.count {
                     
@@ -82,7 +82,7 @@ extension HomeTableViewCell {
                     goingButton.goingButton(count: "\(goingCountNumber[0])")
                     
                     goingButton.tag = 1
-              
+                    
                     GoingCountStruct.goingOrNot = true
                     
                 }else{
@@ -155,11 +155,11 @@ extension HomeTableViewCell {
     }
     
     override func prepareForReuse() {
-//        super.prepareForReuse()
-
-//         self.cellDelegate = nil
+        //        super.prepareForReuse()
        
+        //         self.cellDelegate = nil
+        
     }
-   
+    
 }
 

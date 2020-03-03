@@ -22,6 +22,7 @@ class MyProfileViewController: UIViewController {
     @IBOutlet weak var myEventTable: UITableView!
     
     let checkUserLoginStatus = CheckUserLoginStatus()
+     let athentication = TouchFaceIDAuthentication()
     
     override func viewDidLoad() {
         
@@ -36,8 +37,10 @@ class MyProfileViewController: UIViewController {
             athentication.authenticateUser(_viewIdentifire: "HomeVC", _viewFrom: self)
         }
         
-        retrievemyEventDetails()
+//        athentication.authenticateUser(_viewIdentifire: "HomeVC", _viewFrom: self)
         
+        retrievemyEventDetails()
+
         setElements()
         setData()
         

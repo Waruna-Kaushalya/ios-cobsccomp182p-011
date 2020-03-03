@@ -530,8 +530,7 @@
 		C07F19B223F155C0004AD08D /* MyProfile */ = {
 			isa = PBXGroup;
 			children = (
-				C09E107823F66C7100B26D78 /* MyProfileViewController.swift */,
-				C01443BD2408579900C62AE8 /* MyProfileExtension.swift */,
+				C0BAA02F240E019000F4A646 /* MyProfileViewController */,
 				C01CA955240BBED4003BA099 /* MyProfileEventCell */,
 			);
 			path = MyProfile;
@@ -567,6 +566,15 @@
 				C01443BB2408571600C62AE8 /* PublisherExtrnsion.swift */,
 			);
 			path = PublisherProfile;
+			sourceTree = "<group>";
+		};
+		C0BAA02F240E019000F4A646 /* MyProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C09E107823F66C7100B26D78 /* MyProfileViewController.swift */,
+				C01443BD2408579900C62AE8 /* MyProfileExtension.swift */,
+			);
+			path = MyProfileViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
